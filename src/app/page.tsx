@@ -1,103 +1,114 @@
-import Image from "next/image";
+"use client";
+
+import Navbar from "@/components/global/nav";
+import About from "@/components/landing/about";
+import Hero from "@/components/landing/hero";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <>
+      <Navbar />
+      <Hero />
+      {/* <About/> */}
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+      {/* <section className="relative w-full h-screen p-8 flex flex-col justify-between">
+          <Copy animateOnScroll={true} delay={0.2}>
+            <span>
+              HACKWAVE is a hackathon for the GOATS. It is a 364-hour hackathon
+              that will be held on July 13-14, 2025.
+            </span>
+          </Copy>
+
+          <div>
+            <Copy animateOnScroll={true} delay={0.2}>
+              <h1>
+                We are a group of visionary students who started HACKWAVE in
+                2023 with a simple dream - to create the most challenging and
+                rewarding hackathon experience. What began as late-night
+                discussions in our college dorm rooms quickly evolved into a
+                movement that captured imaginations across the tech community.
+              </h1>
+            </Copy>
+          </div>
+        </section>
+
+        <section className="relative w-full h-max p-8 flex justify-center items-center py-32">
+          <img
+            src="/assets/bella-kawaii-edition.png"
+            alt="about-img"
+            className="w-1/5 aspect-[4/5]"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        </section>
+
+        <section className="relative w-full h-max p-8 flex gap-4 mb-32">
+          <Copy animateOnScroll={true} delay={0.2}>
+            <div className="flex-1">
+              <h1>How hackwave started</h1>
+            </div>
+          </Copy>
+          <div className="flex-1">
+            <Copy animateOnScroll={true} delay={0.2}>
+              <p>
+                We are a group of visionary students who started HACKWAVE in
+                2023 with a simple dream - to create the most challenging and
+                rewarding hackathon experience. What began as late-night
+                discussions in our college dorm rooms quickly evolved into a
+                movement that captured imaginations across the tech community.
+              </p>
+              <p>
+                Our first event brought together 50 determined hackers who coded
+                for 48 hours straight. The energy was electric, the projects
+                were groundbreaking, and we knew we had started something
+                special. Since then, HACKWAVE has grown exponentially, pushing
+                boundaries and setting new standards for what hackathons can
+                achieve.
+              </p>
+              <p>
+                Today, HACKWAVE stands as a testament to student innovation and
+                determination. We've expanded to a 364-hour format because we
+                believe great ideas need time to evolve from concept to reality.
+                Our community has grown to include thousands of passionate
+                developers, designers, and dreamers from across the globe.
+              </p>
+            </Copy>
+          </div>
+        </section>
+
+        <section className="relative w-full h-screen p-8 flex flex-col justify-between bg-[#202020]">
+          <Copy animateOnScroll={true} delay={0.2}>
+            <span className="text-white">Our Philosophy</span>
+          </Copy>
+          <div>
+            <Copy animateOnScroll={true} delay={0.4}>
+              <h1 className="text-white">
+                We believe in pushing limits, breaking barriers, and
+                occasionally breaking keyboards. 364 hours of pure chaos,
+                innovation, and probably too much coffee. Because normal
+                hackathons are too mainstream, and sleep is overrated. Join us
+                in this beautiful madness - where bugs become features and
+                dreams become reality. ✨
+              </h1>
+            </Copy>
+          </div>
+        </section>
+
+        <footer className="flex justify-between items-end gap-4 px-8 py-24 pb-6">
+          <div className="flex flex-1">
+            <div className="flex-1">
+              <span>Terms & Conditions</span>
+            </div>
+            <div className="flex-1">
+              <h1>Twitter</h1>
+              <h1>LinkedIn</h1>
+              <h1>Instagram</h1>
+              <h1>Awwwards</h1>
+              <h1>Email</h1>
+            </div>
+          </div>
+          <div className="flex-1">
+            <span>Copyright Greyloom 2025</span>
+          </div>
+        </footer> */}
+    </>
   );
 }
