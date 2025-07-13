@@ -6,7 +6,7 @@ import SplitText from "gsap/SplitText";
 import { useGSAP } from "@gsap/react";
 
 // Register plugins in the correct order
-gsap.registerPlugin(ScrollTrigger, SplitText);
+gsap.registerPlugin(SplitText);
 
 export default function Copy({
   children,

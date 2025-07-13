@@ -3,36 +3,42 @@
 import Navbar from "@/components/global/nav";
 import About from "@/components/landing/about";
 import Hero from "@/components/landing/hero";
+import InfoCard from "@/components/landing/info-card";
+import ScrollReveal from "@/components/landing/scrollReavel";
+import Copy from "@/components/ui/textAnimation/Copy";
 
 export default function Home() {
   return (
     <>
       <Navbar />
       <Hero />
-      {/* <About/> */}
+      <InfoCard />
+      {/* 
+      <About/> */}
+      {/* <ScrollReveal /> */}
 
       {/* <section className="relative w-full h-screen p-8 flex flex-col justify-between">
+        <Copy animateOnScroll={true} delay={0.2}>
+          <span>
+            HACKWAVE is a hackathon for the GOATS. It is a 364-hour hackathon
+            that will be held on July 13-14, 2025.
+          </span>
+        </Copy>
+
+        <div>
           <Copy animateOnScroll={true} delay={0.2}>
-            <span>
-              HACKWAVE is a hackathon for the GOATS. It is a 364-hour hackathon
-              that will be held on July 13-14, 2025.
-            </span>
+            <h1>
+              We are a group of visionary students who started HACKWAVE in 2023
+              with a simple dream - to create the most challenging and rewarding
+              hackathon experience. What began as late-night discussions in our
+              college dorm rooms quickly evolved into a movement that captured
+              imaginations across the tech community.
+            </h1>
           </Copy>
+        </div>
+      </section> */}
 
-          <div>
-            <Copy animateOnScroll={true} delay={0.2}>
-              <h1>
-                We are a group of visionary students who started HACKWAVE in
-                2023 with a simple dream - to create the most challenging and
-                rewarding hackathon experience. What began as late-night
-                discussions in our college dorm rooms quickly evolved into a
-                movement that captured imaginations across the tech community.
-              </h1>
-            </Copy>
-          </div>
-        </section>
-
-        <section className="relative w-full h-max p-8 flex justify-center items-center py-32">
+      {/*<section className="relative w-full h-max p-8 flex justify-center items-center py-32">
           <img
             src="/assets/bella-kawaii-edition.png"
             alt="about-img"

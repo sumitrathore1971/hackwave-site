@@ -1,14 +1,11 @@
 "use client";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useMemo } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import React from "react";
 import { LenisProvider } from "@/components/providers/LenisProvider";
-import Copy from "@/components/ui/textAnimation/Copy";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { useState } from "react";
+import TextReveal from "../about";
 
 // ============================================================================
 // HERO COMPONENT - Main Animation Container
@@ -19,6 +16,7 @@ import { useState } from "react";
 // 3. Scales and moves icons to final positions near text
 // 4. Reveals text segments with staggered timing
 // 5. Uses Lenis for smooth scrolling and GSAP for animations
+// 6. Integrates scroll reveal animation after text completion
 // ============================================================================
 
 const Hero = () => {
@@ -32,6 +30,9 @@ const Hero = () => {
   const iconRefs = useRef<(HTMLDivElement | null)[]>([]); // Array of individual icon elements
   const textSegmentRefs = useRef<(HTMLSpanElement | null)[]>([]); // Array of text segment elements
   const placeholderRefs = useRef<(HTMLDivElement | null)[]>([]); // Array of placeholder elements
+
+  // Color blocks refs
+  const blocksRef = useRef<HTMLDivElement[]>([]);
 
   // ============================================================================
   // GSAP ANIMATION SETUP
@@ -95,12 +96,16 @@ const Hero = () => {
     // ============================================================================
     // RESIZE LISTENER - Handle responsive icon sizing
     // ============================================================================
+    let resizeTimeout: NodeJS.Timeout;
     const handleResize = () => {
-      headerIconSize = getResponsiveIconSize();
-      const newCurrentIconSize = firstIcon
-        ? firstIcon.getBoundingClientRect().width
-        : 1;
-      exactScale = headerIconSize / newCurrentIconSize;
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        headerIconSize = getResponsiveIconSize();
+        const newCurrentIconSize = firstIcon
+          ? firstIcon.getBoundingClientRect().width
+          : 1;
+        exactScale = headerIconSize / newCurrentIconSize;
+      }, 100); // Debounce resize events
     };
 
     // Add resize listener
@@ -117,8 +122,8 @@ const Hero = () => {
     ScrollTrigger.create({
       trigger: heroRef.current, // Element that triggers the animation
       start: "top top", // Start when top of hero reaches top of viewport
-      markers: true,
-      end: `+=${window.innerHeight * 8}px`, // End after scrolling 8 viewport heights
+      markers: false,
+      end: `+=${window.innerHeight * 12}px`, // Extended scroll space for both text and color blocks
       pin: true, // Pin the hero section in place during animation
       pinSpacing: true, // Maintain spacing for pinned element
       scrub: 1, // Smooth scrubbing effect (1 second delay)
@@ -395,6 +400,7 @@ const Hero = () => {
               const duplicate = icon.cloneNode(true) as HTMLElement;
               duplicate.className = "duplicate-icon";
               duplicate.style.position = "absolute";
+              duplicate.style.zIndex = "10"; // Lower z-index to appear below color blocks
 
               // Set responsive icon size (fixed size for duplicates)
               duplicate.style.width = headerIconSize + "px";
@@ -544,6 +550,69 @@ const Hero = () => {
             // Apply opacity to text segment
             gsap.set(item.segment, { opacity: clampedProgress });
           });
+
+          // ============================================================================
+          // PHASE 5: COLOR BLOCKS ANIMATION (75% - 100% progress)
+          // ============================================================================
+          // This phase handles the color blocks sliding down after text animation
+
+          // Start color blocks animation after text is fully revealed
+          if (progress > 0.9) {
+            const colorBlockProgress = (progress - 0.9) / 0.1; // Use remaining 10% for color blocks (slower)
+            const clampedColorProgress = Math.max(
+              0,
+              Math.min(1, colorBlockProgress)
+            );
+
+            blocksRef.current.forEach((block, i) => {
+              if (!block) return;
+              // Staggered Y movement
+              const blockStart = i * 0.1;
+              const blockEnd = blockStart + 0.6;
+              const blockProgress = gsap.utils.mapRange(
+                blockStart,
+                blockEnd,
+                0,
+                1,
+                clampedColorProgress
+              );
+              const clampedProgress = Math.max(0, Math.min(1, blockProgress));
+              const startY = window.innerHeight * 1.5;
+              const endY = -window.innerHeight * 0.5;
+              const currentY = startY + (endY - startY) * clampedProgress;
+              // Opacity: 0 until color block animation starts, then 1
+              const opacity = clampedColorProgress > 0 ? 1 : 0;
+              gsap.set(block, {
+                y: currentY,
+                opacity,
+              });
+            });
+
+            // Fade out duplicate icons as color blocks come down
+            if (window.duplicateIcons) {
+              window.duplicateIcons.forEach((duplicate) => {
+                if (duplicate) {
+                  const fadeOutOpacity = 1 - clampedColorProgress;
+                  (duplicate as HTMLElement).style.opacity =
+                    fadeOutOpacity.toString();
+                }
+              });
+            }
+          } else {
+            // Keep color blocks hidden during text animation
+            blocksRef.current.forEach((block) => {
+              if (block) gsap.set(block, { opacity: 0 });
+            });
+
+            // Keep duplicate icons fully visible during text animation
+            if (window.duplicateIcons) {
+              window.duplicateIcons.forEach((duplicate) => {
+                if (duplicate) {
+                  (duplicate as HTMLElement).style.opacity = "1";
+                }
+              });
+            }
+          }
         }
       },
     });
@@ -557,6 +626,11 @@ const Hero = () => {
     // - Memory leaks prevention
 
     return () => {
+      // Clear resize timeout
+      if (resizeTimeout) {
+        clearTimeout(resizeTimeout);
+      }
+
       // Remove duplicate icons from DOM if they exist
       if (window.duplicateIcons) {
         window.duplicateIcons.forEach((duplicate) => {
@@ -575,81 +649,24 @@ const Hero = () => {
     };
   }, []);
 
+  // Color blocks configuration for scroll reveal
+  const rainbowBlocks = useMemo(
+    () => [
+      { color: "#FF6A00", radius: "3rem 3rem 0 0" }, // Orange
+      { color: "#A58BFF", radius: "3rem 3rem 0 0" }, // Purple
+      { color: "#C8FF66", radius: "3rem 3rem 0 0" }, // Green
+    ],
+    []
+  );
+
   // ============================================================================
   // JSX RENDER - Component Structure
   // ============================================================================
   // The component structure includes:
   // - LenisProvider wrapper for smooth scrolling
   // - Hero section with animated elements
-  // - Outro section for call-to-action
-
-  // Card stack animation logic
-  const cardData = [
-    {
-      label: "Smooth",
-      icon: <span className="mr-2">🔘</span>,
-      bg: "#18141e",
-      tabClass: "text-[#e0e0e0]",
-      content: (
-        <img
-          src="/loader-imgs/1.webp"
-          alt="Sample"
-          className="w-32 h-32 object-contain mx-auto mt-8"
-        />
-      ),
-    },
-    {
-      label: "Customizable",
-      icon: <span className="mr-2">⚙️</span>,
-      bg: "#18141e",
-      tabClass: "text-[#e0e0e0]",
-      content: (
-        <img
-          src="/loader-imgs/4.webp"
-          alt="Sample"
-          className="w-32 h-32 object-contain mx-auto mt-8"
-        />
-      ),
-    },
-    {
-      label: "Reliable",
-      icon: <span className="mr-2">{"</>"}</span>,
-      bg: "#4ec16e",
-      tabClass: "text-white",
-      content: (
-        <img
-          src="/loader-imgs/9.webp"
-          alt="Sample"
-          className="w-32 h-32 object-contain mx-auto mt-8"
-        />
-      ),
-    },
-  ];
-
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isSliding, setIsSliding] = useState(false);
-
-  // Automatic animation every 2.5 seconds
-  useEffect(() => {
-    if (isSliding) return;
-    const timer = setTimeout(() => {
-      setIsSliding(true);
-      setTimeout(() => {
-        setActiveIndex((prev) => (prev + 1) % cardData.length);
-        setIsSliding(false);
-      }, 400); // match CSS transition duration
-    }, 2500);
-    return () => clearTimeout(timer);
-  }, [activeIndex, isSliding, cardData.length]);
-
-  const handleCardClick = () => {
-    if (isSliding) return;
-    setIsSliding(true);
-    setTimeout(() => {
-      setActiveIndex((prev) => (prev + 1) % cardData.length);
-      setIsSliding(false);
-    }, 400); // match CSS transition duration
-  };
+  // - Scroll reveal section with color blocks
+  // - Dashboard section
 
   return (
     <LenisProvider>
@@ -658,7 +675,7 @@ const Hero = () => {
           ============================================================================ */}
       <section
         ref={heroRef}
-        className="hero host-grotesk relative w-screen h-screen p-6 flex items-center justify-center text-[#141414] overflow-hidden"
+        className="hero host-grotesk relative w-screen  min-h-screen p-6 flex items-center justify-center text-[#141414] overflow-hidden"
       >
         {/* ============================================================================
             HERO HEADER - Logo and Tagline
@@ -784,117 +801,39 @@ const Hero = () => {
             <span className="text-pink-300">wave.</span>
           </span>
         </h1>
+
+        {/* ============================================================================
+            COLOR BLOCKS - Animated color blocks that reveal after text animation
+            ============================================================================ */}
+        <div
+          className="absolute top-0 left-0 w-full h-full z-50 flex"
+          style={{ willChange: "transform" }}
+        >
+          {rainbowBlocks.map(({ color, radius }, i) => (
+            <div
+              key={i}
+              ref={(el) => {
+                if (el) blocksRef.current[i] = el;
+              }}
+              className="flex-1 z-50 h-[150vh] border-2 border-black"
+              aria-hidden="true"
+              style={{
+                backgroundColor: color,
+                borderTopLeftRadius: radius.split(" ")[0],
+                borderTopRightRadius: radius.split(" ")[1],
+                opacity: 0, // initial opacity
+                transition: "opacity 0.3s cubic-bezier(.7,.2,.3,1)",
+                willChange: "transform, opacity",
+              }}
+            />
+          ))}
+        </div>
       </section>
 
       {/* ============================================================================
-          OUTRO SECTION - Osmo-style layout
+          OUTRO SECTION - Text Reveal Animation
           ============================================================================ */}
-      <section className="outro relative w-screen h-screen p-0 flex items-stretch justify-center overflow-hidden">
-        <div className="max-w-7xl mx-auto w-full h-full flex flex-row justify-between items-center relative z-10">
-          {/* Left: Content */}
-          <div className="flex flex-col justify-center px-12 py-16 gap-10 h-full max-w-2xl">
-            <Copy animateOnScroll={false} delay={0.2}>
-              <h1 className="text-5xl font-extrabold leading-tight mb-6 ">
-                About <span className="text-pink-300 ">Hackwave</span>
-              </h1>
-            </Copy>
-            {/* Tabs */}
-            {/* <div className="flex gap-2 mb-8">
-              <button className="px-6 py-2 rounded border border-[#141414]/30 bg-[#222]/60 text-[#141414] font-semibold shadow-inner">
-                The Vault
-              </button>
-              <button className="px-6 py-2 rounded border border-transparent bg-transparent text-[#141414]/80 font-semibold hover:bg-[#222]/10 transition">
-                Documentation
-              </button>
-              <button className="px-6 py-2 rounded border border-transparent bg-transparent text-[#141414]/80 font-semibold hover:bg-[#222]/10 transition">
-                Community
-              </button>
-            </div> */}
-            <Copy animateOnScroll={false} delay={0.3}>
-              <h2 className="text-2xl font-bold mb-2">
-                Detail pages you&apos;ll love, we hope
-              </h2>
-            </Copy>
-            <Copy animateOnScroll={false} delay={0.4}>
-              <p className="text-lg font-archivo mb-8 max-w-xl">
-                Every asset comes with clear documentation, clean code, and
-                comments where needed—designed for both Webflow and non-Webflow
-                users. We even remember your preference, so you&apos;ll always
-                see the approach that works best for you, first. We also include
-                videos that explain the concept, go deeper on the subject, or
-                maybe might spark some new ideas.
-              </p>
-            </Copy>
-            <Copy animateOnScroll={false} delay={0.5}>
-              <Button className="bg-[#141414] text-[#fcf2e8] px-8 py-4 rounded font-bold text-lg shadow hover:bg-[#222] transition w-fit">
-                Register Now
-              </Button>
-            </Copy>
-          </div>
-          {/* Right: Card/Preview - absolutely positioned, half out of screen */}
-
-          <div
-            className="absolute w-[650px] h-[600px] flex items-center justify-center select-none"
-            style={{
-              perspective: "1200px",
-              top: "-40px",
-              right: "-100px",
-              position: "relative",
-            }}
-          >
-            {cardData.map((card, i) => {
-              // Calculate the card's position in the stack
-              const stackIndex =
-                (i - activeIndex + cardData.length) % cardData.length;
-              const isTop = stackIndex === 0;
-              const isSlidingOut = isTop && isSliding;
-              return (
-                <Card
-                  key={i}
-                  onClick={isTop ? handleCardClick : undefined}
-                  className={`absolute w-[1200px] h-[675px] border border-[#fff2]/20 shadow-xl rounded-2xl flex flex-col items-stretch transition-transform duration-400 overflow-hidden cursor-pointer ${
-                    isTop ? "z-30" : ""
-                  }`}
-                  style={{
-                    left: `${stackIndex * 36}px`,
-                    top: `${(cardData.length - 1 - stackIndex) * 48}px`,
-                    zIndex: 10 - stackIndex,
-                    transform: isSlidingOut
-                      ? "translateX(700px) scale(1.03)"
-                      : `scale(${1 - stackIndex * 0.03})`,
-                    background: card.bg,
-                    opacity: isSlidingOut ? 0 : 1,
-                    transition:
-                      "transform 0.4s cubic-bezier(.7,.2,.3,1), opacity 0.4s cubic-bezier(.7,.2,.3,1)",
-                  }}
-                >
-                  {/* Browser Tab Bar */}
-                  <div
-                    className={`flex items-center gap-2 px-5 h-10 rounded-t-2xl border-b border-[#fff2]/10 bg-[#18141e] ${
-                      isTop
-                        ? "border-t-2 border-l-2 border-r-2 border-[#fff2]/30"
-                        : "opacity-80"
-                    } ${card.tabClass}`}
-                    style={{
-                      minHeight: 40,
-                      fontWeight: 600,
-                      fontSize: "1rem",
-                      letterSpacing: 0.2,
-                    }}
-                  >
-                    {card.icon}
-                    {card.label}
-                  </div>
-                  {/* Card Content */}
-                  <div className="flex-1 flex items-center justify-center">
-                    {card.content}
-                  </div>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <TextReveal />
     </LenisProvider>
   );
 };
