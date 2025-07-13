@@ -35,37 +35,29 @@ const RoundCard = ({
 }: RoundCardProps) => {
   return (
     <div
-      className="round-card relative w-full text-[#141414] rounded-lg sm:rounded-xl md:rounded-2xl p-4 sm:p-6 md:p-8 flex flex-col justify-between min-h-[200px] sm:min-h-[250px] md:min-h-[300px] lg:min-h-[350px]"
+      className="round-card relative w-full text-[#141414] rounded-2xl p-8 flex flex-col justify-between h-[400px]"
       style={{ backgroundColor: bgColor }}
     >
       {/* Round Icon - Emoji representation of the round type */}
-      <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-3 sm:mb-4">
-        {icon}
-      </div>
+      <div className="text-5xl mb-4">{icon}</div>
 
       {/* Card Content Container */}
       <div className="flex-1">
         {/* Round Badge - Shows "Round 1" or "Round 2" */}
-        <div className="mb-2 sm:mb-3">
-          <span className="inline-block bg-[#141414] text-[#fcf2e8] px-2 py-1 rounded-full text-xs sm:text-sm font-medium">
+        <div className="mb-3">
+          <span className="inline-block bg-[#141414] text-[#fcf2e8] px-3 py-1 rounded-full text-sm font-medium">
             Round {index + 1}
           </span>
         </div>
 
         {/* Round Title - Main heading for the round */}
-        <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black leading-tight mb-2 sm:mb-3">
-          {title}
-        </h2>
+        <h2 className="text-2xl font-black leading-tight mb-3">{title}</h2>
 
         {/* Round Subtitle - Secondary description */}
-        <p className="text-sm sm:text-base md:text-lg font-semibold text-[#666] mb-3 sm:mb-4">
-          {subtitle}
-        </p>
+        <p className="text-lg font-semibold text-[#666] mb-4">{subtitle}</p>
 
         {/* Round Description - Detailed explanation */}
-        <p className="text-xs sm:text-sm md:text-base font-medium leading-relaxed">
-          {description}
-        </p>
+        <p className="text-base font-medium leading-relaxed">{description}</p>
       </div>
     </div>
   );
