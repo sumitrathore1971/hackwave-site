@@ -381,7 +381,7 @@ export default function InfoCard() {
           {/* ============================================================================
               FINAL CTA - Call to action with decorative elements
               ============================================================================ */}
-          <div className="text-center h-screen">
+          <div className="text-center h-screen flex flex-col items-center justify -center">
             <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-4 sm:mb-6">
               🧑‍💻
             </div>
