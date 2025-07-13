@@ -733,7 +733,7 @@ const Hero = () => {
               textSegmentRefs.current[0] = el;
             }}
           >
-            Innovate with purpose.
+            Think beyond boundaries.
           </span>
           <div
             className="placeholder-icon"
@@ -747,7 +747,7 @@ const Hero = () => {
               textSegmentRefs.current[1] = el;
             }}
           >
-            Design. Build. Disrupt.{" "}
+            Create. Collaborate. Conquer.{" "}
           </span>
           <span
             className="text-segment"
@@ -755,7 +755,7 @@ const Hero = () => {
               textSegmentRefs.current[2] = el;
             }}
           >
-            Code with your crew.
+             Code with your crew.
           </span>
           <div
             className="placeholder-icon"
@@ -769,7 +769,8 @@ const Hero = () => {
               textSegmentRefs.current[3] = el;
             }}
           >
-            Solve real problems.
+           Tackle real-world challenges.
+
           </span>
           <div
             className="placeholder-icon"
@@ -783,7 +784,7 @@ const Hero = () => {
               textSegmentRefs.current[4] = el;
             }}
           >
-            Join the wave that moves tech forward.
+            Ride the tech wave.
           </span>
           <div
             className="placeholder-icon"

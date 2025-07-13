@@ -47,12 +47,13 @@ const TextReveal: React.FC = () => {
 
       // Keywords for highlighting with specific colors
       const keywords = [
-        "collaborative", // Purple - Technical/Team focus
-        "builders", // Orange - Creative/Construction theme
-        "innovators", // Orange - Creative/Innovation theme
-        "breakthrough", // Orange - Creative/Discovery theme
-        "solutions", // Green - Clarity/Problem-solving
-        "leaders", // Green - Clarity/Leadership theme
+        "hackwave", // Pink
+        "builders", // Orange
+        "innovators", // Orange
+        "breakthrough", // Orange
+        "collaborative", // Blue
+        "Leader", // Green
+        "leader", // Green
       ];
 
       // Process each paragraph to create word elements
@@ -347,17 +348,10 @@ const TextReveal: React.FC = () => {
 
           <div className="text-white anime-text w-full max-w-[95%] sm:max-w-[90%] md:max-w-[85%] lg:max-w-[80%] xl:max-w-[75%] space-y-4 sm:space-y-6 md:space-y-8">
             <p className="text-center text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-2xl font-black leading-relaxed sm:leading-tight md:leading-tight lg:leading-tight px-2 sm:px-4">
-              Hackwave brings together the boldest builders, creators, and
-              innovators in one electrifying space. Design cutting-edge
-              solutions, build revolutionary prototypes, and explore the future
-              of technology. All while pushing the boundaries of what's
-              possible.
+              Hackwave is where bold builders and curious innovators team up to turn wild ideas into real-world solutions. It’s not just about code — it’s about that “aha!” moment, that late-night breakthrough, that spark of something big.
             </p>
             <p className="text-center text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-2xl font-black leading-relaxed sm:leading-tight md:leading-tight lg:leading-tight px-2 sm:px-4">
-              With a focus on real-world impact, collaborative problem-solving,
-              and breakthrough innovation, Hackwave lets you turn bold ideas
-              into living solutions that change the world. It's where the next
-              generation of tech leaders come to make their mark.
+              Fuelled by collaborative chaos, crazy creativity, and zero sleep, Hackwave is where you don’t just participate — you emerge as a Leader.
             </p>
           </div>
         </div>
@@ -410,7 +404,7 @@ const TextReveal: React.FC = () => {
               </div>
               <div className="flex flex-col items-center">
                 <h2 className="text-[#141414] text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-2">
-                 30+
+                  30+
                 </h2>
                 <p className="text-[#141414] text-sm sm:text-base md:text-lg lg:text-xl font-medium">
                 Colleges
@@ -419,7 +413,7 @@ const TextReveal: React.FC = () => {
               {/* <div className="flex flex-col items-center">
                 <h2 className="text-[#141414] text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-2">
                   30+
-                </h2>
+             5   </h2>
                 <p className="text-[#141414] text-sm sm:text-base md:text-lg lg:text-xl font-medium">
                  Sponsors
                 </p>
