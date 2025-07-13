@@ -1,6 +1,7 @@
 "use client";
-import { useRef, useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import gsap from "gsap";
 
 // ============================================================================
@@ -101,6 +102,98 @@ const Card = ({ title, copy, index }: CardProps) => {
 };
 
 // ============================================================================
+// SIMPLE REWARDS SECTION COMPONENT - No animations, mobile-friendly
+// ============================================================================
+const SimpleRewardsSection = () => {
+  const rewards = [
+    {
+      title: "₹1 Lakh+ Prize Pool",
+      copy: "Compete for massive cash prizes and recognition. Win big and make your mark in the hackathon world.",
+      index: 1,
+    },
+    {
+      title: "Exclusive Swags",
+      copy: "Get your hands on exclusive merchandise and collectibles that you won't find anywhere else.",
+      index: 2,
+    },
+    {
+      title: "National Recognition",
+      copy: "Get featured on national platforms and media. Build your reputation and showcase your skills.",
+      index: 3,
+    },
+    {
+      title: "Mentorship & Networking",
+      copy: "Connect with industry experts and peers. Build valuable relationships that last beyond the hackathon.",
+      index: 4,
+    },
+    {
+      title: "Stay & Meals Covered",
+      copy: "Enjoy comfortable accommodation and delicious food throughout your hackathon journey.",
+      index: 5,
+    },
+  ];
+
+  return (
+    <div className="bg-[#141414] text-[#fcf2e8] py-4 px-4">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
+            What You Will Get
+          </h2>
+          <p className="text-lg md:text-xl text-[#ccc] max-w-3xl mx-auto">
+            Discover the amazing rewards and benefits waiting for you at
+            Hackwave.
+          </p>
+        </div>
+
+        {/* Rewards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {rewards.map((reward, index) => (
+            <div
+              key={index}
+              className="bg-[#fcf2e8] text-[#141414] rounded-xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
+            >
+              <div className="flex items-start gap-4">
+                {/* Icon */}
+                <div className="flex-shrink-0 w-12 h-12 bg-[#141414] rounded-full flex items-center justify-center">
+                  <img
+                    className="w-6 h-6 object-contain"
+                    src={`/icons/icon_${reward.index}.png`}
+                    alt={`icon-${reward.index}`}
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="flex-1">
+                  <h3 className="text-xl md:text-2xl font-bold mb-3">
+                    {reward.title}
+                  </h3>
+                  <p className="text-sm md:text-base text-[#666] leading-relaxed">
+                    {reward.copy}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA Section */}
+        <div className="text-center mt-16">
+          <div className="text-6xl md:text-7xl mb-6">🧑‍💻</div>
+          <h3 className="text-2xl md:text-3xl lg:text-4xl font-black mb-4">
+            Ready to <span className="text-[#feaac0]">Claim Your Rewards</span>?
+          </h3>
+          <p className="text-lg md:text-xl text-[#ccc]">
+            Join the ultimate hackathon experience today!
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// ============================================================================
 // MAIN INFO CARD COMPONENT - How It Works section with animated cards
 // ============================================================================
 export default function InfoCard() {
@@ -110,7 +203,8 @@ export default function InfoCard() {
   const [isClient, setIsClient] = useState(false); // Ensure GSAP runs only on client
   const heroRef = useRef<HTMLDivElement>(null); // Reference to the pinned hero section
   const rewardsRef = useRef<HTMLDivElement>(null); // Reference to the rewards section for pinning
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]); // Array of card element references
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]); // Array of hero card element references
+  const rewardsCardRefs = useRef<(HTMLDivElement | null)[]>([]); // Array of rewards card element references
 
   // ============================================================================
   // CLIENT-SIDE INITIALIZATION - Set client flag for GSAP compatibility
@@ -131,6 +225,8 @@ export default function InfoCard() {
       // ============================================================================
       // PHASE 1: INITIAL CARD POSITIONS - Set cards below viewport (100% y)
       // ============================================================================
+      // Set initial positions for all cards - they start below the viewport
+      // This creates the effect of cards sliding up from below during scroll
       cardRefs.current.forEach((card) => {
         if (card) {
           gsap.set(card, {
@@ -138,7 +234,14 @@ export default function InfoCard() {
           });
         }
       });
-
+      rewardsCardRefs.current.forEach((card) => {
+        if (card) {
+          gsap.set(card, {
+            y: "300%", // Position rewards cards 100% below their container
+          });
+        }
+      });
+      console.log("Rewards section entered - Cards set to 100% y position");
       // ============================================================================
       // PHASE 2: SCROLL TRIGGER CONFIGURATION - Pin section and control animations
       // ============================================================================
@@ -212,9 +315,49 @@ export default function InfoCard() {
           trigger: rewardsRef.current, // Element that triggers the pinning
           pin: true, // Pin the rewards section during scroll
           start: "top top", // Start pinning when top of rewards hits top of viewport
-          end: `+=${window.innerHeight * 2}`, // 2 viewport heights of scroll space
+          end: `+=${window.innerHeight * 3}`, // 3 viewport heights of scroll space (increased from 2)
           pinSpacing: true, // Maintain scroll space for pinned element
           markers: false, // Disable debug markers in production
+          onEnter: () => {
+            // ============================================================================
+            // REWARDS SECTION ENTRY - Set rewards cards to 300% y position
+            // ============================================================================
+            // When we enter the rewards section, set all rewards cards to 300% y position
+            // This creates a starting point for building animations from this section
+            console.log(
+              "Rewards section entered - Rewards cards set to 300% y position"
+            );
+          },
+          onUpdate: (self) => {
+            // ============================================================================
+            // REWARDS SECTION SCROLL ANIMATION - Progressive card reveals
+            // ============================================================================
+            const progress = self.progress; // Scroll progress from 0 to 1
+
+            // Animate each rewards card with staggered timing
+            rewardsCardRefs.current.forEach((card, index) => {
+              if (card) {
+                // Calculate individual card progress with staggered delay
+                const cardDelay = index * 0.12; // Each card starts 12% later (reduced from 15%)
+                const cardProgress = Math.max(
+                  0,
+                  Math.min(1, (progress - cardDelay) / 0.25)
+                ); // 25% duration per card (reduced from 30%)
+
+                if (cardProgress > 0) {
+                  // Animate card from 300% to 0% (slide up into view)
+                  gsap.set(card, {
+                    y: `${300 - 300 * cardProgress}%`, // Smooth interpolation from 300% to 0%
+                  });
+                } else {
+                  // Keep card at 300% until its turn
+                  gsap.set(card, {
+                    y: "300%",
+                  });
+                }
+              }
+            });
+          },
         });
       }
     };
@@ -285,7 +428,7 @@ export default function InfoCard() {
 
           {/* ============================================================================
               DESCRIPTION TEXT - Gets covered by sliding cards during animation
-        ============================================================================ */}
+              ============================================================================ */}
           <div className="max-w-4xl z-5 mb-4 sm:mb-6 md:mb-8">
             <p className="text-[#ccc] text-sm sm:text-base md:text-lg lg:text-xl font-medium leading-relaxed rounded-lg sm:rounded-xl md:rounded-2xl lg:rounded-3xl border border-dashed border-[rgb(60,60,60)] p-4 sm:p-6 md:p-8 lg:p-10">
               Two rounds of intense competition designed to test your skills,
@@ -320,68 +463,106 @@ export default function InfoCard() {
       {/* ============================================================================
           WHAT YOU GET SECTION - Rewards and benefits showcase
           ============================================================================ */}
+
+      {/* Desktop: Animated rewards section */}
       <div
         ref={rewardsRef} // GSAP ScrollTrigger target for pinning
-        className="relative w-screen min-h-screen flex flex-col items-center justify-center"
+        className="hidden relative w-screen min-h-screen md:flex flex-col items-center justify-center"
       >
         <div className="text-center w-full">
           {/* ============================================================================
               SECTION HEADER - Main title and description
               ============================================================================ */}
-          <div className="mb-12 sm:mb-16 md:mb-20 px-4 sm:px-6 md:px-8  h-screen flex flex-col justify-center items-center">
+          <div className="mb-12 sm:mb-16 md:mb-20 px-4 sm:px-6 md:px-8 h-screen flex flex-col justify-center items-center">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
               {/* What You Will Get */}
-              <Card
-                title="What You Will Get"
-                copy="Discover the amazing rewards and benefits waiting for you at Hackwave."
-                index={0}
-              />
+              <div
+                className="card relative h-[300px] text-[#141414] w-full"
+                id={`card-1`}
+              >
+                <div className="info-card-inner relative will-change-transform w-full h-full p-[2em] flex flex-col gap-[0.5rem]">
+                  <div className="card-content flex flex-col text-left w-[80%]">
+                    <h1 className="text-[4rem] font-semibold leading-none mb-[1.5em] md:mb-[2rem]">
+                      What You Will Get
+                    </h1>
+                  </div>
+                  <p className="text-[1.25rem] font-medium text-left">
+                    Discover the amazing rewards and benefits waiting for you at
+                    Hackwave.
+                  </p>
+                </div>
+              </div>
 
               {/* Prize Pool */}
-              <Card
-                title="₹1 Lakh+ Prize Pool"
-                copy="Compete for massive cash prizes and recognition. Win big and make your mark in the hackathon world."
-                index={1}
-              />
+              <div
+                ref={(el) => {
+                  rewardsCardRefs.current[1] = el; // Store reference for rewards card animation
+                }}
+              >
+                <Card
+                  title="₹1 Lakh+ Prize Pool"
+                  copy="Compete for massive cash prizes and recognition. Win big and make your mark in the hackathon world."
+                  index={1}
+                />
+              </div>
 
               {/* Swags */}
-              <Card
-                title="Exclusive Swags"
-                copy="Get your hands on exclusive merchandise and collectibles that you won't find anywhere else."
-                index={2}
-              />
+              <div
+                ref={(el) => {
+                  rewardsCardRefs.current[2] = el; // Store reference for rewards card animation
+                }}
+              >
+                <Card
+                  title="Exclusive Swags"
+                  copy="Get your hands on exclusive merchandise and collectibles that you won't find anywhere else."
+                  index={2}
+                />
+              </div>
 
               {/* Recognition */}
-              <Card
-                title="National Recognition"
-                copy="Get featured on national platforms and media. Build your reputation and showcase your skills."
-                index={3}
-              />
+              <div
+                ref={(el) => {
+                  rewardsCardRefs.current[3] = el; // Store reference for rewards card animation
+                }}
+              >
+                <Card
+                  title="National Recognition"
+                  copy="Get featured on national platforms and media. Build your reputation and showcase your skills."
+                  index={3}
+                />
+              </div>
 
               {/* Mentorship */}
-              <Card
-                title="Mentorship & Networking"
-                copy="Connect with industry experts and peers. Build valuable relationships that last beyond the hackathon."
-                index={4}
-              />
+              <div
+                ref={(el) => {
+                  rewardsCardRefs.current[4] = el; // Store reference for rewards card animation
+                }}
+              >
+                <Card
+                  title="Mentorship & Networking"
+                  copy="Connect with industry experts and peers. Build valuable relationships that last beyond the hackathon."
+                  index={4}
+                />
+              </div>
 
               {/* Accommodation */}
-              <Card
-                title="Stay & Meals Covered"
-                copy="Enjoy comfortable accommodation and delicious food throughout your hackathon journey."
-                index={5}
-              />
+              <div
+                ref={(el) => {
+                  rewardsCardRefs.current[5] = el; // Store reference for rewards card animation
+                }}
+              >
+                <Card
+                  title="Stay & Meals Covered"
+                  copy="Enjoy comfortable accommodation and delicious food throughout your hackathon journey."
+                  index={5}
+                />
+              </div>
             </div>
           </div>
-
-          {/* ============================================================================
-              REWARDS CARDS - 6-grid layout for rewards showcase
-              ============================================================================ */}
-
           {/* ============================================================================
               FINAL CTA - Call to action with decorative elements
               ============================================================================ */}
-          <div className="text-center h-screen flex flex-col items-center justify -center">
+          <div className="text-center h-screen flex flex-col items-center justify-center">
             <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-4 sm:mb-6">
               🧑‍💻
             </div>
@@ -394,6 +575,11 @@ export default function InfoCard() {
             </p>
           </div>
         </div>
+      </div>
+
+      {/* Mobile: Simple rewards section without animations */}
+      <div className="md:hidden">
+        <SimpleRewardsSection />
       </div>
     </div>
   );
