@@ -376,7 +376,7 @@ const TextReveal: React.FC = () => {
               {/* Row 1 */}
               <div className="flex flex-col items-center">
                 <h2 className="text-[#141414] text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-2">
-                  500+
+                  200+
                 </h2>
                 <p className="text-[#141414] text-sm sm:text-base md:text-lg lg:text-xl font-medium">
                   Participants
@@ -390,14 +390,14 @@ const TextReveal: React.FC = () => {
                   Hours
                 </p>
               </div>
-              <div className="flex flex-col items-center">
+              {/* <div className="flex flex-col items-center">
                 <h2 className="text-[#141414] text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-2">
-                  $50K
+                ₹ 1Lakh 
                 </h2>
                 <p className="text-[#141414] text-sm sm:text-base md:text-lg lg:text-xl font-medium">
                   Prize Pool
                 </p>
-              </div>
+              </div> */}
 
               {/* Row 2 */}
               <div className="flex flex-col items-center">
@@ -410,28 +410,28 @@ const TextReveal: React.FC = () => {
               </div>
               <div className="flex flex-col items-center">
                 <h2 className="text-[#141414] text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-2">
-                  25+
+                 30+
                 </h2>
                 <p className="text-[#141414] text-sm sm:text-base md:text-lg lg:text-xl font-medium">
-                  Sponsors
+                Colleges
                 </p>
               </div>
-              <div className="flex flex-col items-center">
+              {/* <div className="flex flex-col items-center">
                 <h2 className="text-[#141414] text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-2">
-                  15+
+                  30+
                 </h2>
                 <p className="text-[#141414] text-sm sm:text-base md:text-lg lg:text-xl font-medium">
-                  Countries
+                 Sponsors
                 </p>
-              </div>
+              </div> */}
 
               {/* Row 3 */}
               <div className="flex flex-col items-center">
                 <h2 className="text-[#141414] text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-2">
-                  95%
+                  1M+
                 </h2>
                 <p className="text-[#141414] text-sm sm:text-base md:text-lg lg:text-xl font-medium">
-                  Success Rate
+                  Social Impressions
                 </p>
               </div>
               <div className="flex flex-col items-center">
@@ -442,14 +442,14 @@ const TextReveal: React.FC = () => {
                   Support
                 </p>
               </div>
-              <div className="flex flex-col items-center">
+              {/* <div className="flex flex-col items-center">
                 <h2 className="text-[#141414] text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-2">
                   ∞
                 </h2>
                 <p className="text-[#141414] text-sm sm:text-base md:text-lg lg:text-xl font-medium">
                   Possibilities
                 </p>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
