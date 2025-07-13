@@ -15,6 +15,12 @@ interface RoundCardProps {
   bgColor: string;
 }
 
+interface CardProps {
+  title: string;
+  copy: string;
+  index: number;
+}
+
 // ============================================================================
 // ROUND CARD COMPONENT - Individual card for each competition round
 // ============================================================================
@@ -65,6 +71,36 @@ const RoundCard = ({
 };
 
 // ============================================================================
+// SIMPLE CARD COMPONENT - Basic card with title, copy, and icon
+// ============================================================================
+const Card = ({ title, copy, index }: CardProps) => {
+  return (
+    <div
+      className="card relative h-[300px] text-[#141414] w-full"
+      id={`card-${index + 1}`}
+    >
+      <div className="info-card-inner relative will-change-transform w-full h-full p-[2em] flex gap-[4em]">
+        <div className="card-content flex flex-col text-left w-[80%]">
+          <h1 className="text-[4rem] font-semibold leading-none mb-[2.5em] md:mb-[4rem]">
+            {title}
+          </h1>
+        </div>
+        {/* <p className="text-[1.25rem] font-medium">{copy}</p> */}
+        {index > 0 && (
+          <div className="absolute right-2 top-2 w-20 h-20">
+            <img
+              className="w-1 h-1 object-contain aspect-square"
+              src={`/icons/icon_${index}.png`}
+              alt={`icon-${index}`}
+            />
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+// ============================================================================
 // MAIN INFO CARD COMPONENT - How It Works section with animated cards
 // ============================================================================
 export default function InfoCard() {
@@ -73,6 +109,7 @@ export default function InfoCard() {
   // ============================================================================
   const [isClient, setIsClient] = useState(false); // Ensure GSAP runs only on client
   const heroRef = useRef<HTMLDivElement>(null); // Reference to the pinned hero section
+  const rewardsRef = useRef<HTMLDivElement>(null); // Reference to the rewards section for pinning
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]); // Array of card element references
 
   // ============================================================================
@@ -166,6 +203,20 @@ export default function InfoCard() {
           },
         });
       }
+
+      // ============================================================================
+      // PHASE 4: REWARDS SECTION PINNING - Pin the "What You Get" section
+      // ============================================================================
+      if (rewardsRef.current) {
+        ScrollTrigger.create({
+          trigger: rewardsRef.current, // Element that triggers the pinning
+          pin: true, // Pin the rewards section during scroll
+          start: "top top", // Start pinning when top of rewards hits top of viewport
+          end: `+=${window.innerHeight * 2}`, // 2 viewport heights of scroll space
+          pinSpacing: true, // Maintain scroll space for pinned element
+          markers: false, // Disable debug markers in production
+        });
+      }
     };
 
     // ============================================================================
@@ -224,17 +275,17 @@ export default function InfoCard() {
         className="relative w-screen h-screen p-3 sm:p-4 md:p-6 lg:p-8 overflow-hidden"
       >
         {/* Main content container with centered layout */}
-        <div className="w-full h-full flex flex-col justify-center items-center text-center p-3 sm:p-4 md:p-6 lg:p-8 relative">
+        <div className="w-full h-full flex flex-col justify-center items-center  p-3 sm:p-4 md:p-6 lg:p-8 relative">
           {/* ============================================================================
               SECTION TITLE - Always visible and centered
               ============================================================================ */}
-          <h1 className="w-full max-w-[95%] sm:max-w-[90%] md:max-w-[85%] lg:max-w-[80%] xl:max-w-[75%] text-[#fcf2e8] text-5xl sm:text-5xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-black leading-relaxed sm:leading-tight md:leading-tight lg:leading-tight px-2 sm:px-4 z-10 mb-4 sm:mb-6 md:mb-8">
+          <h1 className="w-full text-center max-w-[95%] sm:max-w-[90%] md:max-w-[85%] lg:max-w-[80%] xl:max-w-[75%] text-[#fcf2e8] text-5xl sm:text-5xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-black leading-relaxed sm:leading-tight md:leading-tight lg:leading-tight px-2 sm:px-4 z-10 mb-4 sm:mb-6 md:mb-8">
             How It Works
           </h1>
 
           {/* ============================================================================
               DESCRIPTION TEXT - Gets covered by sliding cards during animation
-              ============================================================================ */}
+        ============================================================================ */}
           <div className="max-w-4xl z-5 mb-4 sm:mb-6 md:mb-8">
             <p className="text-[#ccc] text-sm sm:text-base md:text-lg lg:text-xl font-medium leading-relaxed rounded-lg sm:rounded-xl md:rounded-2xl lg:rounded-3xl border border-dashed border-[rgb(60,60,60)] p-4 sm:p-6 md:p-8 lg:p-10">
               Two rounds of intense competition designed to test your skills,
@@ -267,22 +318,80 @@ export default function InfoCard() {
       </div>
 
       {/* ============================================================================
-          OUTRO SECTION - Call to action after hero animation
-      ============================================================================ */}
-      <div className="relative w-screen h-screen p-4 sm:p-6 md:p-8 lg:p-[2em] flex items-center justify-center">
-        <div className="text-center max-w-4xl px-4 sm:px-6 md:px-8">
-          {/* Call to action heading with accent color */}
-          <h2 className="font-black leading-none text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl mb-4 sm:mb-6 md:mb-8">
-            Ready to <span className="text-[#feaac0]">Build the Future</span>?
-          </h2>
-          {/* Supporting description text */}
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-medium text-[#ccc] leading-relaxed mb-4 sm:mb-6 md:mb-8">
-            Join hundreds of innovators, creators, and problem-solvers in the
-            ultimate hackathon experience.
-          </p>
-          {/* Decorative emoji */}
-          <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
-            🧑‍💻
+          WHAT YOU GET SECTION - Rewards and benefits showcase
+          ============================================================================ */}
+      <div
+        ref={rewardsRef} // GSAP ScrollTrigger target for pinning
+        className="relative w-screen min-h-screen flex flex-col items-center justify-center"
+      >
+        <div className="text-center w-full">
+          {/* ============================================================================
+              SECTION HEADER - Main title and description
+              ============================================================================ */}
+          <div className="mb-12 sm:mb-16 md:mb-20 px-4 sm:px-6 md:px-8  h-screen flex flex-col justify-center items-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+              {/* What You Will Get */}
+              <Card
+                title="What You Will Get"
+                copy="Discover the amazing rewards and benefits waiting for you at Hackwave."
+                index={0}
+              />
+
+              {/* Prize Pool */}
+              <Card
+                title="₹1 Lakh+ Prize Pool"
+                copy="Compete for massive cash prizes and recognition. Win big and make your mark in the hackathon world."
+                index={1}
+              />
+
+              {/* Swags */}
+              <Card
+                title="Exclusive Swags"
+                copy="Get your hands on exclusive merchandise and collectibles that you won't find anywhere else."
+                index={2}
+              />
+
+              {/* Recognition */}
+              <Card
+                title="National Recognition"
+                copy="Get featured on national platforms and media. Build your reputation and showcase your skills."
+                index={3}
+              />
+
+              {/* Mentorship */}
+              <Card
+                title="Mentorship & Networking"
+                copy="Connect with industry experts and peers. Build valuable relationships that last beyond the hackathon."
+                index={4}
+              />
+
+              {/* Accommodation */}
+              <Card
+                title="Stay & Meals Covered"
+                copy="Enjoy comfortable accommodation and delicious food throughout your hackathon journey."
+                index={5}
+              />
+            </div>
+          </div>
+
+          {/* ============================================================================
+              REWARDS CARDS - 6-grid layout for rewards showcase
+              ============================================================================ */}
+
+          {/* ============================================================================
+              FINAL CTA - Call to action with decorative elements
+              ============================================================================ */}
+          <div className="text-center h-screen">
+            <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-4 sm:mb-6">
+              🧑‍💻
+            </div>
+            <h3 className="font-black text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mb-4 sm:mb-6">
+              Ready to{" "}
+              <span className="text-[#feaac0]">Claim Your Rewards</span>?
+            </h3>
+            <p className="text-sm sm:text-base md:text-lg font-medium text-[#ccc]">
+              Join the ultimate hackathon experience today!
+            </p>
           </div>
         </div>
       </div>
