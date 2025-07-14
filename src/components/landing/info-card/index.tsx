@@ -1,8 +1,12 @@
 "use client";
-import { useRef, useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import gsap from "gsap";
 
+// ============================================================================
+// TYPE DEFINITIONS
+// ============================================================================
 interface RoundCardProps {
   title: string;
   subtitle: string;
@@ -12,6 +16,15 @@ interface RoundCardProps {
   bgColor: string;
 }
 
+interface CardProps {
+  title: string;
+  copy: string;
+  index: number;
+}
+
+// ============================================================================
+// ROUND CARD COMPONENT - Individual card for each competition round
+// ============================================================================
 const RoundCard = ({
   title,
   subtitle,
@@ -22,177 +35,414 @@ const RoundCard = ({
 }: RoundCardProps) => {
   return (
     <div
-      className="round-card relative w-full text-[#141414] rounded-2xl p-6 md:p-8 flex flex-col justify-between"
+      className="round-card relative w-full text-[#141414] rounded-2xl p-8 flex flex-col justify-between h-[400px]"
       style={{ backgroundColor: bgColor }}
     >
-      {/* Icon */}
-      <div className="text-4xl md:text-5xl lg:text-6xl mb-4">{icon}</div>
+      {/* Round Icon - Emoji representation of the round type */}
+      <div className="text-5xl mb-4">{icon}</div>
 
-      {/* Content */}
+      {/* Card Content Container */}
       <div className="flex-1">
+        {/* Round Badge - Shows "Round 1" or "Round 2" */}
         <div className="mb-3">
-          <span className="inline-block bg-[#141414] text-[#fcf2e8] px-2 py-1 rounded-full text-xs font-medium">
+          <span className="inline-block bg-[#141414] text-[#fcf2e8] px-3 py-1 rounded-full text-sm font-medium">
             Round {index + 1}
           </span>
         </div>
 
-        <h2 className="text-xl md:text-2xl lg:text-3xl font-black leading-tight mb-3">
-          {title}
-        </h2>
+        {/* Round Title - Main heading for the round */}
+        <h2 className="text-2xl font-black leading-tight mb-3">{title}</h2>
 
-        <p className="text-sm md:text-base lg:text-lg font-semibold text-[#666] mb-4">
-          {subtitle}
-        </p>
+        {/* Round Subtitle - Secondary description */}
+        <p className="text-lg font-semibold text-[#666] mb-4">{subtitle}</p>
 
-        <p className="text-xs md:text-sm lg:text-base font-medium leading-relaxed">
-          {description}
-        </p>
+        {/* Round Description - Detailed explanation */}
+        <p className="text-base font-medium leading-relaxed">{description}</p>
       </div>
     </div>
   );
 };
 
-export default function InfoCard() {
-  const [isClient, setIsClient] = useState(false);
-  const heroRef = useRef<HTMLDivElement>(null);
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+// ============================================================================
+// SIMPLE CARD COMPONENT - Basic card with title, copy, and icon
+// ============================================================================
+const Card = ({ title, copy, index }: CardProps) => {
+  return (
+    <div
+      className="card relative h-[300px] text-[#141414] w-full"
+      id={`card-${index + 1}`}
+    >
+      <div className="info-card-inner relative will-change-transform w-full h-full p-[2em] flex gap-[4em]">
+        <div className="card-content flex flex-col text-left w-[80%]">
+          <h1 className="text-[4rem] font-semibold leading-none mb-[2.5em] md:mb-[4rem]">
+            {title}
+          </h1>
+        </div>
+        {/* <p className="text-[1.25rem] font-medium">{copy}</p> */}
+        {index > 0 && (
+          <div className="absolute right-2 top-2 w-20 h-20">
+            <img
+              className="w-1 h-1 object-contain aspect-square"
+              src={`/icons/icon_${index}.png`}
+              alt={`icon-${index}`}
+            />
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
 
+// ============================================================================
+// SIMPLE REWARDS SECTION COMPONENT - No animations, mobile-friendly
+// ============================================================================
+const SimpleRewardsSection = () => {
+  const rewards = [
+    {
+      title: "₹1 Lakh+ Prize Pool",
+      copy: "Compete for massive cash prizes and recognition. Win big and make your mark in the hackathon world.",
+      index: 1,
+    },
+    {
+      title: "Exclusive Swags",
+      copy: "Get your hands on exclusive merchandise and collectibles that you won't find anywhere else.",
+      index: 2,
+    },
+    {
+      title: "National Recognition",
+      copy: "Get featured on national platforms and media. Build your reputation and showcase your skills.",
+      index: 3,
+    },
+    {
+      title: "Mentorship & Networking",
+      copy: "Connect with industry experts and peers. Build valuable relationships that last beyond the hackathon.",
+      index: 4,
+    },
+    {
+      title: "Stay & Meals Covered",
+      copy: "Enjoy comfortable accommodation and delicious food throughout your hackathon journey.",
+      index: 5,
+    },
+  ];
+
+  return (
+    <div className="bg-[#141414] text-[#fcf2e8] py-4 px-4">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
+            What You Will Get
+          </h2>
+          <p className="text-lg md:text-xl text-[#ccc] max-w-3xl mx-auto">
+            Discover the amazing rewards and benefits waiting for you at
+            Hackwave.
+          </p>
+        </div>
+
+        {/* Rewards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {rewards.map((reward, index) => (
+            <div
+              key={index}
+              className="bg-[#fcf2e8] text-[#141414] rounded-xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
+            >
+              <div className="flex items-start gap-4">
+                {/* Icon */}
+                <div className="flex-shrink-0 w-12 h-12 bg-[#141414] rounded-full flex items-center justify-center">
+                  <img
+                    className="w-6 h-6 object-contain"
+                    src={`/icons/icon_${reward.index}.png`}
+                    alt={`icon-${reward.index}`}
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="flex-1">
+                  <h3 className="text-xl md:text-2xl font-bold mb-3">
+                    {reward.title}
+                  </h3>
+                  <p className="text-sm md:text-base text-[#666] leading-relaxed">
+                    {reward.copy}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA Section */}
+        <div className="text-center mt-16">
+          <div className="text-6xl md:text-7xl mb-6">🧑‍💻</div>
+          <h3 className="text-2xl md:text-3xl lg:text-4xl font-black mb-4">
+            Ready to <span className="text-[#feaac0]">Claim Your Rewards</span>?
+          </h3>
+          <p className="text-lg md:text-xl text-[#ccc]">
+            Join the ultimate hackathon experience today!
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// ============================================================================
+// MAIN INFO CARD COMPONENT - How It Works section with animated cards
+// ============================================================================
+export default function InfoCard() {
+  // ============================================================================
+  // STATE & REFS - Client-side rendering and animation references
+  // ============================================================================
+  const [isClient, setIsClient] = useState(false); // Ensure GSAP runs only on client
+  const heroRef = useRef<HTMLDivElement>(null); // Reference to the pinned hero section
+  const rewardsRef = useRef<HTMLDivElement>(null); // Reference to the rewards section for pinning
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]); // Array of hero card element references
+  const rewardsCardRefs = useRef<(HTMLDivElement | null)[]>([]); // Array of rewards card element references
+
+  // ============================================================================
+  // CLIENT-SIDE INITIALIZATION - Set client flag for GSAP compatibility
+  // ============================================================================
   useEffect(() => {
     setIsClient(true);
   }, []);
 
+  // ============================================================================
+  // ANIMATION SETUP - GSAP ScrollTrigger configuration and card animations
+  // ============================================================================
   useEffect(() => {
-    if (!isClient) return;
+    if (!isClient) return; // Wait for client-side rendering
 
     const initAnimation = () => {
       console.log("Initializing InfoCard hero animation...");
 
       // ============================================================================
-      // SET INITIAL CARD POSITIONS - Set cards at 100% y
+      // PHASE 1: INITIAL CARD POSITIONS - Set cards below viewport (100% y)
       // ============================================================================
+      // Set initial positions for all cards - they start below the viewport
+      // This creates the effect of cards sliding up from below during scroll
       cardRefs.current.forEach((card) => {
         if (card) {
           gsap.set(card, {
-            y: "100%",
+            y: "100%", // Position cards 100% below their container
           });
         }
       });
-
+      rewardsCardRefs.current.forEach((card) => {
+        if (card) {
+          gsap.set(card, {
+            y: "300%", // Position rewards cards 100% below their container
+          });
+        }
+      });
+      console.log("Rewards section entered - Cards set to 100% y position");
       // ============================================================================
-      // SCROLL TRIGGER SETUP - Pin hero section with card animations
+      // PHASE 2: SCROLL TRIGGER CONFIGURATION - Pin section and control animations
       // ============================================================================
       if (heroRef.current) {
         ScrollTrigger.create({
-          trigger: heroRef.current,
-          pin: true,
-          start: "top top",
-          end: `+=${window.innerHeight * 3}`, // 3 viewport heights of scroll space
-          pinSpacing: true,
-          markers: false,
+          trigger: heroRef.current, // Element that triggers the animation
+          pin: true, // Pin the hero section during scroll
+          start: "top top", // Start pinning when top of hero hits top of viewport
+          end: `+=${window.innerHeight * 4}`, // 4 viewport heights of scroll space
+          pinSpacing: true, // Maintain scroll space for pinned element
+          markers: false, // Disable debug markers in production
           onUpdate: (self) => {
-            const progress = self.progress; // 0 to 1
+            const progress = self.progress; // Scroll progress from 0 to 1
 
             // ============================================================================
-            // CARD ANIMATION - Second card covers first card
+            // PHASE 3: CARD ANIMATION LOGIC - Two-phase card movement
             // ============================================================================
             if (cardRefs.current[0] && cardRefs.current[1]) {
-              const firstCard = cardRefs.current[0];
-              const secondCard = cardRefs.current[1];
+              const firstCard = cardRefs.current[0]; // Round 1 card reference
+              const secondCard = cardRefs.current[1]; // Round 2 card reference
 
-              // First card: Move from 100% to upper center position
+              // ============================================================================
+              // RESPONSIVE POSITIONING - Adjust for mobile vs desktop
+              // ============================================================================
+              const isMobile = window.innerWidth < 768; // Mobile breakpoint check
+              const mobileOffset = isMobile ? 10 : 0; // 10% higher positioning on mobile
+
+              // ============================================================================
+              // FIRST CARD ANIMATION - Slides up from bottom to center position
+              // ============================================================================
               if (progress <= 0.5) {
-                const firstCardProgress = progress / 0.5; // 0 to 1
+                // Phase 1: First card moves from 100% to target position (0-50% scroll)
+                const firstCardProgress = progress / 0.5; // Normalize progress to 0-1
+                const targetY = 40 - mobileOffset; // Target: 30% on mobile, 40% on desktop
                 gsap.set(firstCard, {
-                  y: `${100 - 60 * firstCardProgress}%`, // Stop at 40% (upper center)
+                  y: `${100 - (100 - targetY) * firstCardProgress}%`, // Smooth interpolation
                 });
               } else {
+                // Phase 2: First card stays at target position (50-100% scroll)
                 gsap.set(firstCard, {
-                  y: "40%", // Keep at upper center
+                  y: `${40 - mobileOffset}%`, // Maintain final position
                 });
               }
 
-              // Second card: Move from 100% to same position as first card (covering it)
+              // ============================================================================
+              // SECOND CARD ANIMATION - Slides up to cover first card
+              // ============================================================================
               if (progress >= 0.5) {
-                const secondCardProgress = (progress - 0.5) / 0.5; // 0 to 1
+                // Phase 2: Second card moves from 150% to same position as first (50-100% scroll)
+                const secondCardProgress = (progress - 0.5) / 0.5; // Normalize progress to 0-1
+                const targetY = 40 - mobileOffset; // Same target as first card
                 gsap.set(secondCard, {
-                  y: `${100 - 60 * secondCardProgress}%`, // Stop at 40% (same as first card)
+                  y: `${150 - (150 - targetY) * secondCardProgress}%`, // Smooth interpolation from 150% to targetY
                 });
               } else {
+                // Phase 1: Second card stays below viewport (0-50% scroll)
                 gsap.set(secondCard, {
-                  y: "100%",
+                  y: "150%", // Keep hidden below viewport
                 });
               }
             }
           },
         });
       }
+
+      // ============================================================================
+      // PHASE 4: REWARDS SECTION PINNING - Pin the "What You Get" section
+      // ============================================================================
+      if (rewardsRef.current) {
+        ScrollTrigger.create({
+          trigger: rewardsRef.current, // Element that triggers the pinning
+          pin: true, // Pin the rewards section during scroll
+          start: "top top", // Start pinning when top of rewards hits top of viewport
+          end: `+=${window.innerHeight * 3}`, // 3 viewport heights of scroll space (increased from 2)
+          pinSpacing: true, // Maintain scroll space for pinned element
+          markers: false, // Disable debug markers in production
+          onEnter: () => {
+            // ============================================================================
+            // REWARDS SECTION ENTRY - Set rewards cards to 300% y position
+            // ============================================================================
+            // When we enter the rewards section, set all rewards cards to 300% y position
+            // This creates a starting point for building animations from this section
+            console.log(
+              "Rewards section entered - Rewards cards set to 300% y position"
+            );
+          },
+          onUpdate: (self) => {
+            // ============================================================================
+            // REWARDS SECTION SCROLL ANIMATION - Progressive card reveals
+            // ============================================================================
+            const progress = self.progress; // Scroll progress from 0 to 1
+
+            // Animate each rewards card with staggered timing
+            rewardsCardRefs.current.forEach((card, index) => {
+              if (card) {
+                // Calculate individual card progress with staggered delay
+                const cardDelay = index * 0.12; // Each card starts 12% later (reduced from 15%)
+                const cardProgress = Math.max(
+                  0,
+                  Math.min(1, (progress - cardDelay) / 0.25)
+                ); // 25% duration per card (reduced from 30%)
+
+                if (cardProgress > 0) {
+                  // Animate card from 300% to 0% (slide up into view)
+                  gsap.set(card, {
+                    y: `${300 - 300 * cardProgress}%`, // Smooth interpolation from 300% to 0%
+                  });
+                } else {
+                  // Keep card at 300% until its turn
+                  gsap.set(card, {
+                    y: "300%",
+                  });
+                }
+              }
+            });
+          },
+        });
+      }
     };
 
-    const timer = setTimeout(initAnimation, 1000);
+    // ============================================================================
+    // ANIMATION INITIALIZATION - Delay to ensure DOM is ready
+    // ============================================================================
+    const timer = setTimeout(initAnimation, 1000); // 1 second delay for DOM stability
 
+    // ============================================================================
+    // CLEANUP - Remove all ScrollTriggers on component unmount
+    // ============================================================================
     return () => {
-      clearTimeout(timer);
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      clearTimeout(timer); // Clear initialization timer
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill()); // Kill all triggers
     };
   }, [isClient]);
 
+  // ============================================================================
+  // ROUND DATA - Competition structure and content for each round
+  // ============================================================================
   const rounds = [
     {
       title: "Online PPT Submission",
       subtitle: "Digital First Round",
       description:
         "Submit your innovative project presentation online. Showcase your ideas, technical approach, and potential impact through a compelling PowerPoint presentation.",
-      icon: "💻",
-      bgColor: "#c6fe69", // Green
+      icon: "💻", // Computer emoji for digital round
+      bgColor: "#c6fe69", // Bright green background for first round
     },
     {
       title: "Offline 36-hour Build",
       subtitle: "At CDGI Campus",
       description:
         "Bring your ideas to life in an intense 36-hour coding marathon. Collaborate with your team, build your prototype, and compete for the grand prize.",
-      icon: "📍",
-      bgColor: "#feaac0", // Pink
+      icon: "📍", // Location pin emoji for physical location
+      bgColor: "#feaac0", // Pink background for second round
     },
   ];
 
+  // ============================================================================
+  // CLIENT-SIDE RENDERING CHECK - Return null until client is ready
+  // ============================================================================
   if (!isClient) {
-    return null;
+    return null; // Prevent hydration mismatch with GSAP
   }
 
+  // ============================================================================
+  // COMPONENT RENDER - Main layout with hero and outro sections
+  // ============================================================================
   return (
     <div className="bg-[#141414] text-[#fcf2e8]">
       {/* ============================================================================
-          HERO SECTION - Combined How It Works & Purpose
+          HERO SECTION - Pinned section with animated cards
           ============================================================================ */}
       <div
-        ref={heroRef}
+        ref={heroRef} // GSAP ScrollTrigger target
         className="relative w-screen h-screen p-3 sm:p-4 md:p-6 lg:p-8 overflow-hidden"
       >
-        <div className="w-full h-full flex flex-col justify-center items-center text-center p-4 sm:p-6 md:p-8 relative gap-18">
-          {/* How It Works Title - Always centered */}
-          <h1 className="w-full max-w-[95%] sm:max-w-[90%] md:max-w-[85%] lg:max-w-[80%] xl:max-w-[75%] text-[#fcf2e8] text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-black leading-relaxed sm:leading-tight md:leading-tight lg:leading-tight px-2 sm:px-4 z-10">
+        {/* Main content container with centered layout */}
+        <div className="w-full h-full flex flex-col justify-center items-center  p-3 sm:p-4 md:p-6 lg:p-8 relative">
+          {/* ============================================================================
+              SECTION TITLE - Always visible and centered
+              ============================================================================ */}
+          <h1 className="w-full text-center max-w-[95%] sm:max-w-[90%] md:max-w-[85%] lg:max-w-[80%] xl:max-w-[75%] text-[#fcf2e8] text-5xl sm:text-5xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-black leading-relaxed sm:leading-tight md:leading-tight lg:leading-tight px-2 sm:px-4 z-10 mb-4 sm:mb-6 md:mb-8">
             How It Works
           </h1>
 
-          {/* Description Text - Gets covered by cards */}
-          <div className="max-w-4xl z-5">
-            <p className="text-[#ccc] text-base sm:text-lg md:text-xl lg:text-2xl font-medium leading-relaxed rounded-lg sm:rounded-xl md:rounded-2xl lg:rounded-3xl border border-dashed border-[rgb(60,60,60)] p-6 sm:p-8 md:p-10">
+          {/* ============================================================================
+              DESCRIPTION TEXT - Gets covered by sliding cards during animation
+              ============================================================================ */}
+          <div className="max-w-4xl z-5 mb-4 sm:mb-6 md:mb-8">
+            <p className="text-[#ccc] text-sm sm:text-base md:text-lg lg:text-xl font-medium leading-relaxed rounded-lg sm:rounded-xl md:rounded-2xl lg:rounded-3xl border border-dashed border-[rgb(60,60,60)] p-4 sm:p-6 md:p-8 lg:p-10">
               Two rounds of intense competition designed to test your skills,
               creativity, and determination. From concept to creation, prove you
               have what it takes to be a Hackwave champion.
             </p>
           </div>
 
-          {/* Rounds Cards - Absolute positioning, cover the description */}
+          {/* ============================================================================
+              ANIMATED CARDS CONTAINER - Absolute positioning for GSAP control
+              ============================================================================ */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="relative w-full max-w-4xl h-[400px] md:h-[500px] lg:h-[600px] z-20">
+            {/* Card wrapper with responsive height and max-width constraints */}
+            <div className="relative w-full max-w-4xl h-[300px] sm:h-[350px] md:h-[400px] lg:h-[500px] xl:h-[600px] z-20">
+              {/* Map through rounds data to create animated cards */}
               {rounds.map((round, index) => (
                 <div
                   key={index}
                   ref={(el) => {
-                    cardRefs.current[index] = el;
+                    cardRefs.current[index] = el; // Store reference for GSAP animation
                   }}
-                  className="absolute inset-0"
+                  className="absolute inset-0" // Full container positioning for GSAP
                 >
                   <RoundCard {...round} index={index} />
                 </div>
@@ -203,19 +453,125 @@ export default function InfoCard() {
       </div>
 
       {/* ============================================================================
-          OUTRO SECTION - Call to action
+          WHAT YOU GET SECTION - Rewards and benefits showcase
           ============================================================================ */}
-      <div className="relative w-screen h-screen p-[2em] flex items-center justify-center">
-        <div className="text-center max-w-4xl">
-          <h2 className="font-black leading-none text-[2rem] md:text-3xl lg:text-5xl mb-8">
-            Ready to <span className="text-[#feaac0]">Build the Future</span>?
-          </h2>
-          <p className="text-lg md:text-xl lg:text-2xl font-medium text-[#ccc] leading-relaxed mb-8">
-            Join hundreds of innovators, creators, and problem-solvers in the
-            ultimate hackathon experience.
-          </p>
-          <div className="text-6xl md:text-7xl lg:text-8xl">🧑‍💻</div>
+
+      {/* Desktop: Animated rewards section */}
+      <div
+        ref={rewardsRef} // GSAP ScrollTrigger target for pinning
+        className="hidden relative w-screen min-h-screen md:flex flex-col items-center justify-center"
+      >
+        <div className="text-center w-full">
+          {/* ============================================================================
+              SECTION HEADER - Main title and description
+              ============================================================================ */}
+          <div className="mb-12 sm:mb-16 md:mb-20 px-4 sm:px-6 md:px-8 h-screen flex flex-col justify-center items-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+              {/* What You Will Get */}
+              <div
+                className="card relative h-[300px] text-[#141414] w-full"
+                id={`card-1`}
+              >
+                <div className="info-card-inner relative will-change-transform w-full h-full p-[2em] flex flex-col gap-[0.5rem]">
+                  <div className="card-content flex flex-col text-left w-[80%]">
+                    <h1 className="text-[4rem] font-semibold leading-none mb-[1.5em] md:mb-[2rem]">
+                      What You Will Get
+                    </h1>
+                  </div>
+                  <p className="text-[1.25rem] font-medium text-left">
+                    Discover the amazing rewards and benefits waiting for you at
+                    Hackwave.
+                  </p>
+                </div>
+              </div>
+
+              {/* Prize Pool */}
+              <div
+                ref={(el) => {
+                  rewardsCardRefs.current[1] = el; // Store reference for rewards card animation
+                }}
+              >
+                <Card
+                  title="₹1 Lakh+ Prize Pool"
+                  copy="Compete for massive cash prizes and recognition. Win big and make your mark in the hackathon world."
+                  index={1}
+                />
+              </div>
+
+              {/* Swags */}
+              <div
+                ref={(el) => {
+                  rewardsCardRefs.current[2] = el; // Store reference for rewards card animation
+                }}
+              >
+                <Card
+                  title="Exclusive Swags"
+                  copy="Get your hands on exclusive merchandise and collectibles that you won't find anywhere else."
+                  index={2}
+                />
+              </div>
+
+              {/* Recognition */}
+              <div
+                ref={(el) => {
+                  rewardsCardRefs.current[3] = el; // Store reference for rewards card animation
+                }}
+              >
+                <Card
+                  title="National Recognition"
+                  copy="Get featured on national platforms and media. Build your reputation and showcase your skills."
+                  index={3}
+                />
+              </div>
+
+              {/* Mentorship */}
+              <div
+                ref={(el) => {
+                  rewardsCardRefs.current[4] = el; // Store reference for rewards card animation
+                }}
+              >
+                <Card
+                  title="Mentorship & Networking"
+                  copy="Connect with industry experts and peers. Build valuable relationships that last beyond the hackathon."
+                  index={4}
+                />
+              </div>
+
+              {/* Accommodation */}
+              <div
+                ref={(el) => {
+                  rewardsCardRefs.current[5] = el; // Store reference for rewards card animation
+                }}
+              >
+                <Card
+                  title="Stay & Meals Covered"
+                  copy="Enjoy comfortable accommodation and delicious food throughout your hackathon journey."
+                  index={5}
+                />
+              </div>
+            </div>
+          </div>
+          {/* ============================================================================
+              FINAL CTA - Call to action with decorative elements
+              ============================================================================ */}
+          <div className="text-center h-screen flex flex-col items-center justify-center">
+            <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-4 sm:mb-6">
+              🧑‍💻
+            </div>
+            <h3 className="font-black text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mb-4 sm:mb-6">
+              Ready to{" "}
+              <span className="text-[#feaac0]">Claim Your Rewards</span>?
+            </h3>
+            <p className="text-sm sm:text-base md:text-lg font-medium text-[#ccc]">
+              Join the ultimate hackathon experience today!
+            </p>
+          </div>
         </div>
+      </div>
+
+      {/* Mobile: Simple rewards section without animations */}
+      <div className="md:hidden">
+        <SimpleRewardsSection />
       </div>
     </div>
   );

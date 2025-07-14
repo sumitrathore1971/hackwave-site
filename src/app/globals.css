@@ -587,7 +587,7 @@ section {
 
 
 #card-1 .info-card-inner {
-  background-color: #c3abff;
+  color: #fff;
 }
 #card-2 .info-card-inner {
   background-color: #fff;
@@ -598,4 +598,10 @@ section {
 #card-4 .info-card-inner {
   background-color: #1e1e1e;
   color: #fff;
+}
+#card-5 .info-card-inner {
+  background-color: #ff7e67;
+}
+#card-6 .info-card-inner {
+  background-color: #c3abff;
 }
