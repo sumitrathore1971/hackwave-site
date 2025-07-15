@@ -564,21 +564,20 @@ section {
 
 
 #card-1 .info-card-inner {
-  color: #fff;
+  color: #c5efff;
 }
 #card-2 .info-card-inner {
-  background-color: #fff;
+  background-color: #ddd1ff;
 }
 #card-3 .info-card-inner {
-  background-color: #fed35b;
+  background-color: #c5efff;
 }
 #card-4 .info-card-inner {
-  background-color: #1e1e1e;
-  color: #fff;
+  background-color: #faffa5;
 }
 #card-5 .info-card-inner {
-  background-color: #ff7e67;
+  background-color: #d1ecff;
 }
 #card-6 .info-card-inner {
-  background-color: #c3abff;
+  background-color: #ffc5dd;
 }

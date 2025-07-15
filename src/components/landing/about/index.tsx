@@ -227,7 +227,7 @@ const TextReveal: React.FC = () => {
           ref={ctaRef}
           className="absolute cta inset-0 w-full h-full overflow-hidden flex items-center justify-center"
         >
-          <div className="w-full h-full mx-auto flex flex-col justify-center items-center text-center rounded-lg sm:rounded-xl md:rounded-2xl lg:rounded-xl bg-[#c6fe69] p-4 sm:p-6 md:p-8">
+          <div className="w-full h-full mx-auto flex flex-col justify-center items-center text-center rounded-lg sm:rounded-xl md:rounded-2xl lg:rounded-xl bg-[#faffa5] p-4 sm:p-6 md:p-8">
             <h1 className="w-full max-w-[95vw] sm:max-w-[90vw] md:max-w-[80vw] lg:max-w-[70vw] xl:max-w-[60vw] text-[#141414] font-black leading-relaxed px-2 sm:px-4 mb-8 sm:mb-12 md:mb-16 lg:mb-20 text-[clamp(2rem,3vw,3rem)] sm:text-[clamp(1.1rem,2.2vw,1.5rem)] md:text-[clamp(2rem,3.5vw,5rem)]">
               Playground for bold ideas and creative interfaces.
             </h1>
