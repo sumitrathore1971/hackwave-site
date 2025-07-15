@@ -178,7 +178,7 @@
   display: inline-block;
   position: relative;
   margin-right: 0.2rem;
-  margin-bottom: 0.2rem;
+   margin-bottom: 0.2rem;
   padding: 0.1rem 0.2rem;
   border-radius: 2rem;
   will-change: background-color, opacity;
@@ -353,7 +353,7 @@ img {
 
 section {
   position: relative;
-  width: 100vw;
+  width: 100svw;
   height: 100svh;
   padding: 1.5rem;
   display: flex;
@@ -376,7 +376,8 @@ section {
   top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 60%;
+  width: 100%;
+  height: 100%;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -468,9 +469,9 @@ section {
 }
 
 /* .animated-text can now be used for animation-specific styles only */
-.animated-text {
-  /* animation-specific styles here if needed */
-}
+/* .animated-text {
+  animation-specific styles here if needed
+} */
 
 @media (max-width: 1000px) {
   .animated-text {
@@ -479,7 +480,7 @@ section {
   }
 
   p {
-      font-size: 1.1rem;
+      font-size: 1rem;
   }
 
   .hero-header {

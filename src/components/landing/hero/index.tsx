@@ -7,6 +7,13 @@ import React from "react";
 import { LenisProvider } from "@/components/providers/LenisProvider";
 import TextReveal from "../about";
 
+// Extend Window interface to include duplicateIcons property
+declare global {
+  interface Window {
+    duplicateIcons: HTMLElement[] | null;
+  }
+}
+
 // ============================================================================
 // HERO COMPONENT - Main Animation Container
 // ============================================================================
@@ -652,9 +659,11 @@ const Hero = () => {
   // Color blocks configuration for scroll reveal
   const rainbowBlocks = useMemo(
     () => [
-      { color: "#FF6A00", radius: "3rem 3rem 0 0" }, // Orange
-      { color: "#A58BFF", radius: "3rem 3rem 0 0" }, // Purple
-      { color: "#C8FF66", radius: "3rem 3rem 0 0" }, // Green
+      { color: "#c5efff", radius: "3rem 3rem 0 0" }, // Light Blue
+      { color: "#ddd1ff", radius: "3rem 3rem 0 0" }, // Light Purple
+      { color: "#ffc5dd", radius: "3rem 3rem 0 0" }, // Light Pink
+      { color: "#d1ecff", radius: "3rem 3rem 0 0" }, // Sky Blue
+      { color: "#faffa5", radius: "3rem 3rem 0 0" }, // Light Yellow
     ],
     []
   );
@@ -682,17 +691,44 @@ const Hero = () => {
             ============================================================================ */}
         <div
           ref={heroHeaderRef}
-          className="hero-header text-center absolute left-1/2 top-1/2"
-          style={{ transform: "translate(-50%, -50%)" }}
+          className="hero-header absolute left-1/2 top-1/2 flex items-center justify-center w-full"
+          style={{ transform: "translate(-50%, -30%)" }}
         >
-          <img
-            className="hackwave-img"
-            src="/loader-imgs/hackwave.svg"
-            alt="Hackwave Logo"
-          />
-          <p className="text-3xl font-normal">
-            where the boldest builders come to play
-          </p>
+          <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-8xl px-4 md:px-8 gap-8 md:gap-0">
+            {/* Left - Dates */}
+            <div className="flex flex-col items-center md:items-start text-center md:text-left mt-8 md:mt-46 order-2 md:order-1">
+              <p className="text-lg md:text-2xl font-normal">
+                36 Hours Hackathon
+              </p>
+              <p className="text-base md:text-xl font-normal text-gray-600">
+                from
+              </p>
+              <p className="text-2xl md:text-3xl font-bold">
+                March 15-17, 2025
+              </p>
+            </div>
+
+            {/* Center - Logo and Tagline */}
+            <div className="flex flex-col items-center justify-center gap-4 md:gap-8 order-1 md:order-2">
+              <img
+                className="hackwave-img w-48 md:w-auto"
+                src="/loader-imgs/hackwave.svg"
+                alt="Hackwave Logo"
+              />
+              <p className="text-xl md:text-3xl font-normal text-center">
+                where the boldest builders come to play
+              </p>
+            </div>
+
+            {/* Right - Info */}
+            <div className="flex flex-col items-center md:items-end text-center md:text-right mt-8 md:mt-46 order-3 md:order-3">
+              <p className="text-lg md:text-2xl font-normal">Join 500+</p>
+              <p className="text-base md:text-xl font-normal text-gray-600">
+                developers
+              </p>
+              <p className="text-2xl md:text-3xl font-bold">$50K+ Prizes</p>
+            </div>
+          </div>
         </div>
 
         {/* ============================================================================
