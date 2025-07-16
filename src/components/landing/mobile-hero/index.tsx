@@ -165,12 +165,12 @@ const MobileHero = () => {
               <div className="flex flex-col items-center justify-center gap-4 md:gap-8 order-1 md:order-2">
                 <img
                   className="hackwave-img w-48 md:w-auto"
-                  src="/loader-imgs/hackwave.svg"
+                  src="/assets/hackwave-logo.svg"
                   alt="Hackwave Logo"
                 />
-                <p className="text-xl md:text-3xl font-normal text-center">
+                {/* <p className="text-xl md:text-3xl font-normal text-center">
                   where the boldest builders come to play
-                </p>
+                </p> */}
                 <img
                   className="hackwave-img w-48 md:w-auto"
                   src="/assets/bella-kawaii-edition.png"

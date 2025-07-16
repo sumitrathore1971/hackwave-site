@@ -429,7 +429,15 @@ section {
 }
 
 .hackwave-img {
-  width: 40vw;
+  width: 60vw;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.right-img {
+  width: 20vw;
   height: auto;
   object-fit: contain;
   display: block;

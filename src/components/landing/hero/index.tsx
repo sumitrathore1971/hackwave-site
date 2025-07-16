@@ -695,38 +695,42 @@ const Hero = () => {
           style={{ transform: "translate(-50%, -30%)" }}
         >
           <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-8xl px-4 md:px-8 gap-8 md:gap-0">
-            {/* Left - Dates */}
-            <div className="flex flex-col items-center md:items-start text-center md:text-left mt-8 md:mt-46 order-2 md:order-1">
-              <p className="text-lg md:text-2xl font-normal">
-                36 Hours Hackathon
-              </p>
-              <p className="text-base md:text-xl font-normal text-gray-600">
-                from
-              </p>
-              <p className="text-2xl md:text-3xl font-bold">
-                March 15-17, 2025
-              </p>
-            </div>
-
-            {/* Center - Logo and Tagline */}
-            <div className="flex flex-col items-center justify-center gap-4 md:gap-8 order-1 md:order-2">
+            {/* Left - Hackwave Logo */}
+            <div className="flex flex-col items-center md:items-start text-center md:text-left order-1 md:order-1">
               <img
-                className="hackwave-img w-48 md:w-auto"
+                className="hackwave-img w-48 md:w-64 lg:w-80"
                 src="/loader-imgs/hackwave.svg"
                 alt="Hackwave Logo"
               />
-              <p className="text-xl md:text-3xl font-normal text-center">
-                where the boldest builders come to play
-              </p>
             </div>
 
-            {/* Right - Info */}
-            <div className="flex flex-col items-center md:items-end text-center md:text-right mt-8 md:mt-46 order-3 md:order-3">
-              <p className="text-lg md:text-2xl font-normal">Join 500+</p>
-              <p className="text-base md:text-xl font-normal text-gray-600">
-                developers
-              </p>
-              <p className="text-2xl md:text-3xl font-bold">$50K+ Prizes</p>
+            {/* Right - Hackathon Info */}
+            <div className="flex flex-col items-center md:items-end text-center md:text-right order-2 md:order-2">
+              <img
+                className="right-img w-48 md:w-64 lg:w-80"
+                src="/assets/right_img.svg"
+                alt="Hackwave Logo"
+              />
+              {/* <div className="space-y-4">
+                <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#141414]">
+                  36 Hours
+                </p>
+                <p className="text-lg md:text-xl lg:text-2xl font-normal text-gray-600">
+                  of pure innovation
+                </p>
+                <p className="text-xl md:text-2xl lg:text-3xl font-semibold text-[#141414]">
+                  August 15-17, 2025
+                </p>
+                <div className="mt-6 space-y-2">
+                  <p className="text-lg md:text-xl font-normal">Join 500+</p>
+                  <p className="text-base md:text-lg font-normal text-gray-600">
+                    developers
+                  </p>
+                  <p className="text-xl md:text-2xl font-bold text-[#141414]">
+                    $50K+ Prizes
+                  </p>
+                </div>
+              </div> */}
             </div>
           </div>
         </div>
