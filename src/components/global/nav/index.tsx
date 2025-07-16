@@ -36,9 +36,14 @@ const Navbar = (props: Props) => {
         {/* Right Side - Join Now Button + Hamburger (Desktop & Mobile) */}
         <div className="flex items-center gap-3 ">
           {/* Join Now Button */}
-          <Button className="font-semibold cursor-pointer px-4 md:px-6 py-2 md:py-3 bg-[#fcf2e8]/10 hover:bg-[#fcf2e8]/20 border border-[#fcf2e8]/20 text-[#fcf2e8] rounded-xl text-sm md:text-base transition-all duration-150 hover:scale-105 transform mix-blend-normal">
+          <Link
+            href="https://unstop.com/o/szmvO5g?lb=2CqWo19U&utm_medium=Share&utm_source=shortUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold cursor-pointer px-4 md:px-6 py-1 md:py-1 bg-[#fcf2e8]/10 hover:bg-[#fcf2e8]/20 border border-[#fcf2e8]/20 text-[#fcf2e8] rounded-xl text-sm md:text-base transition-all duration-150 hover:scale-105 transform mix-blend-normal inline-block"
+          >
             Join Now
-          </Button>
+          </Link>
 
           {/* Hamburger Menu with Dropdown */}
           <DropdownMenu open={isMenuOpen} onOpenChange={setIsMenuOpen}>
