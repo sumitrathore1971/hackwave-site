@@ -150,7 +150,7 @@ const MobileHero = () => {
     <>
       <section
         ref={heroRef}
-        className="hero host-grotesk relative w-screen min-h-screen p-6 flex items-center justify-center text-[#141414] overflow-hidden"
+        className="hero host-grotesk relative w-screen min-h-screen p-6 flex items-center justify-center text-[#141414] overflow-hidden border-24 border-[#141414]"
       >
         {/* HERO HEADER - Logo and Tagline */}
         <div
