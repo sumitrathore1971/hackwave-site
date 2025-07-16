@@ -1,17 +1,15 @@
 "use client";
 
 import Navbar from "@/components/global/nav";
-import About from "@/components/landing/about";
-import Hero from "@/components/landing/hero";
 import InfoCard from "@/components/landing/info-card";
-import ScrollReveal from "@/components/landing/scrollReavel";
-import Copy from "@/components/ui/textAnimation/Copy";
+import ResponsiveHero from "@/components/landing/responsive-hero";
+
 
 export default function Home() {
   return (
     <>
       <Navbar />
-      <Hero />
+      <ResponsiveHero />
       <InfoCard />
       {/* 
       <About/> */}
