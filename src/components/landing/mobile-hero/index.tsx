@@ -24,6 +24,7 @@ const MobileHero = () => {
   const blocksRef = useRef<HTMLDivElement[]>([]);
 
   useGSAP(() => {
+    gsap.registerPlugin(ScrollTrigger);
     if (!heroRef.current || !heroHeaderRef.current) return;
 
     // Pin the section and change background color on scroll
