@@ -122,7 +122,7 @@ const MobileHero = () => {
       trigger: heroRef.current, // Element that triggers the animation
       start: "top top", // Start when top of hero reaches top of viewport
       markers: false,
-      end: `+=${window.innerHeight * 6}px`, // Reduced scroll space for faster animation
+      end: `+=${window.innerHeight * 8}px`, // Reduced scroll space for faster animation
       pin: true, // Pin the hero section in place during animation
       pinSpacing: true, // Maintain spacing for pinned element
       scrub: 1, // Smooth scrubbing effect (1 second delay)

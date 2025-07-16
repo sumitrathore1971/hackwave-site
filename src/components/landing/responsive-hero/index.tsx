@@ -46,7 +46,7 @@ const ResponsiveHero = () => {
 
   // Show loading state while determining device type
   if (typeof window === "undefined") {
-    return <div className="w-screen h-screen bg-[#fcf2e8]" />;
+    return <div className="w-screen h-screen bg-pink-500" />;
   }
 
   return <>{isMobile ? <MobileHero /> : <Hero />}</>;
