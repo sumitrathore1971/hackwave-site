@@ -336,7 +336,7 @@ const Hero = () => {
           // - Creating duplicate icons for final placement
           // - Preparing for text reveal
         } else if (progress <= 0.75) {
-          // // Keep text segments hidden during icon movement
+          // Keep text segments hidden during icon movement
           // textSegmentRefs.current.forEach((segment) => {
           //   if (segment) gsap.set(segment, { opacity: 0 });
           // });
@@ -755,7 +755,7 @@ const Hero = () => {
         {/* ============================================================================
             ANIMATED TEXT CONTAINER - Text segments that fade in with icons
             ============================================================================ */}
-        <h1 className="hero-heading animated-text leading-none">
+        <h1 className="hero-heading animated-text leading-none text-2xl md:text-4xl lg:text-5xl">
           {/* Placeholder icons that will be replaced by animated icons during scroll */}
           <div
             className="placeholder-icon"
@@ -764,7 +764,7 @@ const Hero = () => {
             }}
           ></div>
           <span
-            className="text-segment"
+            className="text-segment text-2xl md:text-4xl lg:text-6xl"
             ref={(el) => {
               textSegmentRefs.current[0] = el;
             }}
@@ -778,7 +778,7 @@ const Hero = () => {
             }}
           ></div>
           <span
-            className="text-segment"
+            className="text-segment text-2xl md:text-4xl lg:text-6xl"
             ref={(el) => {
               textSegmentRefs.current[1] = el;
             }}
@@ -786,7 +786,7 @@ const Hero = () => {
             Design. Build. Disrupt.{" "}
           </span>
           <span
-            className="text-segment"
+            className="text-segment text-2xl md:text-4xl lg:text-6xl"
             ref={(el) => {
               textSegmentRefs.current[2] = el;
             }}
@@ -800,7 +800,7 @@ const Hero = () => {
             }}
           ></div>
           <span
-            className="text-segment"
+            className="text-segment text-2xl md:text-4xl lg:text-6xl"
             ref={(el) => {
               textSegmentRefs.current[3] = el;
             }}
@@ -814,7 +814,7 @@ const Hero = () => {
             }}
           ></div>
           <span
-            className="text-segment"
+            className="text-segment text-2xl md:text-4xl lg:text-6xl"
             ref={(el) => {
               textSegmentRefs.current[4] = el;
             }}
@@ -828,7 +828,7 @@ const Hero = () => {
             }}
           ></div>
           <span
-            className="text-segment"
+            className="text-segment text-2xl md:text-4xl lg:text-6xl"
             ref={(el) => {
               textSegmentRefs.current[5] = el;
             }}

@@ -4,7 +4,6 @@ import Navbar from "@/components/global/nav";
 import InfoCard from "@/components/landing/info-card";
 import ResponsiveHero from "@/components/landing/responsive-hero";
 
-
 export default function Home() {
   return (
     <>
@@ -13,7 +12,6 @@ export default function Home() {
       <InfoCard />
       {/* 
       <About/> */}
-      {/* <ScrollReveal /> */}
 
       {/* <section className="relative w-full h-screen p-8 flex flex-col justify-between">
         <Copy animateOnScroll={true} delay={0.2}>

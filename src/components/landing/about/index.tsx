@@ -38,7 +38,7 @@ const TextReveal: React.FC = () => {
       const text = paragraph.textContent || "";
       const words = text.split(/\s+/);
       paragraph.innerHTML = "";
-      words.forEach((word) => {
+      words.forEach((word, i) => {
         if (word.trim()) {
           const wordContainer = document.createElement("div");
           wordContainer.className = "word";
@@ -51,6 +51,9 @@ const TextReveal: React.FC = () => {
           }
           wordContainer.appendChild(wordText);
           paragraph.appendChild(wordContainer);
+          if (i < words.length - 1) {
+            paragraph.appendChild(document.createTextNode(" "));
+          }
         }
       });
     });
@@ -228,7 +231,7 @@ const TextReveal: React.FC = () => {
           className="absolute cta inset-0 w-full h-full overflow-hidden flex items-center justify-center"
         >
           <div className="w-full h-full mx-auto flex flex-col justify-center items-center text-center rounded-lg sm:rounded-xl md:rounded-2xl lg:rounded-xl bg-[#faffa5] p-4 sm:p-6 md:p-8">
-            <h1 className="w-full max-w-[95vw] sm:max-w-[90vw] md:max-w-[80vw] lg:max-w-[70vw] xl:max-w-[60vw] text-[#141414] font-black leading-relaxed px-2 sm:px-4 mb-8 sm:mb-12 md:mb-16 lg:mb-20 text-[clamp(2rem,3vw,3rem)] sm:text-[clamp(1.1rem,2.2vw,1.5rem)] md:text-[clamp(2rem,3.5vw,5rem)]">
+            <h1 className="w-full max-w-[95vw] sm:max-w-[90vw] md:max-w-[80vw] lg:max-w-[70vw] xl:max-w-[90vw] text-[#141414] font-black leading-relaxed px-2 sm:px-4 mb-8 sm:mb-12 md:mb-16 lg:mb-20 text-[clamp(2rem,3vw,3rem)] sm:text-[clamp(1.1rem,2.2vw,1.5rem)] md:text-[clamp(3rem,5vw,6rem)]">
               Playground for bold ideas and creative interfaces.
             </h1>
             <div className="w-full grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 lg:gap-10 text-[clamp(1.8rem,2vw,4.1rem)] sm:text-[clamp(1rem,1.8vw,1.3rem)] md:text-[clamp(1rem,2vw,4rem)] text-[#141414]">
