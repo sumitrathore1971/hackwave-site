@@ -246,8 +246,8 @@
 @media (max-width: 1000px) {
   .anime-text .word {
     margin-right: 0.1rem;
-    margin-bottom: 0.15rem;
-    padding: 0.1rem 0.2rem;
+    margin-bottom: 0.1rem;
+    padding: 0.1rem 0.01rem;
   }
 
   .anime-text .word.keyword-wrapper {
