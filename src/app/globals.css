@@ -178,7 +178,7 @@
   display: inline-block;
   position: relative;
   margin-right: 0.2rem;
-  margin-bottom: 0.2rem;
+   margin-bottom: 0.2rem;
   padding: 0.1rem 0.2rem;
   border-radius: 2rem;
   will-change: background-color, opacity;
@@ -270,8 +270,8 @@
 @media (max-width: 1000px) {
   .anime-text .word {
     margin-right: 0.1rem;
-    margin-bottom: 0.15rem;
-    padding: 0.1rem 0.2rem;
+    margin-bottom: 0.1rem;
+    padding: 0.1rem 0.01rem;
   }
 
   .anime-text .word.keyword-wrapper {
@@ -377,7 +377,7 @@ img {
 
 section {
   position: relative;
-  width: 100vw;
+  width: 100svw;
   height: 100svh;
   padding: 1.5rem;
   display: flex;
@@ -400,7 +400,8 @@ section {
   top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 60%;
+  width: 100%;
+  height: 100%;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -432,7 +433,7 @@ section {
   max-width: 1000px;
   text-align: center;
   color: #e3e3db;
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-size: clamp(2.5rem, 6vw, 5rem); /* Increased from clamp(2rem, 5vw, 4rem) */
   font-weight: 800;
   line-height: 1;
 }
@@ -443,8 +444,8 @@ section {
 
 .placeholder-icon {
   margin-top: -10px;
-  width: 60px;
-  height: 60px;
+  width: 80px; /* Increased from 60px */
+  height: 80px; /* Increased from 60px */
   display: inline-block;
   vertical-align: middle;
   will-change: transform;
@@ -452,7 +453,15 @@ section {
 }
 
 .hackwave-img {
-  width: 40vw;
+  width: 60vw;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.right-img {
+  width: 20vw;
   height: auto;
   object-fit: contain;
   display: block;
@@ -465,45 +474,45 @@ section {
   max-width: 1000px;
   text-align: center;
   color: #e3e3db;
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-size: clamp(2.5rem, 6vw, 5rem); /* Increased from clamp(2rem, 5vw, 4rem) */
   font-weight: 800;
   line-height: 1;
 }
 
 @media (max-width: 1000px) {
   .hero-heading {
-    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-size: clamp(2rem, 5vw, 3rem); /* Increased from clamp(1.5rem, 4vw, 2.5rem) */
     max-width: 90vw;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .hero-heading {
-    font-size: clamp(2rem, 4.5vw, 3.5rem);
+    font-size: clamp(2.5rem, 5.5vw, 4rem); /* Increased from clamp(2rem, 4.5vw, 3.5rem) */
     max-width: 95vw;
   }
 }
 
 @media (max-width: 480px) {
   .hero-heading {
-    font-size: clamp(1.2rem, 3.5vw, 2rem);
+    font-size: clamp(1.5rem, 4vw, 2.5rem); /* Increased from clamp(1.2rem, 3.5vw, 2rem) */
     max-width: 95vw;
   }
 }
 
 /* .animated-text can now be used for animation-specific styles only */
-.animated-text {
-  /* animation-specific styles here if needed */
-}
+/* .animated-text {
+  animation-specific styles here if needed
+} */
 
 @media (max-width: 1000px) {
   .animated-text {
-    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-size: clamp(2rem, 5vw, 3rem); /* Increased from clamp(1.5rem, 4vw, 2.5rem) */
     max-width: 90vw;
   }
 
   p {
-      font-size: 1.1rem;
+      font-size: 1rem;
   }
 
   .hero-header {
@@ -513,8 +522,8 @@ section {
 
   .placeholder-icon {
     margin: 6px 0.4em 0 0.4em;
-    width: 30px;
-    height: 30px;
+    width: 45px; /* Increased from 30px */
+    height: 45px; /* Increased from 30px */
   }
 
   .hackwave-img {
@@ -543,7 +552,7 @@ section {
 /* Tablet specific styles */
 @media (min-width: 768px) and (max-width: 1024px) {
   .animated-text {
-    font-size: clamp(2rem, 4.5vw, 3.5rem);
+    font-size: clamp(2.5rem, 5.5vw, 4rem); /* Increased from clamp(2rem, 4.5vw, 3.5rem) */
     max-width: 95vw;
   }
 
@@ -553,15 +562,15 @@ section {
 
   .placeholder-icon {
     margin: 7px 0.45em 0 0.45em;
-    width: 45px;
-    height: 45px;
+    width: 60px; /* Increased from 45px */
+    height: 60px; /* Increased from 45px */
   }
 }
 
 /* Small mobile devices */
 @media (max-width: 480px) {
   .animated-text {
-    font-size: clamp(1.2rem, 3.5vw, 2rem);
+    font-size: clamp(1.5rem, 4vw, 2.5rem); /* Increased from clamp(1.2rem, 3.5vw, 2rem) */
     max-width: 95vw;
   }
 
@@ -571,8 +580,8 @@ section {
 
   .placeholder-icon {
     margin: 4px 0.3em 0 0.3em;
-    width: 25px;
-    height: 25px;
+    width: 35px; /* Increased from 25px */
+    height: 35px; /* Increased from 25px */
   }
 
   .hero-header {
@@ -587,21 +596,20 @@ section {
 
 
 #card-1 .info-card-inner {
-  color: #fff;
+  color: #c5efff;
 }
 #card-2 .info-card-inner {
-  background-color: #fff;
+  background-color: #ddd1ff;
 }
 #card-3 .info-card-inner {
-  background-color: #fed35b;
+  background-color: #c5efff;
 }
 #card-4 .info-card-inner {
-  background-color: #1e1e1e;
-  color: #fff;
+  background-color: #faffa5;
 }
 #card-5 .info-card-inner {
-  background-color: #ff7e67;
+  background-color: #d1ecff;
 }
 #card-6 .info-card-inner {
-  background-color: #c3abff;
+  background-color: #ffc5dd;
 }

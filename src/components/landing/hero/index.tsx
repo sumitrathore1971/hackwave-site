@@ -7,6 +7,13 @@ import React from "react";
 import { LenisProvider } from "@/components/providers/LenisProvider";
 import TextReveal from "../about";
 
+// Extend Window interface to include duplicateIcons property
+declare global {
+  interface Window {
+    duplicateIcons: HTMLElement[] | null;
+  }
+}
+
 // ============================================================================
 // HERO COMPONENT - Main Animation Container
 // ============================================================================
@@ -329,7 +336,7 @@ const Hero = () => {
           // - Creating duplicate icons for final placement
           // - Preparing for text reveal
         } else if (progress <= 0.75) {
-          // // Keep text segments hidden during icon movement
+          // Keep text segments hidden during icon movement
           // textSegmentRefs.current.forEach((segment) => {
           //   if (segment) gsap.set(segment, { opacity: 0 });
           // });
@@ -652,9 +659,11 @@ const Hero = () => {
   // Color blocks configuration for scroll reveal
   const rainbowBlocks = useMemo(
     () => [
-      { color: "#FF6A00", radius: "3rem 3rem 0 0" }, // Orange
-      { color: "#A58BFF", radius: "3rem 3rem 0 0" }, // Purple
-      { color: "#C8FF66", radius: "3rem 3rem 0 0" }, // Green
+      { color: "#c5efff", radius: "3rem 3rem 0 0" }, // Light Blue
+      { color: "#ddd1ff", radius: "3rem 3rem 0 0" }, // Light Purple
+      { color: "#ffc5dd", radius: "3rem 3rem 0 0" }, // Light Pink
+      { color: "#d1ecff", radius: "3rem 3rem 0 0" }, // Sky Blue
+      { color: "#faffa5", radius: "3rem 3rem 0 0" }, // Light Yellow
     ],
     []
   );
@@ -682,17 +691,48 @@ const Hero = () => {
             ============================================================================ */}
         <div
           ref={heroHeaderRef}
-          className="hero-header text-center absolute left-1/2 top-1/2"
-          style={{ transform: "translate(-50%, -50%)" }}
+          className="hero-header absolute left-1/2 top-1/2 flex items-center justify-center w-full"
+          style={{ transform: "translate(-50%, -30%)" }}
         >
-          <img
-            className="hackwave-img"
-            src="/loader-imgs/hackwave.svg"
-            alt="Hackwave Logo"
-          />
-          <p className="text-3xl font-normal">
-            where the boldest builders come to play
-          </p>
+          <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-8xl px-4 md:px-8 gap-8 md:gap-0">
+            {/* Left - Hackwave Logo */}
+            <div className="flex flex-col items-center md:items-start text-center md:text-left order-1 md:order-1">
+              <img
+                className="hackwave-img w-48 md:w-64 lg:w-80"
+                src="/loader-imgs/hackwave.svg"
+                alt="Hackwave Logo"
+              />
+            </div>
+
+            {/* Right - Hackathon Info */}
+            <div className="flex flex-col items-center md:items-end text-center md:text-right order-2 md:order-2">
+              <img
+                className="right-img w-48 md:w-64 lg:w-80"
+                src="/assets/right_img.svg"
+                alt="Hackwave Logo"
+              />
+              {/* <div className="space-y-4">
+                <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#141414]">
+                  36 Hours
+                </p>
+                <p className="text-lg md:text-xl lg:text-2xl font-normal text-gray-600">
+                  of pure innovation
+                </p>
+                <p className="text-xl md:text-2xl lg:text-3xl font-semibold text-[#141414]">
+                  August 15-17, 2025
+                </p>
+                <div className="mt-6 space-y-2">
+                  <p className="text-lg md:text-xl font-normal">Join 500+</p>
+                  <p className="text-base md:text-lg font-normal text-gray-600">
+                    developers
+                  </p>
+                  <p className="text-xl md:text-2xl font-bold text-[#141414]">
+                    $50K+ Prizes
+                  </p>
+                </div>
+              </div> */}
+            </div>
+          </div>
         </div>
 
         {/* ============================================================================
@@ -719,7 +759,7 @@ const Hero = () => {
         {/* ============================================================================
             ANIMATED TEXT CONTAINER - Text segments that fade in with icons
             ============================================================================ */}
-        <h1 className="hero-heading animated-text leading-none">
+        <h1 className="hero-heading animated-text leading-none text-2xl md:text-4xl lg:text-5xl">
           {/* Placeholder icons that will be replaced by animated icons during scroll */}
           <div
             className="placeholder-icon"
@@ -728,7 +768,7 @@ const Hero = () => {
             }}
           ></div>
           <span
-            className="text-segment"
+            className="text-segment text-2xl md:text-4xl lg:text-6xl"
             ref={(el) => {
               textSegmentRefs.current[0] = el;
             }}
@@ -742,7 +782,7 @@ const Hero = () => {
             }}
           ></div>
           <span
-            className="text-segment"
+            className="text-segment text-2xl md:text-4xl lg:text-6xl"
             ref={(el) => {
               textSegmentRefs.current[1] = el;
             }}
@@ -750,7 +790,7 @@ const Hero = () => {
             Create. Collaborate. Conquer.{" "}
           </span>
           <span
-            className="text-segment"
+            className="text-segment text-2xl md:text-4xl lg:text-6xl"
             ref={(el) => {
               textSegmentRefs.current[2] = el;
             }}
@@ -764,7 +804,7 @@ const Hero = () => {
             }}
           ></div>
           <span
-            className="text-segment"
+            className="text-segment text-2xl md:text-4xl lg:text-6xl"
             ref={(el) => {
               textSegmentRefs.current[3] = el;
             }}
@@ -779,7 +819,7 @@ const Hero = () => {
             }}
           ></div>
           <span
-            className="text-segment"
+            className="text-segment text-2xl md:text-4xl lg:text-6xl"
             ref={(el) => {
               textSegmentRefs.current[4] = el;
             }}
@@ -793,7 +833,7 @@ const Hero = () => {
             }}
           ></div>
           <span
-            className="text-segment"
+            className="text-segment text-2xl md:text-4xl lg:text-6xl"
             ref={(el) => {
               textSegmentRefs.current[5] = el;
             }}

@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 import gsap from "gsap";
 
 // ============================================================================
@@ -35,7 +34,7 @@ const RoundCard = ({
 }: RoundCardProps) => {
   return (
     <div
-      className="round-card relative w-full text-[#141414] rounded-2xl p-8 flex flex-col justify-between h-[400px]"
+      className="round-card relative w-full text-[#141414] rounded-2xl p-8 flex flex-col justify-between h-[350px]"
       style={{ backgroundColor: bgColor }}
     >
       {/* Round Icon - Emoji representation of the round type */}
@@ -57,7 +56,7 @@ const RoundCard = ({
         <p className="text-lg font-semibold text-[#666] mb-4">{subtitle}</p>
 
         {/* Round Description - Detailed explanation */}
-        <p className="text-base font-medium leading-relaxed whitespace-pre-line">{description}</p>
+        <p className="text-base font-medium leading-relaxed">{description}</p>
       </div>
     </div>
   );
@@ -69,25 +68,25 @@ const RoundCard = ({
 const Card = ({ title, copy, index }: CardProps) => {
   return (
     <div
-      className="card relative h-[300px] text-[#141414] w-full"
+      className="card relative h-[260px] text-[#141414] w-full"
       id={`card-${index + 1}`}
     >
-      <div className="info-card-inner relative will-change-transform w-full h-full p-[2em] flex gap-[4em]">
-        <div className="card-content flex flex-col text-left w-[80%]">
-          <h1 className="text-[4rem] font-semibold leading-none mb-[2.5em] md:mb-[4rem]">
-            {title}
-          </h1>
-        </div>
-        {/* <p className="text-[1.25rem] font-medium">{copy}</p> */}
-        {index > 0 && (
-          <div className="absolute right-2 top-2 w-20 h-20">
-            <img
-              className="w-1 h-1 object-contain aspect-square"
-              src={`/icons/icon_${index}.png`}
-              alt={`icon-${index}`}
-            />
+      <div className="info-card-inner relative will-change-transform w-full h-full p-[2em] flex flex-col gap-[0.5rem] rounded-xl">
+        <div className="card-content flex flex-col justify-between text-left h-full">
+          <div className="flex items-start gap-[1em]">
+            <div className="flex-shrink-0 w-12 h-12 flex items-center justify-start">
+              <img
+                className="w-6 h-6 object-contain"
+                src={`/icons/icon_${index}.png`}
+                alt={`icon-${index}`}
+              />
+            </div>
+            <h3 className="text-[2.5rem] font-semibold leading-none">
+              {title}
+            </h3>
           </div>
-        )}
+          <p className="text-[1rem] font-medium text-left">{copy}</p>
+        </div>
       </div>
     </div>
   );
@@ -114,12 +113,12 @@ const SimpleRewardsSection = () => {
       index: 3,
     },
     {
-      title: "Mentorship & Networking",
+      title: "Mentorship & Network",
       copy: "Connect with industry experts and peers. Build valuable relationships that last beyond the hackathon.",
       index: 4,
     },
     {
-      title: "Stay & Meals Covered",
+      title: "Stay & Meals",
       copy: "Enjoy comfortable accommodation and delicious food throughout your hackathon journey.",
       index: 5,
     },
@@ -144,24 +143,24 @@ const SimpleRewardsSection = () => {
           {rewards.map((reward, index) => (
             <div
               key={index}
-              className="bg-[#fcf2e8] text-[#141414] rounded-xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="card relative h-[300px] text-[#141414] w-full bg-[#fcf2e8] rounded-xl"
+              id={`card-${index + 2}`}
             >
-              <div className="flex items-start gap-4">
-                {/* Icon */}
-                <div className="flex-shrink-0 w-12 h-12 bg-[#141414] rounded-full flex items-center justify-center">
-                  <img
-                    className="w-6 h-6 object-contain"
-                    src={`/icons/icon_${reward.index}.png`}
-                    alt={`icon-${reward.index}`}
-                  />
-                </div>
-
-                {/* Content */}
-                <div className="flex-1">
-                  <h3 className="text-xl md:text-2xl font-bold mb-3">
-                    {reward.title}
-                  </h3>
-                  <p className="text-sm md:text-base text-[#666] leading-relaxed">
+              <div className="info-card-inner relative will-change-transform w-full h-full p-[2em] flex flex-col gap-[0.5rem] rounded-xl">
+                <div className="card-content flex flex-col justify-between text-left h-full">
+                  <div className="flex items-start gap-[1em]">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center">
+                      <img
+                        className="w-6 h-6 object-contain"
+                        src={`/icons/icon_${reward.index}.png`}
+                        alt={`icon-${reward.index}`}
+                      />
+                    </div>
+                    <h3 className="text-[3rem] font-semibold leading-none">
+                      {reward.title}
+                    </h3>
+                  </div>
+                  <p className="text-[1.3rem] font-medium text-left">
                     {reward.copy}
                   </p>
                 </div>
@@ -242,7 +241,7 @@ export default function InfoCard() {
           trigger: heroRef.current, // Element that triggers the animation
           pin: true, // Pin the hero section during scroll
           start: "top top", // Start pinning when top of hero hits top of viewport
-          end: `+=${window.innerHeight * 4}`, // 4 viewport heights of scroll space
+          end: `+=${window.innerHeight * 2}`, // 4 viewport heights of scroll space
           pinSpacing: true, // Maintain scroll space for pinned element
           markers: false, // Disable debug markers in production
           onUpdate: (self) => {
@@ -376,17 +375,17 @@ export default function InfoCard() {
       title: "Online PPT Submission",
       subtitle: "Digital First Round",
       description:
-        "Submit a PowerPoint showcasing a past project you’re proud of Walk us through your idea, how you brought it to life, and the difference it made — all in a sharp, standout presentation.",
+        "Submit your innovative project presentation online. Showcase your ideas, technical approach, and potential impact through a compelling PowerPoint presentation.",
       icon: "💻", // Computer emoji for digital round
-      bgColor: "#c6fe69", // Bright green background for first round
+      bgColor: "#faffa5", // Bright green background for first round
     },
     {
       title: "Offline 36-hour Build",
       subtitle: "At CDGI Campus",
       description:
-        "Build it. Ship it. Win it.\nJoin us on campus for a 36-hour offline hackathon at CDGI.\nWork side by side with your team, turn fresh ideas into real prototypes, and battle it out for the top spot.",
+        "Bring your ideas to life in an intense 36-hour coding marathon. Collaborate with your team, build your prototype, and compete for the grand prize.",
       icon: "📍", // Location pin emoji for physical location
-      bgColor: "#feaac0", // Pink background for second round
+      bgColor: "#ffc5dd", // Pink background for second round
     },
   ];
 
@@ -410,7 +409,7 @@ export default function InfoCard() {
         className="relative w-screen h-screen p-3 sm:p-4 md:p-6 lg:p-8 overflow-hidden"
       >
         {/* Main content container with centered layout */}
-        <div className="w-full h-full flex flex-col justify-center items-center  p-3 sm:p-4 md:p-6 lg:p-8 relative">
+        <div className="w-full h-full flex flex-col justify-start md:justify-center items-center pt-12 md:pt-0 p-3 sm:p-4 md:p-6 lg:p-8 relative">
           {/* ============================================================================
               SECTION TITLE - Always visible and centered
               ============================================================================ */}
@@ -422,8 +421,10 @@ export default function InfoCard() {
               DESCRIPTION TEXT - Gets covered by sliding cards during animation
               ============================================================================ */}
           <div className="max-w-4xl z-5 mb-4 sm:mb-6 md:mb-8">
-            <p className="text-[#ccc] text-sm sm:text-base md:text-lg lg:text-xl font-medium leading-relaxed rounded-lg sm:rounded-xl md:rounded-2xl lg:rounded-3xl border border-dashed border-[rgb(60,60,60)] p-4 sm:p-6 md:p-8 lg:p-10">
-             Two rounds packed with action, learning, and real creation. From showing past work to building something new, it’s your time to stand out and lead the wave This is your Hackwave moment.
+            <p className="text-[#ccc] text-sm sm:text-base md:text-lg lg:text-xl font-medium leading-relaxed rounded-lg sm:rounded-xl md:rounded-2xl lg:rounded-3xl border border-dashed border-[rgb(60,60,60)] p-4 sm:p-6 md:p-8 lg:p-10 mt-10">
+              Two rounds of intense competition designed to test your skills,
+              creativity, and determination. From concept to creation, prove you
+              have what it takes to be a Hackwave champion.
             </p>
           </div>
 
@@ -440,7 +441,7 @@ export default function InfoCard() {
                   ref={(el) => {
                     cardRefs.current[index] = el; // Store reference for GSAP animation
                   }}
-                  className="absolute inset-0" // Full container positioning for GSAP
+                  className="absolute inset-0 gap-x-5" // Full container positioning for GSAP
                 >
                   <RoundCard {...round} index={index} />
                 </div>
@@ -463,25 +464,28 @@ export default function InfoCard() {
           {/* ============================================================================
               SECTION HEADER - Main title and description
               ============================================================================ */}
-          <div className="mb-12 sm:mb-16 md:mb-20 px-4 sm:px-6 md:px-8 h-screen flex flex-col justify-center items-center">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+          <div className="px-4 sm:px-6 md:px-8 h-screen flex flex-col justify-center items-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-6 sm:mt-72 md:mt-10">
               {/* What You Will Get */}
               <div
-                className="card relative h-[300px] text-[#141414] w-full"
+                className="card relative h-[260px] text-[#141414] w-full py-8"
                 id={`card-1`}
               >
                 <div className="info-card-inner relative will-change-transform w-full h-full p-[2em] flex flex-col gap-[0.5rem]">
                   <div className="card-content flex flex-col text-left w-[80%]">
-                    <h1 className="text-[4rem] font-semibold leading-none mb-[1.5em] md:mb-[2rem]">
+                    <h1 className="text-[3rem] font-semibold leading-none mb-[1.5em] md:mb-[1rem]">
                       What You Will Get
                     </h1>
                   </div>
-                  <p className="text-[1.25rem] font-medium text-left">
+                  <p className="text-[1.05rem] font-medium text-left">
                     Discover the amazing rewards and benefits waiting for you at
                     Hackwave.
                   </p>
                 </div>
               </div>
+              {/* <div className="relative w-full py-8">
+                
+             
 
               {/* Prize Pool */}
               <div

@@ -1,21 +1,17 @@
 "use client";
 
 import Navbar from "@/components/global/nav";
-import About from "@/components/landing/about";
-import Hero from "@/components/landing/hero";
 import InfoCard from "@/components/landing/info-card";
-import ScrollReveal from "@/components/landing/scrollReavel";
-import Copy from "@/components/ui/textAnimation/Copy";
+import ResponsiveHero from "@/components/landing/responsive-hero";
 
 export default function Home() {
   return (
     <>
       <Navbar />
-      <Hero />
+      <ResponsiveHero />
       <InfoCard />
       {/* 
       <About/> */}
-      {/* <ScrollReveal /> */}
 
       {/* <section className="relative w-full h-screen p-8 flex flex-col justify-between">
         <Copy animateOnScroll={true} delay={0.2}>
