@@ -377,7 +377,7 @@ export default function InfoCard() {
       description:
         "Submit your innovative project presentation online. Showcase your ideas, technical approach, and potential impact through a compelling PowerPoint presentation.",
       icon: "💻", // Computer emoji for digital round
-      bgColor: "#faffa5", // Bright green background for first round
+      bgColor: "#c6fe69", // Bright green background for first round
     },
     {
       title: "Offline 36-hour Build",
