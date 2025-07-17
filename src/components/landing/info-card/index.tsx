@@ -57,7 +57,7 @@ const RoundCard = ({
         <p className="text-lg font-semibold text-[#666] mb-4">{subtitle}</p>
 
         {/* Round Description - Detailed explanation */}
-        <p className="text-base font-medium leading-relaxed">{description}</p>
+        <p className="text-base font-medium leading-relaxed whitespace-pre-line">{description}</p>
       </div>
     </div>
   );
@@ -376,7 +376,7 @@ export default function InfoCard() {
       title: "Online PPT Submission",
       subtitle: "Digital First Round",
       description:
-        "Submit your innovative project presentation online. Showcase your ideas, technical approach, and potential impact through a compelling PowerPoint presentation.",
+        "Submit a PowerPoint showcasing a past project you’re proud of Walk us through your idea, how you brought it to life, and the difference it made — all in a sharp, standout presentation.",
       icon: "💻", // Computer emoji for digital round
       bgColor: "#c6fe69", // Bright green background for first round
     },
@@ -384,7 +384,7 @@ export default function InfoCard() {
       title: "Offline 36-hour Build",
       subtitle: "At CDGI Campus",
       description:
-        "Bring your ideas to life in an intense 36-hour coding marathon. Collaborate with your team, build your prototype, and compete for the grand prize.",
+        "Build it. Ship it. Win it.\nJoin us on campus for a 36-hour offline hackathon at CDGI.\nWork side by side with your team, turn fresh ideas into real prototypes, and battle it out for the top spot.",
       icon: "📍", // Location pin emoji for physical location
       bgColor: "#feaac0", // Pink background for second round
     },
@@ -423,9 +423,7 @@ export default function InfoCard() {
               ============================================================================ */}
           <div className="max-w-4xl z-5 mb-4 sm:mb-6 md:mb-8">
             <p className="text-[#ccc] text-sm sm:text-base md:text-lg lg:text-xl font-medium leading-relaxed rounded-lg sm:rounded-xl md:rounded-2xl lg:rounded-3xl border border-dashed border-[rgb(60,60,60)] p-4 sm:p-6 md:p-8 lg:p-10">
-              Two rounds of intense competition designed to test your skills,
-              creativity, and determination. From concept to creation, prove you
-              have what it takes to be a Hackwave champion.
+             Two rounds packed with action, learning, and real creation. From showing past work to building something new, it’s your time to stand out and lead the wave This is your Hackwave moment.
             </p>
           </div>
 
