@@ -312,7 +312,7 @@ const TeamPage = () => {
           <h1 className="text-6xl md:text-8xl lg:text-9xl text-[#fcf2e8] mb-6">
             <VariableProximity
               label="Meet The Team"
-              fromFontVariationSettings="wght 300"
+              fromFontVariationSettings="wght 200"
               toFontVariationSettings="wght 900"
               radius={400}
               containerRef={containerRef}
