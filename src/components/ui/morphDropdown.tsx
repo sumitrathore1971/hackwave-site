@@ -35,7 +35,7 @@ export const PillMenu: FC = () => {
     // Enhanced animation sequence with pulling down effect
     timelineRef.current
       .to(containerRef.current, {
-        height: "480px", // Reduced height for fewer items
+        height: "540px", // Back to original height since Join Now is only in menu on mobile
         width: "14rem", // w-56 equivalent
         duration: 0.6,
         ease: "power3.out",
@@ -107,17 +107,17 @@ export const PillMenu: FC = () => {
         {/* Container with consistent design system */}
         <div
           ref={containerRef}
-          className="h-12 w-40 overflow-hidden rounded-2xl bg-[#141414] will-change-[height,border-radius] border border-[#333]"
+          className="h-12 w-12 md:w-40 overflow-hidden rounded-2xl bg-[#141414] will-change-[height,border-radius] border border-[#333]"
         >
           <div className="px-2 py-1">
             {/* Enhanced trigger with Join Now button and hamburger menu */}
             <div className="flex items-center justify-between">
-              {/* Join Now Button */}
+              {/* Join Now Button - Desktop Only */}
               <Link
                 href="https://unstop.com/o/szmvO5g?lb=2CqWo19U&utm_medium=Share&utm_source=shortUrl"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center px-3 py-2 bg-[#fcf2e8] text-[#141414] rounded-lg font-black text-sm hover:bg-[#e6d9cf] transition-colors duration-200"
+                className="hidden md:flex items-center justify-center px-3 py-2 bg-[#fcf2e8] text-[#141414] rounded-lg font-black text-sm hover:bg-[#e6d9cf] transition-colors duration-200"
               >
                 Join Now
               </Link>
@@ -153,6 +153,20 @@ export const PillMenu: FC = () => {
             {/* Enhanced content with pulling down effect */}
             <Collapsible.Content>
               <div className="mt-6 flex flex-col gap-2 px-3">
+                {/* Join Now Button - Mobile Only */}
+                <Link
+                  href="https://unstop.com/o/szmvO5g?lb=2CqWo19U&utm_medium=Share&utm_source=shortUrl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="md:hidden menu-item translate-y-4 flex items-center justify-center px-4 py-3 bg-[#fcf2e8] text-[#141414] rounded-xl font-black text-base hover:bg-[#e6d9cf] transition-colors duration-200"
+                  style={{
+                    opacity: getItemOpacity(0),
+                    transform: isOpen ? "translateY(0)" : "translateY(16px)",
+                  }}
+                >
+                  Join Now
+                </Link>
+
                 <a
                   href="/"
                   className="menu-item translate-y-4 text-[#fcf2e8] flex items-center gap-3 p-3 rounded-xl hover:bg-[#222] transition-colors duration-200 group"

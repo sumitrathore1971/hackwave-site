@@ -82,6 +82,7 @@
   --fg: #1f1f1f;
   --loader-bg: #e0e0d8;
   --stroke: rgba(0, 0, 0, 0.2);
+  --font-instrument-serif: 'Instrument Serif', serif;
 }
 
 .dark {
@@ -136,6 +137,21 @@
 .font-melodrama { font-family: 'Melodrama', serif; }
 .font-boska { font-family: 'Boska', serif; }
 .pp-neue-world-font { font-family: "PP Neue World", sans-serif; }
+.instrument-serif-regular {
+  font-family: var(--font-instrument-serif), serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.instrument-serif-regular-italic {
+  font-family: var(--font-instrument-serif), serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.instrument-serif {
+  font-family: var(--font-instrument-serif), serif;
+}
 
 /* Copy animation styles */
 .line {
@@ -266,6 +282,59 @@
     width: 100%;
     height: 100%;
     background-color: #c6fe69;
+    border-radius: 2rem;
+    z-index: -1;
+}
+
+/* New keyword styles for the updated text */
+.anime-text .word span.keyword.curated::before,
+.anime-text .word span.keyword.echelon::before,
+.anime-text .word span.keyword.hackathon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ff6ec7;
+    border-radius: 2rem;
+    z-index: -1;
+}
+
+.anime-text .word span.keyword.brightest::before,
+.anime-text .word span.keyword.ship::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ff6d38;
+    border-radius: 2rem;
+    z-index: -1;
+}
+
+.anime-text .word span.keyword.developers::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #4f8cff;
+    border-radius: 2rem;
+    z-index: -1;
+}
+
+.anime-text .word span.keyword.innovation::before,
+.anime-text .word span.keyword.generation::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #4f8cff;
     border-radius: 2rem;
     z-index: -1;
 }

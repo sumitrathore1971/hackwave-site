@@ -373,19 +373,19 @@ export default function InfoCard() {
   const rounds = [
     {
       title: "Online PPT Submission",
-      subtitle: "Digital First Round",
+      subtitle: "Screening Round",
       description:
-        "Submit your innovative project presentation online. Showcase your ideas, technical approach, and potential impact through a compelling PowerPoint presentation.",
+        "Qualify by submitting a presentation (max 10 slides) of a past project. We'll evaluate your team's technical skills. Briefly include: Team Intro & Project Overview, Tech Stack Used, Screenshots or Live Links *For screening only. Cannot be used in the finale.*",
       icon: "💻", // Computer emoji for digital round
-      bgColor: "#c6fe69", // Bright green background for first round
+      bgColor: "#f9ffa5", // Bright green background for first round
     },
     {
-      title: "Offline 36-hour Build",
-      subtitle: "At CDGI Campus",
+      title: "36-Hour Offline Finale",
+      subtitle: "At CDGI Campus, Indore",
       description:
-        "Bring your ideas to life in an intense 36-hour coding marathon. Collaborate with your team, build your prototype, and compete for the grand prize.",
-      icon: "📍", // Location pin emoji for physical location
-      bgColor: "#ffc5dd", // Pink background for second round
+        "The top 50 teams are invited to our campus for the finale. You'll have 36 hours to build a new project from scratch based on surprise problem statements revealed at the event. Let the coding begin!",
+      icon: "🫶", // Location pin emoji for physical location
+      bgColor: "#fec4dc", // Pink background for second round
     },
   ];
 

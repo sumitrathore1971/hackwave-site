@@ -27,9 +27,11 @@ const TextReveal: React.FC = () => {
     // TEXT PROCESSING: Split text into word elements and highlight keywords
     const animeTextParagraphs = document.querySelectorAll(".anime-text p");
     const keywords = [
-      "collaborative",
+      "brightest",
+      "developers",
       "builders",
-      "innovators",
+      "ship",
+      "collaborative",
       "breakthrough",
       "solutions",
       "leaders",
@@ -204,21 +206,21 @@ const TextReveal: React.FC = () => {
         className="about anime-text-container bg-[#141414] text-black relative w-full h-full min-h-screen p-3 sm:p-4 md:p-6 lg:p-8 overflow-x-hidden"
       >
         <div className="w-full h-full flex flex-col justify-center items-center text-center rounded-lg sm:rounded-xl md:rounded-2xl lg:rounded-3xl border border-dashed border-[rgb(60,60,60)] p-4 sm:p-6 md:p-8">
-          <h1 className="text-white mb-2 sm:mb-8 md:mb-12 lg:mb-16 font-black leading-tight px-2 text-[clamp(1.5rem,2vw,1.6rem)] sm:text-[clamp(1.2rem,2.5vw,1.8rem)] md:text-[clamp(1.3rem,2.7vw,2rem)]">
+          <h1 className="text-white mb-2 sm:mb-8 md:mb-12 lg:mb-16 font-black leading-tight px-2 text-[clamp(1.5rem,2vw,1.6rem)] sm:text-[clamp(1.2rem,1.5vw,1.8rem)] md:text-[clamp(1.3rem,2.9vw,3.5rem)]">
             About{" "}
             <span className="inline-block px-2 sm:px-3 md:px-4 lg:px-6 bg-pink-300 rounded-lg sm:rounded-xl md:rounded-2xl lg:rounded-3xl border-2 sm:border-3 md:border-4 lg:border-6">
               Hackwave
             </span>
           </h1>
-          <div className="text-white anime-text w-full max-w-[95vw] sm:max-w-[90vw] md:max-w-[80vw] lg:max-w-[80vw] xl:max-w-[80vw] space-y-3 sm:space-y-4 md:space-y-6 text-[clamp(0.5rem,1.2vw,0.8rem)] sm:text-[clamp(0.6rem,1.4vw,0.9rem)] md:text-[clamp(0.7rem,1.6vw,1rem)] lg:text-[clamp(0.8rem,1.8vw,1.1rem)] xl:text-[clamp(0.9rem,2vw,1.2rem)]">
-            <p className="text-center font-black leading-relaxed px-5 sm:px-8 md:px-12">
-              Hackwave brings together the boldest builders, creators, and
-              innovators in one electrifying space. Design cutting-edge
-              solutions, build revolutionary prototypes, and explore the future
-              of technology. All while pushing the boundaries of what's
-              possible.
+          <div className="text-white anime-text w-full max-w-[80vw] sm:max-w-[75vw] md:max-w-[65vw] lg:max-w-[50vw] xl:max-w-[55vw] space-y-3 sm:space-y-4 md:space-y-6 text-xs sm:text-[clamp(0.5rem,1.2vw,0.85rem)] md:text-[clamp(0.6rem,1.4vw,0.95rem)] lg:text-[clamp(0.7rem,1.6vw,1.05rem)] xl:text-[clamp(0.8rem,1.8vw,1.4rem)]">
+            <p className="text-center md:text-justify font-black leading-relaxed px-5 sm:px-8 md:px-12">
+              Curated by the Echelon Dev Society, Hackwave 2.0 is a 36-hour
+              offline hackathon that brings the country&apos;s brightest student
+              developers under one roof. We're making a national call for
+              builders who are ready to do more than just show up—they&apos;re
+              here to ship.
             </p>
-            <p className="text-center font-black leading-relaxed px-5 sm:px-8 md:px-12">
+            <p className="text-center md:text-justify font-black leading-relaxed px-5 sm:px-8 md:px-12">
               With a focus on real-world impact, collaborative problem-solving,
               and breakthrough innovation, Hackwave lets you turn bold ideas
               into living solutions that change the world. It's where the next
@@ -230,14 +232,14 @@ const TextReveal: React.FC = () => {
           ref={ctaRef}
           className="absolute cta inset-0 w-full h-full overflow-hidden flex items-center justify-center"
         >
-          <div className="w-full h-full mx-auto flex flex-col justify-center items-center text-center rounded-lg sm:rounded-xl md:rounded-2xl lg:rounded-xl bg-[#c6fe69] p-4 sm:p-6 md:p-8">
-            <h1 className="w-full max-w-[95vw] sm:max-w-[90vw] md:max-w-[80vw] lg:max-w-[70vw] xl:max-w-[90vw] text-[#141414] font-black leading-relaxed px-2 sm:px-4 mb-8 sm:mb-12 md:mb-16 lg:mb-20 text-[clamp(2rem,3vw,3rem)] sm:text-[clamp(1.1rem,2.2vw,1.5rem)] md:text-[clamp(3rem,5vw,6rem)]">
+          <div className="w-full h-full mx-auto flex flex-col justify-center items-center text-center rounded-lg sm:rounded-xl md:rounded-2xl lg:rounded-xl bg-[#f9ffa5] p-4 sm:p-6 md:p-8 ">
+            <h1 className=" w-full max-w-[95vw] sm:max-w-[90vw] md:max-w-[80vw] lg:max-w-[70vw] xl:max-w-[90vw] text-[#141414] font-black leading-relaxed px-2 sm:px-4 mb-6 sm:mb-8 md:mb-10 lg:mb-12 text-[clamp(1.8rem,3vw,3rem)] sm:text-[clamp(1.2rem,2vw,1.6rem)] md:text-[clamp(2.5rem,4vw,4.5rem)]">
               Playground for bold ideas and creative interfaces.
             </h1>
-            <div className="w-full grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 lg:gap-10 text-[clamp(1.8rem,2vw,4.1rem)] sm:text-[clamp(1rem,1.8vw,1.3rem)] md:text-[clamp(1rem,2vw,4rem)] text-[#141414]">
+            <div className="w-full grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 lg:gap-10 text-[clamp(1.8rem,2vw,4.1rem)] sm:text-[clamp(1rem,1.8vw,1.3rem)] md:text-[clamp(1rem,1vw,2rem)] text-[#141414] mb-6 sm:mb-8 md:mb-10 lg:mb-12">
               <div className="flex flex-col items-center">
                 <h2 className="font-black mb-2">200+</h2>
-                <p className="font-medium">Participants</p>
+                <p className="font-medium ">Participants</p>
               </div>
               <div className="flex flex-col items-center">
                 <h2 className="font-black mb-2">36</h2>
@@ -252,13 +254,18 @@ const TextReveal: React.FC = () => {
                 <p className="font-medium">Colleges</p>
               </div>
               <div className="flex flex-col items-center">
-                <h2 className="font-black mb-2">1M+</h2>
+                <h2 className="font-black mb-2">500K+</h2>
                 <p className="font-medium">Social Impressions</p>
               </div>
               <div className="flex flex-col items-center">
-                <h2 className="font-black mb-2">24/7</h2>
-                <p className="font-medium">Support</p>
+                <h2 className="font-black mb-2">1 Lakh</h2>
+                <p className="font-medium">Prize Pool</p>
               </div>
+            </div>
+            <div className="w-full text-center">
+              <p className="text-[#141414] font-bold text-[clamp(1.3rem,3vw,2.6rem)] sm:text-[clamp(1.1rem,3.8vw,6.3rem)] md:text-[clamp(1.4rem,3.2vw,2rem)] ">
+                August 23-25, 2025
+              </p>
             </div>
           </div>
         </div>
