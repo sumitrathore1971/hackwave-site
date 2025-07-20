@@ -659,11 +659,11 @@ const Hero = () => {
   // Color blocks configuration for scroll reveal
   const rainbowBlocks = useMemo(
     () => [
-      { color: "#A78BFA", radius: "3rem 3rem 0 0" }, // Light Purple (matches the purple icon)
-      { color: "#34D399", radius: "3rem 3rem 0 0" }, // Emerald Green (matches the green icon)
-      { color: "#FBBF24", radius: "3rem 3rem 0 0" }, // Amber Yellow (matches the yellow icon)
-      { color: "#93C5FD", radius: "3rem 3rem 0 0" }, // Light Blue (matches the blue icon)
-      { color: "#FB923C", radius: "3rem 3rem 0 0" }, // Orange (matches the orange icon)
+      { color: "#c5efff", radius: "3rem 3rem 0 0" }, // Light Blue
+      { color: "#ddd1ff", radius: "3rem 3rem 0 0" }, // Light Purple
+      { color: "#ffc5dd", radius: "3rem 3rem 0 0" }, // Light Pink
+      { color: "#d1ecff", radius: "3rem 3rem 0 0" }, // Sky Blue
+      { color: "#faffa5", radius: "3rem 3rem 0 0" }, // Light YellowA
     ],
     []
   );
@@ -795,7 +795,7 @@ const Hero = () => {
               textSegmentRefs.current[2] = el;
             }}
           >
-             Code with your crew.
+            Code with your crew.
           </span>
           <div
             className="placeholder-icon"
@@ -809,8 +809,7 @@ const Hero = () => {
               textSegmentRefs.current[3] = el;
             }}
           >
-           Solve real problems.
-
+            Solve real problems.
           </span>
           <div
             className="placeholder-icon"
@@ -824,7 +823,7 @@ const Hero = () => {
               textSegmentRefs.current[4] = el;
             }}
           >
-           Join the wave that moves tech forward.
+            Join the wave that moves tech forward.
           </span>
           <div
             className="placeholder-icon"
