@@ -154,7 +154,7 @@ export const PillMenu: FC = () => {
             <Collapsible.Content>
               <div className="mt-6 flex flex-col gap-2 px-3">
                 <a
-                  href="#"
+                  href="/"
                   className="menu-item translate-y-4 text-[#fcf2e8] flex items-center gap-3 p-3 rounded-xl hover:bg-[#222] transition-colors duration-200 group"
                   style={{
                     opacity: getItemOpacity(0),
@@ -184,7 +184,7 @@ export const PillMenu: FC = () => {
                   </div>
                 </a>
                 <a
-                  href="#"
+                  href="/team"
                   className="menu-item translate-y-4 text-[#fcf2e8] flex items-center gap-3 p-3 rounded-xl hover:bg-[#222] transition-colors duration-200 group"
                   style={{
                     opacity: getItemOpacity(2),
@@ -220,25 +220,33 @@ export const PillMenu: FC = () => {
                 {/* Social Media Icons Row */}
                 <div className="flex justify-center gap-1">
                   <a
-                    href="#"
+                    href="https://x.com/devsociety_CDGI"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-10 h-10 rounded-full bg-[#333] flex items-center justify-center hover:bg-[#444] transition-colors duration-200 group"
                   >
                     <Twitter className="w-5 h-5 text-[#fcf2e8] group-hover:text-[#1DA1F2] transition-colors duration-200" />
                   </a>
                   <a
-                    href="#"
+                    href="https://www.instagram.com/echelondevsociety"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-10 h-10 rounded-full bg-[#333] flex items-center justify-center hover:bg-[#444] transition-colors duration-200 group"
                   >
                     <Instagram className="w-5 h-5 text-[#fcf2e8] group-hover:text-[#E4405F] transition-colors duration-200" />
                   </a>
                   <a
-                    href="#"
+                    href="https://www.linkedin.com/company/echelondevsociety/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-10 h-10 rounded-full bg-[#333] flex items-center justify-center hover:bg-[#444] transition-colors duration-200 group"
                   >
                     <Linkedin className="w-5 h-5 text-[#fcf2e8] group-hover:text-[#0A66C2] transition-colors duration-200" />
                   </a>
                   <a
-                    href="#"
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=eds@cdgi.edu.in"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-10 h-10 rounded-full bg-[#333] flex items-center justify-center hover:bg-[#444] transition-colors duration-200 group"
                   >
                     <Mail className="w-5 h-5 text-[#fcf2e8] group-hover:text-[#EA4335] transition-colors duration-200" />

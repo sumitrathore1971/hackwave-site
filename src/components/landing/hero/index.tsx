@@ -809,7 +809,7 @@ const Hero = () => {
               textSegmentRefs.current[3] = el;
             }}
           >
-           Tackle real-world challenges.
+           Solve real problems.
 
           </span>
           <div
@@ -824,7 +824,7 @@ const Hero = () => {
               textSegmentRefs.current[4] = el;
             }}
           >
-            Ride the tech wave.
+           Join the wave that moves tech forward.
           </span>
           <div
             className="placeholder-icon"
