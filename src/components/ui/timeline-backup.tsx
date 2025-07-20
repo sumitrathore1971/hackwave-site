@@ -6,7 +6,6 @@ import {
   motion,
 } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
-import VariableProximity from "@/components/ui/VariableProximity";
 
 interface TimelineEntry {
   title: string;
@@ -35,20 +34,14 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   return (
     <div
-      className="w-full bg-[#f141414] font-sans md:px-10"
+      className="w-full bg-[#141414] font-sans md:px-10"
       ref={containerRef}
     >
       {/* Hero Section with Large Centered Heading */}
       <div className="min-h-screen flex flex-col items-center justify-center px-6">
         <div className="text-center max-w-6xl mx-auto">
           <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-white leading-tight">
-            <VariableProximity
-              label="Hackwave Timeline"
-              fromFontVariationSettings="wght 200"
-              toFontVariationSettings="wght 900"
-              radius={400}
-              containerRef={containerRef}
-            />
+            Hackwave Timeline
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mt-8 leading-relaxed">
             Follow our journey from registration to the ultimate hackathon experience.
@@ -125,9 +118,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-white">
                 {item.title}
               </h3>
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-[#141414]/10">
-                {item.content}
-              </div>
+              {item.content}
             </motion.div>
           </motion.div>
         ))}
