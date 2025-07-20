@@ -303,7 +303,7 @@ const TeamPage = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-[#141414] text-[#fcf2e8] py-20 px-6">
+      <div className="min-h-screen bg-[#141414] text-[#fcf2e8] pb-20 px-6">
         {/* Header Section */}
         <div
           ref={containerRef}
