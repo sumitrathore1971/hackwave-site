@@ -6,6 +6,7 @@ import {
   motion,
 } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
+import VariableProximity from "@/components/ui/VariableProximity";
 
 interface TimelineEntry {
   title: string;
@@ -41,7 +42,13 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       <div className="min-h-screen flex flex-col items-center justify-center px-6">
         <div className="text-center max-w-6xl mx-auto">
           <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-white leading-tight">
-            Hackwave Timeline
+            <VariableProximity
+              label="Hackwave Timeline"
+              fromFontVariationSettings="wght 200"
+              toFontVariationSettings="wght 900"
+              radius={400}
+              containerRef={containerRef}
+            />
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mt-8 leading-relaxed">
             Follow our journey from registration to the ultimate hackathon experience.
