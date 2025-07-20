@@ -35,7 +35,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   return (
     <div
-      className="w-full bg-[#141414] font-sans md:px-10"
+      className="w-full bg-[#f141414] font-sans md:px-10"
       ref={containerRef}
     >
       {/* Hero Section with Large Centered Heading */}
@@ -125,7 +125,9 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-white">
                 {item.title}
               </h3>
-              {item.content}
+              <div className="bg-white rounded-2xl p-8 shadow-lg border border-[#141414]/10">
+                {item.content}
+              </div>
             </motion.div>
           </motion.div>
         ))}
