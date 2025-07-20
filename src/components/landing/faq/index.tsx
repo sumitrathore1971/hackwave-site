@@ -11,12 +11,12 @@ const FAQSection = () => {
     {
       question: "What is HACKWAVE?",
       answer:
-        "A 364-hour hackathon for dedicated builders and innovators. Unlike traditional hackathons, we give teams time to evolve ideas from concept to reality.",
+        "A 36-hour hackathon for dedicated builders and innovators. Unlike traditional hackathons, we give teams time to evolve ideas from concept to reality.",
     },
     {
       question: "When and where is HACKWAVE 2025?",
       answer:
-        "July 13-14, 2025. Both in-person and virtual participation available. Venue details announced closer to the event.",
+        "August 23-25, 2025. Venue :Chameli Devi Group of instituions.",
     },
     {
       question: "Who can participate?",
