@@ -1,15 +1,15 @@
 "use client";
 
-import Navbar from "@/components/global/nav";
+import FAQSection from "@/components/landing/faq";
 import InfoCard from "@/components/landing/info-card";
 import ResponsiveHero from "@/components/landing/responsive-hero";
 
 export default function Home() {
   return (
     <>
-      <Navbar />
       <ResponsiveHero />
       <InfoCard />
+      <FAQSection />
       {/* 
       <About/> */}
 
