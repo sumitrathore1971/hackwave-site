@@ -15,7 +15,7 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 w-screen px-4 md:px-[1.5em] py-4 md:py-[1.5em] flex justify-between z-20">
-      <div className="flex justify-between items-start w-full">
+      <div className="flex justify-between items-start w-full z-10001">
         {/* Logo - Left side */}
         <Copy animateOnScroll={false} delay={0.2}>
           <Link
