@@ -82,10 +82,10 @@ const Hero = () => {
     // Function to get responsive icon size
     const getResponsiveIconSize = () => {
       const width = window.innerWidth;
-      if (width <= 480) return 25; // Small mobile
-      if (width <= 1000) return 30; // Mobile
-      if (width <= 1024) return 45; // Tablet
-      return 60; // Desktop
+      if (width <= 480) return 20; // Small mobile - reduced from 25
+      if (width <= 1000) return 25; // Mobile - reduced from 30
+      if (width <= 1024) return 35; // Tablet - reduced from 45
+      return 45; // Desktop - reduced from 60
     };
 
     // Get initial icon size
@@ -759,7 +759,7 @@ const Hero = () => {
         {/* ============================================================================
             ANIMATED TEXT CONTAINER - Text segments that fade in with icons
             ============================================================================ */}
-        <h1 className="hero-heading animated-text leading-none text-2xl md:text-4xl lg:text-5xl">
+        <h1 className="hero-heading animated-text leading-none text-2xl md:text-3xl lg:text-4xl">
           {/* Placeholder icons that will be replaced by animated icons during scroll */}
           <div
             className="placeholder-icon"
@@ -768,7 +768,7 @@ const Hero = () => {
             }}
           ></div>
           <span
-            className="text-segment text-2xl md:text-4xl lg:text-6xl"
+            className="text-segment text-2xl md:text-3xl lg:text-4xl"
             ref={(el) => {
               textSegmentRefs.current[0] = el;
             }}
@@ -782,7 +782,7 @@ const Hero = () => {
             }}
           ></div>
           <span
-            className="text-segment text-2xl md:text-4xl lg:text-6xl"
+            className="text-segment text-2xl md:text-3xl lg:text-4xl"
             ref={(el) => {
               textSegmentRefs.current[1] = el;
             }}
@@ -790,12 +790,12 @@ const Hero = () => {
             Create. Collaborate. Conquer.{" "}
           </span>
           <span
-            className="text-segment text-2xl md:text-4xl lg:text-6xl"
+            className="text-segment text-2xl md:text-3xl lg:text-4xl"
             ref={(el) => {
               textSegmentRefs.current[2] = el;
             }}
           >
-             Code with your crew.
+            Code with your crew.
           </span>
           <div
             className="placeholder-icon"
@@ -804,13 +804,12 @@ const Hero = () => {
             }}
           ></div>
           <span
-            className="text-segment text-2xl md:text-4xl lg:text-6xl"
+            className="text-segment text-2xl md:text-3xl lg:text-4xl"
             ref={(el) => {
               textSegmentRefs.current[3] = el;
             }}
           >
-           Tackle real-world challenges.
-
+            Tackle real-world challenges.
           </span>
           <div
             className="placeholder-icon"
@@ -819,7 +818,7 @@ const Hero = () => {
             }}
           ></div>
           <span
-            className="text-segment text-2xl md:text-4xl lg:text-6xl"
+            className="text-segment text-2xl md:text-3xl lg:text-4xl"
             ref={(el) => {
               textSegmentRefs.current[4] = el;
             }}
@@ -833,7 +832,7 @@ const Hero = () => {
             }}
           ></div>
           <span
-            className="text-segment text-2xl md:text-4xl lg:text-6xl"
+            className="text-segment text-2xl md:text-3xl lg:text-4xl"
             ref={(el) => {
               textSegmentRefs.current[5] = el;
             }}

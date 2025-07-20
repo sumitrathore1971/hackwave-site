@@ -35,7 +35,7 @@ export const PillMenu: FC = () => {
     // Enhanced animation sequence with pulling down effect
     timelineRef.current
       .to(containerRef.current, {
-        height: "480px", // Reduced height for fewer items
+        height: "520px", // Reduced height for fewer items
         width: "14rem", // w-56 equivalent
         duration: 0.6,
         ease: "power3.out",
@@ -107,17 +107,17 @@ export const PillMenu: FC = () => {
         {/* Container with consistent design system */}
         <div
           ref={containerRef}
-          className="h-12 w-40 overflow-hidden rounded-2xl bg-[#141414] will-change-[height,border-radius] border border-[#333]"
+          className="h-12 md:w-40 w-12 overflow-hidden rounded-2xl bg-[#141414] will-change-[height,border-radius] border border-[#333]"
         >
           <div className="px-2 py-1">
             {/* Enhanced trigger with Join Now button and hamburger menu */}
             <div className="flex items-center justify-between">
-              {/* Join Now Button */}
+              {/* Join Now Button - Hidden on mobile */}
               <Link
                 href="https://unstop.com/o/szmvO5g?lb=2CqWo19U&utm_medium=Share&utm_source=shortUrl"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center px-3 py-2 bg-[#fcf2e8] text-[#141414] rounded-lg font-black text-sm hover:bg-[#e6d9cf] transition-colors duration-200"
+                className="hidden md:flex items-center justify-center px-3 py-2 bg-[#fcf2e8] text-[#141414] rounded-lg font-black text-sm hover:bg-[#e6d9cf] transition-colors duration-200"
               >
                 Join Now
               </Link>
@@ -153,8 +153,18 @@ export const PillMenu: FC = () => {
             {/* Enhanced content with pulling down effect */}
             <Collapsible.Content>
               <div className="mt-6 flex flex-col gap-2 px-3">
-                <a
-                  href="#"
+                {/* Join Now Button - Mobile only */}
+                <Link
+                  href="https://unstop.com/o/szmvO5g?lb=2CqWo19U&utm_medium=Share&utm_source=shortUrl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="md:hidden flex items-center justify-center px-4 py-3 bg-[#fcf2e8] text-[#141414] rounded-xl font-black text-base hover:bg-[#e6d9cf] transition-colors duration-200 mb-2"
+                >
+                  Join Now
+                </Link>
+
+                <Link
+                  href="/"
                   className="menu-item translate-y-4 text-[#fcf2e8] flex items-center gap-3 p-3 rounded-xl hover:bg-[#222] transition-colors duration-200 group"
                   style={{
                     opacity: getItemOpacity(0),
@@ -167,9 +177,9 @@ export const PillMenu: FC = () => {
                       Back to main page
                     </span>
                   </div>
-                </a>
-                <a
-                  href="#"
+                </Link>
+                <Link
+                  href="/info"
                   className="menu-item translate-y-4 text-[#fcf2e8] flex items-center gap-3 p-3 rounded-xl hover:bg-[#222] transition-colors duration-200 group"
                   style={{
                     opacity: getItemOpacity(1),
@@ -182,9 +192,9 @@ export const PillMenu: FC = () => {
                       Event schedule
                     </span>
                   </div>
-                </a>
-                <a
-                  href="#"
+                </Link>
+                <Link
+                  href="/team"
                   className="menu-item translate-y-4 text-[#fcf2e8] flex items-center gap-3 p-3 rounded-xl hover:bg-[#222] transition-colors duration-200 group"
                   style={{
                     opacity: getItemOpacity(2),
@@ -197,7 +207,7 @@ export const PillMenu: FC = () => {
                       Meet the organizers
                     </span>
                   </div>
-                </a>
+                </Link>
                 <a
                   href="#"
                   className="menu-item translate-y-4 text-[#fcf2e8] flex items-center gap-3 p-3 rounded-xl hover:bg-[#222] transition-colors duration-200 group"

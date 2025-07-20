@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Host_Grotesk } from "next/font/google";
 import "./globals.css";
 import { LenisProvider } from "@/components/providers/LenisProvider";
+import Navbar from "@/components/global/nav";
 
 const hostGrotesk = Host_Grotesk({
   subsets: ["latin"],
@@ -27,6 +28,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`antialiased ${hostGrotesk.className}`}>
+        <Navbar />
         <LenisProvider>{children}</LenisProvider>
       </body>
     </html>

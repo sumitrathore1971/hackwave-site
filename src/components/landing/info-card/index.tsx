@@ -170,7 +170,7 @@ const SimpleRewardsSection = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="text-center mt-16">
+        {/* <div className="text-center mt-16">
           <div className="text-6xl md:text-7xl mb-6">🧑‍💻</div>
           <h3 className="text-2xl md:text-3xl lg:text-4xl font-black mb-4">
             Ready to <span className="text-[#feaac0]">Claim Your Rewards</span>?
@@ -178,7 +178,7 @@ const SimpleRewardsSection = () => {
           <p className="text-lg md:text-xl text-[#ccc]">
             Join the ultimate hackathon experience today!
           </p>
-        </div>
+        </div> */}
       </div>
     </div>
   );
@@ -413,7 +413,7 @@ export default function InfoCard() {
           {/* ============================================================================
               SECTION TITLE - Always visible and centered
               ============================================================================ */}
-          <h1 className="w-full text-center max-w-[95%] sm:max-w-[90%] md:max-w-[85%] lg:max-w-[80%] xl:max-w-[75%] text-[#fcf2e8] text-5xl sm:text-5xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-black leading-relaxed sm:leading-tight md:leading-tight lg:leading-tight px-2 sm:px-4 z-10 mb-4 sm:mb-6 md:mb-8">
+          <h1 className="w-full text-center max-w-[95%] sm:max-w-[90%] md:max-w-[85%] lg:max-w-[80%] xl:max-w-[75%] text-[#fcf2e8] text-5xl sm:text-5xl md:text-2xl lg:text-6xl xl:text-7xl 2xl:text-7xl font-black leading-relaxed sm:leading-tight md:leading-tight lg:leading-tight px-2 sm:px-4 z-10 mb-4 sm:mb-6 md:mb-8">
             How It Works
           </h1>
 
@@ -556,7 +556,7 @@ export default function InfoCard() {
           {/* ============================================================================
               FINAL CTA - Call to action with decorative elements
               ============================================================================ */}
-          <div className="text-center h-screen flex flex-col items-center justify-center">
+          {/* <div className="text-center h-screen flex flex-col items-center justify-center">
             <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-4 sm:mb-6">
               🧑‍💻
             </div>
@@ -567,7 +567,7 @@ export default function InfoCard() {
             <p className="text-sm sm:text-base md:text-lg font-medium text-[#ccc]">
               Join the ultimate hackathon experience today!
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
 

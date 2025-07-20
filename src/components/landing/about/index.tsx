@@ -210,15 +210,15 @@ const TextReveal: React.FC = () => {
               Hackwave
             </span>
           </h1>
-          <div className="text-white anime-text w-full max-w-[95vw] sm:max-w-[90vw] md:max-w-[80vw] lg:max-w-[70vw] xl:max-w-[60vw] space-y-4 sm:space-y-6 md:space-y-8 text-[clamp(0.65rem,1.5vw,1rem)] sm:text-[clamp(0.9rem,1.7vw,1.1rem)] md:text-[clamp(1.5rem,1.8vw,1.15rem)]">
-            <p className="text-center font-black leading-relaxed px-2 sm:px-4">
+          <div className="text-white anime-text w-full max-w-[95vw] sm:max-w-[90vw] md:max-w-[80vw] lg:max-w-[80vw] xl:max-w-[80vw] space-y-3 sm:space-y-4 md:space-y-6 text-[clamp(0.5rem,1.2vw,0.8rem)] sm:text-[clamp(0.6rem,1.4vw,0.9rem)] md:text-[clamp(0.7rem,1.6vw,1rem)] lg:text-[clamp(0.8rem,1.8vw,1.1rem)] xl:text-[clamp(0.9rem,2vw,1.2rem)]">
+            <p className="text-center font-black leading-relaxed px-5 sm:px-8 md:px-12">
               Hackwave brings together the boldest builders, creators, and
               innovators in one electrifying space. Design cutting-edge
               solutions, build revolutionary prototypes, and explore the future
               of technology. All while pushing the boundaries of what's
               possible.
             </p>
-            <p className="text-center font-black leading-relaxed px-2 sm:px-4">
+            <p className="text-center font-black leading-relaxed px-5 sm:px-8 md:px-12">
               With a focus on real-world impact, collaborative problem-solving,
               and breakthrough innovation, Hackwave lets you turn bold ideas
               into living solutions that change the world. It's where the next

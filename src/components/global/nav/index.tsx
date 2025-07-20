@@ -1,20 +1,21 @@
+"use client";
 import React, { useState } from "react";
 import Link from "next/link";
 import Copy from "@/components/ui/textAnimation/Copy";
 import { PillMenu } from "@/components/ui/morphDropdown";
 
-type Props = {};
-
-const Navbar = (props: Props) => {
+const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const closeMenu = () => {
-    setIsMenuOpen(false);
+    if (isMenuOpen) {
+      setIsMenuOpen(false);
+    }
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-screen px-4 md:px-[3.5em] py-4 md:py-[2em] flex justify-between z-20">
-      <div className="flex justify-between items-center w-full">
+    <nav className="fixed top-0 left-0 w-screen px-4 md:px-[1.5em] py-4 md:py-[1.5em] flex justify-between z-20">
+      <div className="flex justify-between items-start w-full">
         {/* Logo - Left side */}
         <Copy animateOnScroll={false} delay={0.2}>
           <Link
@@ -28,7 +29,7 @@ const Navbar = (props: Props) => {
         </Copy>
 
         {/* Right Side - Join Now Button + Hamburger (Desktop & Mobile) */}
-        <div className="flex items-center gap-3 ">
+        <div className="flex items-center">
           {/* Join Now Button */}
           {/* <Link
             href="https://unstop.com/o/szmvO5g?lb=2CqWo19U&utm_medium=Share&utm_source=shortUrl"
