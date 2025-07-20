@@ -212,15 +212,15 @@ const TextReveal: React.FC = () => {
               Hackwave
             </span>
           </h1>
-          <div className="text-white anime-text w-full max-w-[80vw] sm:max-w-[75vw] md:max-w-[65vw] lg:max-w-[50vw] xl:max-w-[55vw] space-y-3 sm:space-y-4 md:space-y-6 text-xs sm:text-[clamp(0.5rem,1.2vw,0.85rem)] md:text-[clamp(0.6rem,1.4vw,0.95rem)] lg:text-[clamp(0.7rem,1.6vw,1.05rem)] xl:text-[clamp(0.8rem,1.8vw,1.4rem)]">
-            <p className="text-center md:text-justify font-black leading-relaxed px-5 sm:px-8 md:px-12">
+          <div className="text-white anime-text w-full max-w-[80vw] sm:max-w-[75vw] md:max-w-[65vw] lg:max-w-[50vw] xl:max-w-[55vw] space-y-3 sm:space-y-4 md:space-y-6 text-[0.3rem] sm:text-[clamp(0.5rem,1.2vw,0.85rem)] md:text-[clamp(0.6rem,1.4vw,0.95rem)] lg:text-[clamp(0.7rem,1.6vw,1.05rem)] xl:text-[clamp(0.8rem,1.8vw,1.4rem)]">
+            <p className="text-center md:text-justify font-black leading-relaxed px-2 sm:px-8 md:px-12">
               Curated by the Echelon Dev Society, Hackwave 2.0 is a 36-hour
               offline hackathon that brings the country&apos;s brightest student
               developers under one roof. We're making a national call for
               builders who are ready to do more than just show up—they&apos;re
               here to ship.
             </p>
-            <p className="text-center md:text-justify font-black leading-relaxed px-5 sm:px-8 md:px-12">
+            <p className="text-center md:text-justify font-black leading-relaxed px-2 sm:px-8 md:px-12">
               With a focus on real-world impact, collaborative problem-solving,
               and breakthrough innovation, Hackwave lets you turn bold ideas
               into living solutions that change the world. It's where the next
