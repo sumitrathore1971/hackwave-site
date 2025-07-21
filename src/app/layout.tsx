@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Host_Grotesk } from "next/font/google";
+import { Host_Grotesk, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { LenisProvider } from "@/components/providers/LenisProvider";
 import Navbar from "@/components/global/nav";
@@ -7,6 +7,14 @@ import Navbar from "@/components/global/nav";
 const hostGrotesk = Host_Grotesk({
   subsets: ["latin"],
   display: "swap",
+});
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal", "italic"],
+  display: "swap",
+  variable: "--font-instrument-serif",
 });
 
 export const metadata: Metadata = {

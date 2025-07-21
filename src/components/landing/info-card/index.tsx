@@ -34,7 +34,7 @@ const RoundCard = ({
 }: RoundCardProps) => {
   return (
     <div
-      className="round-card relative w-full text-[#141414] rounded-2xl p-8 flex flex-col justify-between h-[350px]"
+      className="round-card relative w-full text-[#141414] rounded-2xl p-8 flex flex-col justify-between h-[500px] md:h-[350px]"
       style={{ backgroundColor: bgColor }}
     >
       {/* Round Icon - Emoji representation of the round type */}
@@ -129,8 +129,8 @@ const SimpleRewardsSection = () => {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
-            What You Will Get
+          <h2 className="text-5xl sm:text-5xl md:text-2xl lg:text-6xl xl:text-7xl 2xl:text-7xl font-black leading-relaxed sm:leading-tight md:leading-tight lg:leading-tight mb-6">
+            What You Get
           </h2>
           <p className="text-lg md:text-xl text-[#ccc] max-w-3xl mx-auto">
             Discover the amazing rewards and benefits waiting for you at
@@ -373,19 +373,19 @@ export default function InfoCard() {
   const rounds = [
     {
       title: "Online PPT Submission",
-      subtitle: "Digital First Round",
+      subtitle: "Screening Round",
       description:
-        "Submit your innovative project presentation online. Showcase your ideas, technical approach, and potential impact through a compelling PowerPoint presentation.",
+        "Qualify by submitting a presentation (max 10 slides) of a past project. We'll evaluate your team's technical skills. Briefly include: Team Intro & Project Overview, Tech Stack Used, Screenshots or Live Links *For screening only. Cannot be used in the finale.*",
       icon: "💻", // Computer emoji for digital round
-      bgColor: "#c6fe69", // Bright green background for first round
+      bgColor: "#f9ffa5", // Bright green background for first round
     },
     {
-      title: "Offline 36-hour Build",
-      subtitle: "At CDGI Campus",
+      title: "36-Hour Offline Finale",
+      subtitle: "At CDGI Campus, Indore",
       description:
-        "Bring your ideas to life in an intense 36-hour coding marathon. Collaborate with your team, build your prototype, and compete for the grand prize.",
-      icon: "📍", // Location pin emoji for physical location
-      bgColor: "#ffc5dd", // Pink background for second round
+        "The top 50 teams are invited to our campus for the finale. You'll have 36 hours to build a new project from scratch based on surprise problem statements revealed at the event. Let the coding begin!",
+      icon: "🫶", // Location pin emoji for physical location
+      bgColor: "#fec4dc", // Pink background for second round
     },
   ];
 
@@ -433,7 +433,7 @@ export default function InfoCard() {
               ============================================================================ */}
           <div className="absolute inset-0 flex items-center justify-center">
             {/* Card wrapper with responsive height and max-width constraints */}
-            <div className="relative w-full max-w-4xl h-[300px] sm:h-[350px] md:h-[400px] lg:h-[500px] xl:h-[600px] z-20">
+            <div className="relative w-full max-w-4xl h-[130vh] sm:h-[350px] md:h-[400px] lg:h-[500px] xl:h-[600px] z-20">
               {/* Map through rounds data to create animated cards */}
               {rounds.map((round, index) => (
                 <div
