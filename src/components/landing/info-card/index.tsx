@@ -129,8 +129,8 @@ const SimpleRewardsSection = () => {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
-            What You Will Get
+          <h2 className="text-5xl sm:text-5xl md:text-2xl lg:text-6xl xl:text-7xl 2xl:text-7xl font-black leading-relaxed sm:leading-tight md:leading-tight lg:leading-tight mb-6">
+            What You Get
           </h2>
           <p className="text-lg md:text-xl text-[#ccc] max-w-3xl mx-auto">
             Discover the amazing rewards and benefits waiting for you at
