@@ -30,38 +30,41 @@ const Card = ({ badge, title, content, cta, index }: CardProps) => {
       className="card relative h-full text-[#141414] w-full"
       id={`card-${index + 1}`}
     >
-      <div className="info-card-inner relative will-change-transform w-full h-full p-[2em] flex flex-col gap-[0.75rem] rounded-xl">
+      <div className="info-card-inner relative will-change-transform w-full h-full p-4 sm:p-6 md:p-8 flex flex-col gap-4 sm:gap-6 md:gap-8 rounded-xl">
         <Badge
-          className="inline-block text-[#141414] px-3 py-1.5 rounded-full text-base font-semibold border-1 border-[#141414]"
+          className="inline-block text-[#141414] px-3 py-1.5 rounded-full text-sm sm:text-base md:text-lg font-semibold border-1 border-[#141414] mb-2 sm:mb-3"
           style={{ backgroundColor: badgeBg }}
         >
           {badge}
         </Badge>
-        <h3 className="text-[2.75rem] font-bold leading-tight  mb-10">
+        <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-3 md:mb-6">
           {title}
         </h3>
 
-        <div className="text-[1.1rem] font-medium text-left mb-4">
+        <div className="text-sm sm:text-base md:text-lg lg:text-xl font-medium text-left mb-2 md:mb-4">
           {content}
         </div>
-        {cta &&
-          (cta.href ? (
-            <a
-              href={cta.href}
-              className="inline-block mt-2 px-6 py-2 bg-[#141414] text-[#c6fe69] rounded-full font-semibold text-base transition-colors hover:bg-[#222] focus:outline-none focus:ring-2 focus:ring-[#c6fe69]"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {cta.label}
-            </a>
-          ) : (
-            <button
-              onClick={cta.onClick}
-              className="inline-block mt-2 px-6 py-2 bg-[#141414] text-[#c6fe69] rounded-full font-semibold text-base transition-colors hover:bg-[#222] focus:outline-none focus:ring-2 focus:ring-[#c6fe69]"
-            >
-              {cta.label}
-            </button>
-          ))}
+        {cta && (
+          <div className="w-full flex justify-center md:justify-start">
+            {cta.href ? (
+              <a
+                href={cta.href}
+                className="inline-block mt-2 px-6 py-2 bg-[#141414] text-[#c6fe69] rounded-full font-semibold text-base transition-colors hover:bg-[#222] focus:outline-none focus:ring-2 focus:ring-[#c6fe69] text-center"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {cta.label}
+              </a>
+            ) : (
+              <button
+                onClick={cta.onClick}
+                className="inline-block mt-2 px-6 py-2 bg-[#141414] text-[#c6fe69] rounded-full font-semibold text-base transition-colors hover:bg-[#222] focus:outline-none focus:ring-2 focus:ring-[#c6fe69] text-center"
+              >
+                {cta.label}
+              </button>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

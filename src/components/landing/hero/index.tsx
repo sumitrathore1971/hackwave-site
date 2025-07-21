@@ -748,7 +748,7 @@ const Hero = () => {
               }}
             >
               <img
-                src={`/icons/icon_${i}.png`}
+                src={`/icons/icon_${i}.svg`}
                 alt={`Icon ${i}`}
                 className="w-full h-full object-cover"
               />

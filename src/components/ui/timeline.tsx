@@ -103,7 +103,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
             <motion.div
               className="relative pl-20 pr-4 md:pl-4 w-full"
-              initial={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 0, x: 0 }}
               whileInView={{
                 opacity: 1,
                 x: 0,
