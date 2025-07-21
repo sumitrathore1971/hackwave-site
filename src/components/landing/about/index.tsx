@@ -236,7 +236,7 @@ const TextReveal: React.FC = () => {
             <h1 className=" w-full max-w-[95vw] sm:max-w-[90vw] md:max-w-[80vw] lg:max-w-[70vw] xl:max-w-[90vw] text-[#141414] font-black leading-relaxed px-2 sm:px-4 mb-6 sm:mb-8 md:mb-10 lg:mb-12 text-[clamp(1.8rem,3vw,3rem)] sm:text-[clamp(1.2rem,2vw,1.6rem)] md:text-[clamp(2.5rem,4vw,4.5rem)]">
               Playground for bold ideas and creative interfaces.
             </h1>
-            <div className="w-full grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 lg:gap-10 text-[clamp(1.8rem,2vw,4.1rem)] sm:text-[clamp(1rem,1.8vw,1.3rem)] md:text-[clamp(1rem,1vw,2rem)] text-[#141414] mb-6 sm:mb-8 md:mb-10 lg:mb-12">
+            <div className="w-full grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 lg:gap-10 text-[clamp(1.8rem,2vw,4.1rem)] sm:text-[clamp(1rem,1.8vw,1.3rem)] md:text-[clamp(1rem,1.7vw,2rem)] text-[#141414] mb-6 sm:mb-8 md:mb-10 lg:mb-12">
               <div className="flex flex-col items-center">
                 <h2 className="font-black mb-2">200+</h2>
                 <p className="font-medium ">Participants</p>

@@ -34,7 +34,7 @@ const RoundCard = ({
 }: RoundCardProps) => {
   return (
     <div
-      className="round-card relative w-full text-[#141414] rounded-2xl p-8 flex flex-col justify-between h-[350px]"
+      className="round-card relative w-full text-[#141414] rounded-2xl p-8 flex flex-col justify-between h-[500px] md:h-[350px]"
       style={{ backgroundColor: bgColor }}
     >
       {/* Round Icon - Emoji representation of the round type */}
@@ -433,7 +433,7 @@ export default function InfoCard() {
               ============================================================================ */}
           <div className="absolute inset-0 flex items-center justify-center">
             {/* Card wrapper with responsive height and max-width constraints */}
-            <div className="relative w-full max-w-4xl h-[300px] sm:h-[350px] md:h-[400px] lg:h-[500px] xl:h-[600px] z-20">
+            <div className="relative w-full max-w-4xl h-[130vh] sm:h-[350px] md:h-[400px] lg:h-[500px] xl:h-[600px] z-20">
               {/* Map through rounds data to create animated cards */}
               {rounds.map((round, index) => (
                 <div
