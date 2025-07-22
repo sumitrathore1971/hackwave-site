@@ -77,7 +77,7 @@ const Card = ({ title, copy, index }: CardProps) => {
             <div className="flex-shrink-0 w-12 h-12 flex items-center justify-start">
               <img
                 className="w-6 h-6 object-contain"
-                src={`/icons/icon_${index}.png`}
+                src={`/icons/icon_${index}.svg`}
                 alt={`icon-${index}`}
               />
             </div>
@@ -156,7 +156,7 @@ const SimpleRewardsSection = () => {
                         alt={`icon-${reward.index}`}
                       />
                     </div>
-                    <h3 className="text-[3rem] font-semibold leading-none">
+                    <h3 className="text-[2.5rem] font-semibold leading-none">
                       {reward.title}
                     </h3>
                   </div>

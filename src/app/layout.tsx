@@ -3,6 +3,7 @@ import { Host_Grotesk, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { LenisProvider } from "@/components/providers/LenisProvider";
 import Navbar from "@/components/global/nav";
+import Footer from "@/components/global/footer";
 
 const hostGrotesk = Host_Grotesk({
   subsets: ["latin"],
@@ -38,6 +39,7 @@ export default function RootLayout({
       <body className={`antialiased ${hostGrotesk.className}`}>
         <Navbar />
         <LenisProvider>{children}</LenisProvider>
+        {/* <Footer /> */}
       </body>
     </html>
   );

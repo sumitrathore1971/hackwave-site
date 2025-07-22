@@ -107,24 +107,26 @@ export const PillMenu: FC = () => {
         {/* Container with consistent design system */}
         <div
           ref={containerRef}
-          className="h-12 w-12 md:w-40 overflow-hidden rounded-2xl bg-[#141414] will-change-[height,border-radius] border border-[#333]"
+          className="h-14 w-12 md:w-40 overflow-hidden rounded-2xl bg-[#141414] will-change-[height,border-radius] border border-[#333]"
         >
           <div className="px-2 py-1">
             {/* Enhanced trigger with Join Now button and hamburger menu */}
-            <div className="flex items-center justify-between">
-              {/* Join Now Button - Desktop Only */}
-              <Link
-                href="https://unstop.com/o/szmvO5g?lb=2CqWo19U&utm_medium=Share&utm_source=shortUrl"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hidden md:flex items-center justify-center px-3 py-2 bg-[#fcf2e8] text-[#141414] rounded-lg font-black text-sm hover:bg-[#e6d9cf] transition-colors duration-200"
-              >
-                Join Now
-              </Link>
+            <div className="flex items-center h-full justify-between">
+              <div className="flex items-center justify-center bg-">
+                {/* Join Now Button - Desktop Only */}
+                <Link
+                  href="https://unstop.com/o/szmvO5g?lb=2CqWo19U&utm_medium=Share&utm_source=shortUrl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hidden md:flex items-center justify-center px-3 py-3  text-[#e6d9cf] rounded-lg font-black text-sm hover:bg-[#feaac0] hover:text-[#141414] transition-colors duration-200 "
+                >
+                  Join Now
+                </Link>
+              </div>
 
               {/* Hamburger Menu Icon */}
               <Collapsible.Trigger asChild>
-                <button className="flex items-center justify-center w-8 h-8 text-[#fcf2e8] hover:bg-[#222] rounded-2xl transition-colors duration-200">
+                <Button className="flex items-center justify-center w-8 h-12 text-[#fcf2e8]  hover:bg-[#222] rounded-2xl transition-colors duration-200 md:px-2 md:pb-3 md:pt-2 md:pl-2 md:pr-4 p-2">
                   <div
                     ref={hamburgerRef}
                     className="flex flex-col justify-center items-center w-5 h-5 relative"
@@ -146,7 +148,7 @@ export const PillMenu: FC = () => {
                       }`}
                     ></div>
                   </div>
-                </button>
+                </Button>
               </Collapsible.Trigger>
             </div>
 
