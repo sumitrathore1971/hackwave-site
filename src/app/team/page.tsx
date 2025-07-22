@@ -49,12 +49,11 @@ const facultyCoordinators: TeamMember[] = [
 const organizers: TeamMember[] = [
   {
     id: 1,
-    name: "Atharvaraj Singh Thakur",
+    name: "Atharva Raj Singh Thakur",
     role: "Technical Lead",
-    image: "/icons/icon_1.png",
+    image: "/teamPhoto/atharva.jpeg",
     category: "organizer",
-    social: {
-    },
+    social: {},
   },
   {
     id: 2,
@@ -62,8 +61,7 @@ const organizers: TeamMember[] = [
     role: "Technical Lead",
     image: "/icons/icon_2.png",
     category: "organizer",
-    social: {
-    },
+    social: {},
   },
   {
     id: 3,
@@ -73,10 +71,10 @@ const organizers: TeamMember[] = [
     category: "organizer",
     social: {
       linkedin: "https://www.linkedin.com/in/devansh-jagtap",
-      twitter:"https://x.com/devansh_jagtap"
+      twitter: "https://x.com/devansh_jagtap",
     },
   },
- {
+  {
     id: 4,
     name: "Jigyarth Sharma",
     role: "Operation and Management lead",
@@ -84,7 +82,7 @@ const organizers: TeamMember[] = [
     category: "organizer",
     social: {
       linkedin: "https://www.linkedin.com/in/jigyarth",
-      twitter: "https://twitter.com/btwitsjigz"
+      twitter: "https://twitter.com/btwitsjigz",
     },
   },
   {
@@ -93,8 +91,7 @@ const organizers: TeamMember[] = [
     role: "Design lead",
     image: "/teamPhoto/anam.jpg",
     category: "organizer",
-    social: {
-    },
+    social: {},
   },
   {
     id: 6,
@@ -134,12 +131,13 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: 2,
-    name: "Prashant chouhan ",
-    role: "Technical Team",
-    image: "/teamPhoto/Prashant Chouhan.jpg",
+    name: "Kamaksha",
+    role: "Outreach Team",
+    image: "/teamPhoto/Kamaksha.jpg",
     category: "team",
     social: {
-      linkedin: "https://www.linkedin.com/in/prashantt-chouhan/",
+      linkedin:
+        "https://www.linkedin.com/in/kamaksha-r-793983252?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     },
   },
   {
@@ -155,13 +153,13 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: 4,
-    name: "Jishan Ansari ",
-    role: "Technical Team",
-    image: "/teamPhoto/Jishan Ansari.jpg",
+    name: "Shreya Girase",
+    role: "Social & content team",
+    image: "/teamPhoto/Shreya Girase.jpg",
     category: "team",
     social: {
-      linkedin: "https://www.linkedin.com/in/jishan-ansari-74363a280",
-      twitter: "https://twitter.com/Ansarixjishan",
+      linkedin:
+        "https://www.linkedin.com/in/shreya-girase-4951aa290?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     },
   },
   {
@@ -193,7 +191,8 @@ const teamMembers: TeamMember[] = [
     image: "/teamPhoto/Saloni Pathak.jpg",
     category: "team",
     social: {
-      linkedin: "https://www.linkedin.com/in/saloni-pathak-555505290?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      linkedin:
+        "https://www.linkedin.com/in/saloni-pathak-555505290?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     },
   },
   {
@@ -225,7 +224,8 @@ const teamMembers: TeamMember[] = [
     image: "/teamPhoto/Sumit Chouhan.jpg",
     category: "team",
     social: {
-      linkedin: "https://www.linkedin.com/in/sumit-chouhan-a3858b290?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      linkedin:
+        "https://www.linkedin.com/in/sumit-chouhan-a3858b290?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       twitter: "https://x.com/SumitChouh46839?s=09",
     },
   },
@@ -236,17 +236,18 @@ const teamMembers: TeamMember[] = [
     image: "/teamPhoto/Paridhi Jain.jpg",
     category: "team",
     social: {
-      linkedin: "https://www.linkedin.com/in/paridhi-jain-240a69297?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      linkedin:
+        "https://www.linkedin.com/in/paridhi-jain-240a69297?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     },
   },
   {
     id: 12,
-    name: "Shreya Girase",
-    role: "Social & content team",
-    image: "/teamPhoto/Shreya Girase.jpg",
+    name: "Prashant chouhan ",
+    role: "Technical Team",
+    image: "/teamPhoto/Prashant Chouhan.jpg",
     category: "team",
     social: {
-      linkedin: "https://www.linkedin.com/in/shreya-girase-4951aa290?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      linkedin: "https://www.linkedin.com/in/prashantt-chouhan/",
     },
   },
   {
@@ -256,17 +257,19 @@ const teamMembers: TeamMember[] = [
     image: "/teamPhoto/Vaidehi Gupta.jpg",
     category: "team",
     social: {
-      linkedin: "https://www.linkedin.com/in/vaidehi-gupta-739970290?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      linkedin:
+        "https://www.linkedin.com/in/vaidehi-gupta-739970290?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     },
   },
   {
     id: 14,
-    name: "Kamaksha",
-    role: "Outreach Team",
-    image: "/teamPhoto/Kamaksha.jpg",
+    name: "Jishan Ansari ",
+    role: "Technical Team",
+    image: "/teamPhoto/Jishan Ansari.jpg",
     category: "team",
     social: {
-      linkedin:"https://www.linkedin.com/in/kamaksha-r-793983252?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+      linkedin: "https://www.linkedin.com/in/jishan-ansari-74363a280",
+      twitter: "https://twitter.com/Ansarixjishan",
     },
   },
 ];
@@ -300,31 +303,33 @@ const TeamPage = () => {
         </div>
         <div className="max-w-7xl mx-auto">
           {/* Faculty Coordinators Section */}
-          <div className="mb-20">
-            <div className="text-center mb-12">
-              <h2 className="flex flex-row items-center justify-center text-4xl md:text-5xl font-black text-[#fcf2e8] mb-4 gap-4">
-                Faculty
-                <span className="inline-block px-2 sm:px-3 md:px-4 lg:px-6 bg-pink-300 rounded-lg sm:rounded-xl md:rounded-2xl lg:rounded-3xl border-2 sm:border-3 md:border-4 lg:border-6">
-                  {" "}
-                  Coordinators
-                </span>
-              </h2>
-              <p className="text-lg md:text-xl text-[#ccc] max-w-2xl mx-auto">
-                Academic leaders providing guidance and support for our
-                hackathon
-              </p>
+          {false && (
+            <div className="mb-20">
+              <div className="text-center mb-12">
+                <h2 className="flex flex-row items-center justify-center text-4xl md:text-5xl font-black text-[#fcf2e8] mb-4 gap-4">
+                  Faculty
+                  <span className="inline-block px-2 sm:px-3 md:px-4 lg:px-6 bg-pink-300 rounded-lg sm:rounded-xl md:rounded-2xl lg:rounded-3xl border-2 sm:border-3 md:border-4 lg:border-6">
+                    {" "}
+                    Coordinators
+                  </span>
+                </h2>
+                <p className="text-lg md:text-xl text-[#ccc] max-w-2xl mx-auto">
+                  Academic leaders providing guidance and support for our
+                  hackathon
+                </p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                {facultyCoordinators.map((member) => (
+                  <TeamCard
+                    key={`faculty-${member.id}`}
+                    member={member}
+                    onMouseEnter={setHoveredMember}
+                    onMouseLeave={() => setHoveredMember(null)}
+                  />
+                ))}
+              </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              {facultyCoordinators.map((member) => (
-                <TeamCard
-                  key={`faculty-${member.id}`}
-                  member={member}
-                  onMouseEnter={setHoveredMember}
-                  onMouseLeave={() => setHoveredMember(null)}
-                />
-              ))}
-            </div>
-          </div>
+          )}
 
           {/* Organizers Section */}
           <div className="mb-20">

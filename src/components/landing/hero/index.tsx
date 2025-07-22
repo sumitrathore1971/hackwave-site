@@ -659,11 +659,12 @@ const Hero = () => {
   // Color blocks configuration for scroll reveal
   const rainbowBlocks = useMemo(
     () => [
-      { color: "#c5efff", radius: "3rem 3rem 0 0" }, // Light Blue
-      { color: "#ddd1ff", radius: "3rem 3rem 0 0" }, // Light Purple
-      { color: "#ffc5dd", radius: "3rem 3rem 0 0" }, // Light Pink
-      { color: "#d1ecff", radius: "3rem 3rem 0 0" }, // Sky Blue
-      { color: "#faffa5", radius: "3rem 3rem 0 0" }, // Light YellowA
+
+      { color: "#c5ffc9", radius: "3rem 3rem 0 0" },
+      { color: "#f9ffa5", radius: "3rem 3rem 0 0" }, 
+      { color: "#feaac0", radius: "3rem 3rem 0 0" }, 
+      { color: "#dcd0fe", radius: "3rem 3rem 0 0" }, 
+      { color: "#d1ecff", radius: "3rem 3rem 0 0" }, 
     ],
     []
   );

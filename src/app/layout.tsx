@@ -37,9 +37,11 @@ export default function RootLayout({
         />
       </head>
       <body className={`antialiased ${hostGrotesk.className}`}>
-        <Navbar />
-        <LenisProvider>{children}</LenisProvider>
-        {/* <Footer /> */}
+        <LenisProvider>
+          <Navbar />
+          {children}
+          <Footer />
+        </LenisProvider>
       </body>
     </html>
   );

@@ -1,92 +1,157 @@
 "use client";
 
 import Link from "next/link";
-import { Twitter, Instagram, Linkedin } from "lucide-react";
+import { Instagram, Linkedin, Mail } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { useRef } from "react";
+import { gsap } from "gsap";
 
 const navLinks = [
   { name: "Home", href: "/" },
-  { name: "Team", href: "/team" },
   { name: "Timeline", href: "/timeline" },
-  { name: "FAQ", href: "/#faq" },
+  { name: "Team", href: "/team" },
+  {
+    name: "Register",
+    href: "https://unstop.com/o/szmvO5g?lb=2CqWo19U&utm_medium=Share&utm_source=shortUrl",
+  },
 ];
 
 export default function Footer() {
+  // Hover background colors for nav links
+  const hoverBgColors = [
+    "hover:bg-[#c5ffc9]", 
+    "hover:bg-[#f9ffa5]",
+    "hover:bg-[#feaac0]", 
+    "hover:bg-[#dcd0fe]", 
+  ];
+
+  // For nav link refs
+  const linkRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+
   return (
-    <div className="w-full flex flex-col justify-center bg-[#141414] py-14 px-4 items-center border-[#222]">
-      <Card className="w-full max-w-5xl bg-[#faffa5] border border-[#e5e5e5] rounded-2xl flex flex-col md:flex-row items-center md:items-start justify-between gap-12 md:gap-12 p-8">
-        {/* Branding */}
-        <div className="flex flex-col items-center md:items-start gap-4 w-full md:w-1/3">
-          <div className="flex items-center gap-3">
-            <img
-              src="/loader-imgs/hackwave.svg"
-              alt="Hackwave Logo"
-              className="w-14 h-14 object-contain"
-            />
-          </div>
-          <p className="text-[#222] text-base max-w-xs text-center md:text-left font-semibold">
-            The ultimate student hackathon experience. Code, create, and connect
-            with the best minds in India.
-          </p>
+    <div className="w-full h-screen flex flex-col justify-center items-center bg-[#141414] px-4 md:px-16 border-[#222] overflow-x-hidden">
+      <div className="w-full h-screen max-w-6xl bg-[#fcf2e8] border border-[#e5e5e5] rounded-2xl flex flex-col justify-between p-4 md:p-8 my-8 shadow-xl">
+        {/* Main Content: Centered Logo */}
+        <div className="flex flex-col items-center justify-center w-full md:w-[55%] mx-auto mt-8 mb-8">
+          <img
+            src="/assets/hackwave-logo.svg"
+            alt="Hackwave Logo"
+            className="w-16 h-16 md:w-20 md:h-20 object-contain mx-auto"
+          />
         </div>
-
-        {/* Navigation */}
-        <div className="flex flex-col items-center md:items-start gap-2 w-full md:w-1/3">
-          <span className="inline-block bg-[#141414] text-[#fcf2e8] px-3 py-1 rounded-full text-sm font-semibold mb-2">
-            Navigate
-          </span>
-          <ul className="flex flex-col gap-1">
-            {navLinks.map((link) => (
-              <li key={link.name}>
-                <Link
-                  href={link.href}
-                  className="text-[#141414] hover:text-[#feaac0] transition-colors font-bold text-base rounded px-2 py-1"
-                >
-                  {link.name}
-                </Link>
-              </li>
+        {/* Nav Links: Row on desktop, grid on mobile */}
+        <div className="w-full mt-8">
+          {/* Navigation Heading */}
+          <h2 className="text-[#141414] font-bold uppercase text-base md:text-lg tracking-widest mb-2 md:mb-4 text-center">
+            Navigation
+          </h2>
+          <div className="hidden md:flex flex-row justify-between items-center gap-4 w-full">
+            {navLinks.map((link, i) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                ref={(el) => {
+                  linkRefs.current[i] = el;
+                }}
+                className={`text-[#141414] border-4 border-transparent transition-colors font-extrabold text-xl md:text-3xl uppercase px-2 md:px-4 py-3 md:py-4 rounded text-center w-full block ${
+                  hoverBgColors[i % hoverBgColors.length]
+                } hover:text-black hover:border-4 hover:border-[#141414]`}
+                onMouseEnter={() => {
+                  if (linkRefs.current[i]) {
+                    gsap.to(linkRefs.current[i], {
+                      borderRadius: "4rem",
+                      duration: 0.5,
+                      ease: "power2.out",
+                    });
+                  }
+                }}
+                onMouseLeave={() => {
+                  if (linkRefs.current[i]) {
+                    gsap.to(linkRefs.current[i], {
+                      borderRadius: "0.5rem",
+                      duration: 0.3,
+                      ease: "power2.in",
+                    });
+                  }
+                }}
+              >
+                {link.name}
+              </Link>
             ))}
-          </ul>
-        </div>
-
-        {/* Socials */}
-        <div className="flex flex-col items-center md:items-end gap-2 w-full md:w-1/3">
-          <span className="inline-block bg-[#141414] text-[#fcf2e8] px-3 py-1 rounded-full text-sm font-semibold mb-2">
+          </div>
+          <div className="grid grid-cols-2 gap-4 w-full md:hidden mt-4 ">
+            {navLinks.map((link, i) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                ref={(el) => {
+                  linkRefs.current[i] = el;
+                }}
+                className={`text-[#141414]  border-4 border-transparent transition-colors font-extrabold text-lg uppercase px-2 py-3 rounded text-center w-full block ${
+                  hoverBgColors[i % hoverBgColors.length]
+                } hover:text-black hover:border-4 hover:border-[#141414]`}
+                onMouseEnter={() => {
+                  if (linkRefs.current[i]) {
+                    gsap.to(linkRefs.current[i], {
+                      borderRadius: "4rem",
+                      duration: 0.5,
+                      ease: "power2.out",
+                    });
+                  }
+                }}
+                onMouseLeave={() => {
+                  if (linkRefs.current[i]) {
+                    gsap.to(linkRefs.current[i], {
+                      borderRadius: "0.5rem",
+                      duration: 0.3,
+                      ease: "power2.in",
+                    });
+                  }
+                }}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
+          {/* Socials Heading */}
+          <h2 className="text-[#141414] font-bold uppercase text-base md:text-lg tracking-widest mt-8 mb-2 md:mb-4 text-center">
             Connect
-          </span>
-          <div className="flex gap-4 mt-1">
+          </h2>
+          {/* Socials Row */}
+          <div className="flex flex-row justify-center items-center gap-6 w-full mt-2">
             <a
-              href="https://twitter.com/hackwaveindia"
+              href="https://www.instagram.com/echelondevsociety"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#feaac0] hover:bg-[#fec4dc] transition-colors rounded-full p-2 flex items-center justify-center"
-              aria-label="Twitter"
-            >
-              <Twitter className="w-6 h-6 text-[#141414]" />
-            </a>
-            <a
-              href="https://instagram.com/hackwaveindia"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#feaac0] hover:bg-[#fec4dc] transition-colors rounded-full p-2 flex items-center justify-center"
+              className="w-10 h-10 rounded-full bg-[#ffe4ec] flex items-center justify-center hover:bg-[#ffd6e6] transition-colors duration-200 group"
               aria-label="Instagram"
             >
-              <Instagram className="w-6 h-6 text-[#141414]" />
+              <Instagram className="w-5 h-5 text-[#c13584] group-hover:text-[#a14c7e] transition-colors duration-200" />
             </a>
             <a
-              href="https://linkedin.com/company/hackwaveindia"
+              href="https://www.linkedin.com/company/echelondevsociety/"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#feaac0] hover:bg-[#fec4dc] transition-colors rounded-full p-2 flex items-center justify-center"
+              className="w-10 h-10 rounded-full bg-[#e6f0ff] flex items-center justify-center hover:bg-[#d6eaff] transition-colors duration-200 group"
               aria-label="LinkedIn"
             >
-              <Linkedin className="w-6 h-6 text-[#141414]" />
+              <Linkedin className="w-5 h-5 text-[#0077b5] group-hover:text-[#4a90e2] transition-colors duration-200" />
+            </a>
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=eds@cdgi.edu.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-full bg-[#ffeaea] flex items-center justify-center hover:bg-[#ffd6d6] transition-colors duration-200 group"
+              aria-label="Mail"
+            >
+              <Mail className="w-5 h-5 text-[#ea4335] group-hover:text-[#e57373] transition-colors duration-200" />
             </a>
           </div>
         </div>
-      </Card>
-      <div className="w-full text-center text-[#666] text-xs mt-8">
-        &copy; {new Date().getFullYear()} Hackwave. All rights reserved.
+        {/* Copyright */}
+        <div className="w-full text-center text-[#666] text-xs mt-8">
+          &copy; {new Date().getFullYear()} Hackwave. All rights reserved.
+        </div>
       </div>
     </div>
   );

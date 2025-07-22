@@ -234,73 +234,7 @@
     z-index: -1;
 }
 
-.anime-text .word span.keyword.builders::before,
-.anime-text .word span.keyword.innovators::before,
-.anime-text .word span.keyword.breakthrough::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #ff6d38;
-    border-radius: 2rem;
-    z-index: -1;
-}
-
-.anime-text .word span.keyword.solutions::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #c6fe69;
-    border-radius: 2rem;
-    z-index: -1;
-}
-
-.anime-text .word span.keyword.collaborative::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #4f8cff;
-    border-radius: 2rem;
-    z-index: -1;
-}
-
-.anime-text .word span.keyword.Leader::before,
-.anime-text .word span.keyword.leader::before,
-.anime-text .word span.keyword.leaders::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #c6fe69;
-    border-radius: 2rem;
-    z-index: -1;
-}
-
-/* New keyword styles for the updated text */
-.anime-text .word span.keyword.curated::before,
-.anime-text .word span.keyword.echelon::before,
-.anime-text .word span.keyword.hackathon::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #ff6ec7;
-    border-radius: 2rem;
-    z-index: -1;
-}
-
+/* --- Updated Keyword Highlight Colors (Pastel Palette) --- */
 .anime-text .word span.keyword.brightest::before,
 .anime-text .word span.keyword.ship::before {
     content: '';
@@ -309,7 +243,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #ff6d38;
+    background-color: #a3e6a7; /* darker mint from #c5ffc9 */
     border-radius: 2rem;
     z-index: -1;
 }
@@ -321,10 +255,50 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #4f8cff;
+    background-color: #a5cfff; /* darker blue from #d1ecff */
     border-radius: 2rem;
     z-index: -1;
 }
+
+.anime-text .word span.keyword.builders::before,
+.anime-text .word span.keyword.breakthrough::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #feaac0; /* pastel pink */
+    border-radius: 2rem;
+    z-index: -1;
+}
+
+.anime-text .word span.keyword.collaborative::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #a5baff; /* darker lavender from #dcd0fe */
+    border-radius: 2rem;
+    z-index: -1;
+}
+
+.anime-text .word span.keyword.solutions::before,
+.anime-text .word span.keyword.leaders::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f9ffa5; /* pastel yellow */
+    border-radius: 2rem;
+    z-index: -1;
+}
+
+/* Remove or override any previous conflicting keyword color rules below this block */
 
 .anime-text .word span.keyword.innovation::before,
 .anime-text .word span.keyword.generation::before {
@@ -671,19 +645,20 @@ section {
   color: #c5efff;
 }
 #card-2 .info-card-inner {
-  background-color: #ddd1ff;
+  background-color: #dcd0fe; /* pastel lavender */
 }
 #card-3 .info-card-inner {
-  background-color: #c5efff;
+  background-color: #feaac0; /* pastel pink */
 }
 #card-4 .info-card-inner {
-  background-color: #faffa5;
+  background-color: #f9ffa5; /* pastel yellow */
 }
 #card-5 .info-card-inner {
-  background-color: #d1ecff;
+ 
+  background-color: #d1ecff; /* pastel blue */
 }
 #card-6 .info-card-inner {
-  background-color: #ffc5dd;
+  background-color: #c5ffc9; /* pastel mint */
 }
 
 /* Smooth scrolling for timeline and entire app */

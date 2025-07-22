@@ -5,7 +5,7 @@
 import { useState, useEffect, useRef, type FC } from "react";
 import * as Collapsible from "@radix-ui/react-collapsible";
 import gsap from "gsap";
-import { Menu, Twitter, Instagram, Linkedin, Mail } from "lucide-react";
+import { Instagram, Linkedin, Mail } from "lucide-react";
 import { Button } from "./button";
 import Link from "next/link";
 
@@ -35,7 +35,7 @@ export const PillMenu: FC = () => {
     // Enhanced animation sequence with pulling down effect
     timelineRef.current
       .to(containerRef.current, {
-        height: "540px", // Back to original height since Join Now is only in menu on mobile
+        height: "460px", // Back to original height since Join Now is only in menu on mobile
         width: "14rem", // w-56 equivalent
         duration: 0.6,
         ease: "power3.out",
@@ -112,7 +112,7 @@ export const PillMenu: FC = () => {
           <div className="px-2 py-1">
             {/* Enhanced trigger with Join Now button and hamburger menu */}
             <div className="flex items-center h-full justify-between">
-              <div className="flex items-center justify-center bg-">
+              <div className="flex items-center justify-center">
                 {/* Join Now Button - Desktop Only */}
                 <Link
                   href="https://unstop.com/o/szmvO5g?lb=2CqWo19U&utm_medium=Share&utm_source=shortUrl"
@@ -154,7 +154,7 @@ export const PillMenu: FC = () => {
 
             {/* Enhanced content with pulling down effect */}
             <Collapsible.Content>
-              <div className="mt-6 flex flex-col gap-2 px-3">
+              <div className="md:mt-6 flex flex-col  gap-2 px-3">
                 {/* Join Now Button - Mobile Only */}
                 <Link
                   href="https://unstop.com/o/szmvO5g?lb=2CqWo19U&utm_medium=Share&utm_source=shortUrl"
@@ -222,32 +222,32 @@ export const PillMenu: FC = () => {
                     transform: isOpen ? "translateY(0)" : "translateY(16px)",
                   }}
                 >
-                  <div className="flex flex-col">
+                  {/* <div className="flex flex-col">
                     <span className="font-black text-base">Sponsors</span>
                     <span className="font-medium text-sm text-[#ccc]">
                       Our partners
                     </span>
-                  </div>
+                  </div> */}
                 </a>
 
                 {/* Separator */}
-                <div className="my-3 border-t border-[#333]"></div>
+                <div className="my-3 border border-[#333]"></div>
 
                 {/* Social Media Icons Row */}
                 <div className="flex justify-center gap-1">
-                  <a
+                  {/* <a
                     href="https://x.com/devsociety_CDGI"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-10 h-10 rounded-full bg-[#333] flex items-center justify-center hover:bg-[#444] transition-colors duration-200 group"
                   >
                     <Twitter className="w-5 h-5 text-[#fcf2e8] group-hover:text-[#1DA1F2] transition-colors duration-200" />
-                  </a>
+                  </a> */}
                   <a
                     href="https://www.instagram.com/echelondevsociety"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-[#333] flex items-center justify-center hover:bg-[#444] transition-colors duration-200 group"
+                    className="w-15 h-10 rounded-full bg-[#333] flex items-center justify-center hover:bg-[#444] transition-colors duration-200 group"
                   >
                     <Instagram className="w-5 h-5 text-[#fcf2e8] group-hover:text-[#E4405F] transition-colors duration-200" />
                   </a>
@@ -255,7 +255,7 @@ export const PillMenu: FC = () => {
                     href="https://www.linkedin.com/company/echelondevsociety/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-[#333] flex items-center justify-center hover:bg-[#444] transition-colors duration-200 group"
+                    className="w-15 h-10 rounded-full bg-[#333] flex items-center justify-center hover:bg-[#444] transition-colors duration-200 group"
                   >
                     <Linkedin className="w-5 h-5 text-[#fcf2e8] group-hover:text-[#0A66C2] transition-colors duration-200" />
                   </a>
@@ -263,7 +263,7 @@ export const PillMenu: FC = () => {
                     href="https://mail.google.com/mail/?view=cm&fs=1&to=eds@cdgi.edu.in"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-[#333] flex items-center justify-center hover:bg-[#444] transition-colors duration-200 group"
+                    className="w-15 h-10 rounded-full bg-[#333] flex items-center justify-center hover:bg-[#444] transition-colors duration-200 group"
                   >
                     <Mail className="w-5 h-5 text-[#fcf2e8] group-hover:text-[#EA4335] transition-colors duration-200" />
                   </a>
