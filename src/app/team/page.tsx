@@ -51,9 +51,12 @@ const organizers: TeamMember[] = [
     id: 1,
     name: "Atharva Raj Singh Thakur",
     role: "Technical Lead",
-    image: "/teamPhoto/atharva.jpeg",
+    image: "/teamPhoto/atharva2.jpg",
     category: "organizer",
-    social: {},
+    social: {
+      twitter: "https://x.com/codepaglu",
+      linkedin: "https://www.linkedin.com/in/atharvarajthakur/",
+    },
   },
   {
     id: 2,
@@ -61,7 +64,10 @@ const organizers: TeamMember[] = [
     role: "Technical Lead",
     image: "/teamPhoto/AniruddhDubge.jpeg",
     category: "organizer",
-    social: {},
+    social: {
+      twitter: "https://x.com/icantcodefyi",
+      linkedin: "https://www.linkedin.com/in/aniruddhdubge/",
+    },
   },
   {
     id: 3,
