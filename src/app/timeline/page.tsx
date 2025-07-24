@@ -114,7 +114,7 @@ export default function TimelinePage() {
       ),
     },
     {
-      title: "23rd July 2025",
+      title: "24rd July 2025",
       content: (
         <Card
           index={2}
@@ -122,7 +122,7 @@ export default function TimelinePage() {
           title="First Batch Approval"
           content={
             <>
-              <b>Date:</b> 23 July 2025
+              <b>Date:</b> 24 July 2025
               <br />
               First batch of selected teams will be announced today.
               <br />

@@ -57,9 +57,9 @@ const organizers: TeamMember[] = [
   },
   {
     id: 2,
-    name: "Aniruddha Dubgey",
+    name: "Aniruddh Dubge",
     role: "Technical Lead",
-    image: "/icons/icon_2.png",
+    image: "/teamPhoto/AniruddhDubge.jpeg",
     category: "organizer",
     social: {},
   },
@@ -87,7 +87,7 @@ const organizers: TeamMember[] = [
   },
   {
     id: 5,
-    name: "Anam Qureshi",
+    name: "Anam Mansoori",
     role: "Design lead",
     image: "/teamPhoto/anam.jpg",
     category: "organizer",
@@ -131,7 +131,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: 2,
-    name: "Kamaksha",
+    name: "Kamaksha Raghuwanshi",
     role: "Outreach Team",
     image: "/teamPhoto/Kamaksha.jpg",
     category: "team",
@@ -166,7 +166,7 @@ const teamMembers: TeamMember[] = [
     id: 5,
     name: "Jayditya Sawai ",
     role: "Operations & Management Team",
-    image: "/teamPhoto/Jayditya Sawai.jpg",
+    image: "/teamPhoto/JaydityaSawai.jpg",
     category: "team",
     social: {
       linkedin: "https://www.linkedin.com/in/jayditya-sawai",
