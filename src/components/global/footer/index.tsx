@@ -19,18 +19,18 @@ const navLinks = [
 export default function Footer() {
   // Hover background colors for nav links
   const hoverBgColors = [
-    "hover:bg-[#c5ffc9]", 
+    "hover:bg-[#c5ffc9]",
     "hover:bg-[#f9ffa5]",
-    "hover:bg-[#feaac0]", 
-    "hover:bg-[#dcd0fe]", 
+    "hover:bg-[#feaac0]",
+    "hover:bg-[#dcd0fe]",
   ];
 
   // For nav link refs
   const linkRefs = useRef<(HTMLAnchorElement | null)[]>([]);
 
   return (
-    <div className="w-full h-screen flex flex-col justify-center items-center bg-[#141414] px-4 md:px-16 border-[#222] overflow-x-hidden">
-      <div className="w-full h-screen max-w-6xl bg-[#fcf2e8] border border-[#e5e5e5] rounded-2xl flex flex-col justify-between p-4 md:p-8 my-8 shadow-xl">
+    <div className="w-full min-h-screen flex flex-col justify-center items-center bg-[#141414] px-4 md:px-16 border-[#222] overflow-x-hidden">
+      <div className="w-full min-h-screen max-w-6xl bg-[#fcf2e8] border border-[#e5e5e5] rounded-2xl flex flex-col justify-between p-4 md:p-8 my-8 shadow-xl">
         {/* Main Content: Centered Logo */}
         <div className="flex flex-col items-center justify-center w-full md:w-[55%] mx-auto mt-8 mb-8">
           <img

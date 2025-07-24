@@ -42,7 +42,9 @@ export default function Home() {
         </div>
       )}
       <div
-        style={{ opacity: loading ? 0 : 1, transition: "opacity 0.5s ease" }}
+        className="bg-[#141414] min-h-screen w-screen overflow-x-clip"
+
+        style={{ opacity: loading ? 0 : 1, transition: "opacity 0.9s ease" }}
       >
         <ResponsiveHero />
         <InfoCard />
