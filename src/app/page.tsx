@@ -2,6 +2,7 @@
 
 import FAQSection from "@/components/landing/faq";
 import InfoCard from "@/components/landing/info-card";
+import SponsorsSection from "@/components/landing/sponsors";
 import ResponsiveHero from "@/components/landing/responsive-hero";
 import Loader from "@/components/ui/Loader";
 import { useState, useEffect } from "react";
@@ -48,6 +49,7 @@ export default function Home() {
       >
         <ResponsiveHero />
         <InfoCard />
+        <SponsorsSection />
         <FAQSection />
       </div>
     </>
