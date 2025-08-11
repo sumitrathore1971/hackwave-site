@@ -203,9 +203,9 @@ const FAQSection = () => {
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="px-4 sm:px-6 pb-4 sm:pb-6">
-                  <p className="text-[#141414]/80 leading-relaxed font-medium text-sm sm:text-base">
+                  <div className="text-[#141414]/80 leading-relaxed font-medium text-sm sm:text-base">
                     {typeof faq.answer === "string" ? faq.answer : faq.answer}
-                  </p>
+                  </div>
                 </AccordionContent>
               </AccordionItem>
             ))}
