@@ -7,7 +7,7 @@ interface TeamMember {
   role: string;
   image: string;
   bio?: string;
-  category: "organizer" | "faculty" | "team";
+  category: "organizer" | "faculty" | "team" | "judge" | "mentor";
   social: {
     twitter?: string;
     linkedin?: string;
@@ -29,6 +29,10 @@ const getCategoryColor = (category: string) => {
       return "bg-[#c6fe69]";
     case "team":
       return "bg-[#ffc5dd]";
+    case "judge":
+      return "bg-[#ff9f40]";
+    case "mentor":
+      return "bg-[#4bc0c0]";
     default:
       return "bg-gray-500";
   }
@@ -42,6 +46,10 @@ const getHoverColor = (category: string) => {
       return "hover:text-[#c6fe69]";
     case "team":
       return "hover:text-[#ffc5dd]";
+    case "judge":
+      return "hover:text-[#ff9f40]";
+    case "mentor":
+      return "hover:text-[#4bc0c0]";
     default:
       return "hover:text-gray-600";
   }
