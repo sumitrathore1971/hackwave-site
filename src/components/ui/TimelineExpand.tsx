@@ -48,13 +48,15 @@ export default function TimelineExpand({
   }, [isModalOpen])
 
   return (
-    <div className="relative max-w-20xl mx-auto">
-      <div className="flex w-full gap-1 rounded-md pb-10 pt-5 md:gap-2 justify-center">
+    <div className="relative max-w-7xl mx-auto px-4">
+      <div className="flex max-[719px]:flex-col min-[720px]:flex-row w-full max-[719px]:gap-6 min-[720px]:gap-2 rounded-md pb-10 pt-5 justify-center max-[719px]:items-center">
         {days.slice(0, maxThumbnails).map((day, i) => (
           <div
             key={`day-container-${i}`}
-            className={`group relative h-[35rem] overflow-hidden rounded-2xl transition-all duration-300 cursor-pointer ${
-              selectedIndex === i ? "w-[60rem]" : "w-18 sm:w-25 md:w-24 xl:w-36"
+            className={`group relative overflow-hidden rounded-2xl transition-all duration-300 cursor-pointer ${
+              selectedIndex === i 
+                ? "max-[719px]:w-[90vw] max-[719px]:h-[28rem] min-[720px]:w-[50rem] min-[720px]:h-[32rem]" 
+                : "max-[719px]:w-[85vw] max-[719px]:h-[6rem] min-[720px]:w-16 min-[720px]:h-[32rem]"
             }`}
             onMouseEnter={() => setSelectedIndex(i)}
             onMouseLeave={() => setSelectedIndex(i)}
@@ -75,11 +77,7 @@ export default function TimelineExpand({
                   style={{ backgroundColor: day.color }}
                 >
                   <span 
-                    className="text-[#141414] font-bold text-xl uppercase"
-                    style={{ 
-                      writingMode: 'vertical-lr',
-                      textOrientation: 'upright'
-                    }}
+                    className="text-[#141414] font-bold text-xl uppercase max-[719px]:[writing-mode:horizontal-tb] min-[720px]:[writing-mode:vertical-lr] max-[719px]:[text-orientation:mixed] min-[720px]:[text-orientation:upright]"
                   >
                     {day.date}
                   </span>
@@ -88,7 +86,7 @@ export default function TimelineExpand({
               
               {/* Header for expanded card */}
               {selectedIndex === i && (
-                <div className="flex items-center justify-center gap-3 mb-6 flex-shrink-0 p-8 pb-2">
+                <div className="flex items-center justify-center gap-3 mb-5 flex-shrink-0 p-4 pb-1">
                   {/* <span 
                     className="inline-block text-[#141414] font-semibold px-4 py-2 rounded-full text-base"
                     style={{ backgroundColor: day.color }}
@@ -104,33 +102,31 @@ export default function TimelineExpand({
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.2 }}
-                  className="flex-1 overflow-y-auto px-5 pt-0 flex items-center justify-center"
+                  className="flex-1 overflow-y-auto px-4 pt-0"
                 >
-                  <div className="space-y-4 px-4 pb-8 pt-2">
-                    <div className="w-full max-w-3xl space-y-4">
-                      {day.events.map((event, eventIndex) => {
-                        // Extract time and description from event string
-                        const [timePart, ...descParts] = event.split(' — ');
-                        const description = descParts.join(' — ');
-                        
-                        // Extract only the starting time (before the dash or "AM"/"PM")
-                        const startTime = timePart.split('–')[0].split('-')[0].trim();
-                        
-                        return (
-                          <div key={eventIndex} className="grid grid-cols-[80px_1fr] gap-6 items-center">
-                            <div
-                              className="text-[#141414] font-bold px-2 py-2 rounded-lg text-sm text-center w-full"
-                              style={{ backgroundColor: day.color }}
-                            >
-                              {startTime}
-                            </div>
-                            <div className="text-lg font-bold text-left">
-                              {description}
-                            </div>
+                  <div className="max-w-4xl mx-auto space-y-4 pb-4">
+                    {day.events.map((event, eventIndex) => {
+                      // Extract time and description from event string
+                      const [timePart, ...descParts] = event.split(' — ');
+                      const description = descParts.join(' — ');
+                      
+                      // Extract only the starting time (before the dash or "AM"/"PM")
+                      const startTime = timePart.split('–')[0].split('-')[0].trim();
+                      
+                      return (
+                        <div key={eventIndex} className="flex items-center gap-4">
+                          <div
+                            className="text-[#141414] font-bold px-3 py-1 rounded-lg text-sm text-center flex-shrink-0"
+                            style={{ backgroundColor: day.color }}
+                          >
+                            {startTime}
                           </div>
-                        );
-                      })}
-                    </div>
+                          <div className="text-lg font-bold text-left flex-1">
+                            {description}
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
                 </motion.div>
               )}
