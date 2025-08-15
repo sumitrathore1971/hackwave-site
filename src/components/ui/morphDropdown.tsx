@@ -199,7 +199,7 @@ export const PillMenu: FC = () => {
                     </span>
                   </div>
                 </a>
-                <a
+                {/* <a
                   href="/hackwave-info"
                   className="menu-item translate-y-4 text-[#fcf2e8] flex items-center gap-3 p-3 rounded-xl hover:bg-[#222] transition-colors duration-200 group"
                   style={{
@@ -213,7 +213,7 @@ export const PillMenu: FC = () => {
                       Rules, prizes, and details
                     </span>
                   </div>
-                </a>
+                </a> */}
                 <a
                   href="/team"
                   className="menu-item translate-y-4 text-[#fcf2e8] flex items-center gap-3 p-3 rounded-xl hover:bg-[#222] transition-colors duration-200 group"
