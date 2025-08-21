@@ -199,11 +199,26 @@ export const PillMenu: FC = () => {
                     </span>
                   </div>
                 </a>
+                {/* <a
+                  href="/hackwave-info"
+                  className="menu-item translate-y-4 text-[#fcf2e8] flex items-center gap-3 p-3 rounded-xl hover:bg-[#222] transition-colors duration-200 group"
+                  style={{
+                    opacity: getItemOpacity(2),
+                    transform: isOpen ? "translateY(0)" : "translateY(16px)",
+                  }}
+                >
+                  <div className="flex flex-col">
+                    <span className="font-black text-base">Hackwave Info</span>
+                    <span className="font-medium text-sm text-[#ccc]">
+                      Rules, prizes, and details
+                    </span>
+                  </div>
+                </a> */}
                 <a
                   href="/team"
                   className="menu-item translate-y-4 text-[#fcf2e8] flex items-center gap-3 p-3 rounded-xl hover:bg-[#222] transition-colors duration-200 group"
                   style={{
-                    opacity: getItemOpacity(2),
+                    opacity: getItemOpacity(3),
                     transform: isOpen ? "translateY(0)" : "translateY(16px)",
                   }}
                 >
