@@ -136,7 +136,7 @@ export default function TimelineExpand({
       </div>
 
       <AnimatePresence>
-        {isModalOpen && (
+        {/* {isModalOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -182,7 +182,7 @@ export default function TimelineExpand({
               </motion.div>
             </div>
           </motion.div>
-        )}
+        )} */}
       </AnimatePresence>
     </div>
   )

@@ -11,20 +11,19 @@ export const metadata: Metadata = {
 };
 
 export default function HackwaveInfoPage() {
-  const timelineDays = [
+const timelineDays = [
   {
     day: "Day 1",
     date: "23rd Aug 2025", 
     color: "#dcd0fe",
     events: [
-      "2:00 PM — Checking Start",
+      "1:00 PM — Check-in Start",
       "2:00 PM - 4:00 PM — Inauguration Ceremony",
-      "4:00 PM - 4:40 PM — High Tea",
-      "4:40 PM - 5:00 PM — Problem Statement Time",
+      "4:00 PM - 4:20 PM — Problem Statement Release",
+      "4:00 PM - 4:50 PM — High Tea",
+      "5:00 PM — Hacking Starts",
       "7:00 PM - 9:00 PM — Mentor Round 1",
-      "8:00 PM — Dinner",
-      "10:00 PM — Food Stall Setup",
-      "12:00 AM — Jamming Session"
+      "8:00 PM — Dinner"
     ]
   },
   {
@@ -34,9 +33,9 @@ export default function HackwaveInfoPage() {
     events: [
       "8:00 AM — Breakfast",
       "1:00 PM — Lunch",
-      "3:00 PM — Mentor Round Final",
-      "8:00 PM — Dinner",
-      "12:00 AM — Midnight Games"
+      "2:00 PM — Mentor Round (Final)",
+      "5:00 PM — High Tea",
+      "8:00 PM — Dinner"
     ]
   },
   {
@@ -45,12 +44,11 @@ export default function HackwaveInfoPage() {
     color: "#f9ffa5",
     events: [
       "8:00 AM — Breakfast",
-      "10:00 AM — Hack Ending",
+      "10:00 AM — Hacking Ends",
       "10:15 AM — Judging Starts",
-      "11:00 AM — Lunch",
-      "12:30 PM - 3:00 PM — Closing Ceremony & Prize Distribution"
-    ]
-  }
+      "12:00 PM — Lunch",
+      "1:30 PM - 3:00 PM — Closing Ceremony & Prize Distribution"
+    ]}
 ];
 
   return (
